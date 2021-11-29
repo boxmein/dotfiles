@@ -9,6 +9,11 @@ if [[ "$project_root" != "$HOME/.dotfiles" ]]; then
 	exit 1
 fi
 
+if [[ ! -f ./.emacs.d/LICENSE ]]; then 
+	echo "updating submodules..."
+	git submodule update --init 
+fi
+
 common_dotfiles=(
 	.asdfrc
 	.bash_profile
