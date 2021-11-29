@@ -59,7 +59,8 @@ echo "Setting up aliases/vars/functions..."
 
 . $SRCDIR/shell/aliases.zsh
 . $SRCDIR/shell/variables.zsh
-. $SRCDIR/shell/support.*.zsh
+
+[[ -f $SRCDIR_PRIVATE/shell/support.*.zsh ]] && . $SRCDIR_PRIVATE/shell/support.*.zsh
 
 # OS-specific changes
 
