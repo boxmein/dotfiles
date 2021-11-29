@@ -1,13 +1,18 @@
 #!/bin/zsh
 set -eu
 
-project_root=$(git rev-parse --show-toplevel)
-cd $project_root 
-
-if [[ "$project_root" != "$HOME/.dotfiles" ]]; then 
-	echo "Please clone me to ~/.dotfiles/! A lot of scripts rely on this!"
-	exit 1
+if [[ ! -d ~/.dotfiles ]]; then 
+	echo "No ~/.dotfiles, cloning..."
+	git clone --recurse-submodules git@github.com:boxmein/dotfiles.git ~/.dotfiles
 fi
+
+if [[ ! -d ~/.dotfiles-private ]]; then  
+	echo "No ~/.dotfiles-private, cloning..."
+	git clone --recurse-submodules git@github.com:boxmein/dotfiles-private.git ~/.dotfiles-private
+fi
+
+project_root=~/.dotfiles
+cd $project_root
 
 if [[ ! -f ./.emacs.d/LICENSE ]]; then 
 	echo "updating submodules..."

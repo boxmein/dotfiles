@@ -8,6 +8,7 @@ export AWS_VAULT_BACKEND=pass
 export boxGOOGLE_CLOUD_INSTALL_DIR=$HOME/.asdf/installs/gcloud/321.0.0/
 
 . ~/.dotfiles/shell/path.zsh
+[[ -f ~/.dotfiles-private/.zshenv ]] && . ~/.dotfiles-private/.zshenv
 
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 

@@ -13,6 +13,7 @@ HISTSIZE=1000
 SAVEHIST=1000
 UNAME=`uname`
 SRCDIR=~/.dotfiles
+SRCDIR_PRIVATE=~/.dotfiles-private
 
 set -o notify
 set -o noclobber
@@ -58,6 +59,7 @@ echo "Setting up aliases/vars/functions..."
 
 . $SRCDIR/shell/aliases.zsh
 . $SRCDIR/shell/variables.zsh
+. $SRCDIR/shell/support.*.zsh
 
 # OS-specific changes
 
@@ -111,6 +113,7 @@ fi
 
 fpath+=(
   ~/.dotfiles/shell/fpath
+  ~/.dotfiles-private/shell/fpath
 )
 
 # just all functions in fpath are loaded in
@@ -118,6 +121,7 @@ fpath+=(
 #    ^ . means only files
 #     ^ :t means only filename
 autoload -Uz ~/.dotfiles/shell/fpath/*(.:t)
+autoload -Uz ~/.dotfiles-private/shell/fpath/*(.:t)
 
 ## Fuck
 echo "\tSetting up thefuck..."

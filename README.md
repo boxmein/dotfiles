@@ -13,12 +13,10 @@ On a completely clean computer:
 
 - Add gpg setup or ssh key
 - Install zsh if not already present
-- Run these commands
+- Run the curl|zsh command (living on the edge)
 - Restart shell: `exec zsh`
 - 💥 boom you're done
 
 ```shell
-git clone --recurse-submodules git@github.com:boxmein/dotfiles.git ~/.dotfiles
-cd ~/.dotfiles
-./install.zsh 
+curl https://raw.githubusercontent.com/boxmein/dotfiles/main/install.zsh | zsh
 ```
