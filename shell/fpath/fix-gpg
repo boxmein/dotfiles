@@ -1,0 +1,3 @@
+killall pinentry
+gpgconf --kill gpg-agent
+gpg-connect-agent updatestartuptty /bye

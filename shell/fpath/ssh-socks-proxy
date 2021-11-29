@@ -1,0 +1,2 @@
+port=$(shift)
+ssh -C -D "$port" $*

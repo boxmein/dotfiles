@@ -1,0 +1,10 @@
+#!/bin/bash
+set -xe
+docker build -t $0 .
+docker create --name=tempcontainer $0
+dd if=/dev/zero of=disk.img bs=1 count=0 seek=1G
+mkfs.ext2 -F disk.img
+sudo mount -o loop disk.img /mnt
+docker export tempcontainer | sudo tar x -C /mnt
+sudo umount /mnt
+

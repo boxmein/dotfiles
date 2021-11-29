@@ -1,0 +1,2 @@
+port=$(shift)
+ssh -L "$port:localhost:$port" $*

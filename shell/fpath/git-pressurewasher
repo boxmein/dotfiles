@@ -1,0 +1,6 @@
+git reset --hard HEAD
+echo "Remove all untracked files? yes = do it, otherwise = cancel"
+read x
+if [[ "$x" == "yes" ]]; then
+  git clean -xdf
+fi

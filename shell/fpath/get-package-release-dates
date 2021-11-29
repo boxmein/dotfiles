@@ -1,0 +1,12 @@
+#!/bin/bash
+
+(
+    printf "PACKAGE LATEST_RELEASE\n"; 
+    dep_names=`cat package.json | jq -r '.dependencies | keys[]';
+    dev_dep_names=`cat package.json | jq -r '.devDependencies | keys[]';
+
+    (echo $dep_names; echo $dev_dep_names) | while read line;  do
+        package_release_date=`curl "https://api.npms.io/v2/search?q=$li" 2>/dev/null | jq -r '.results[0].package.date'`
+        echo "$li $package_release_date"
+    done
+) | column -t

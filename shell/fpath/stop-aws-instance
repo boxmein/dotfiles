@@ -1,0 +1,3 @@
+
+aws ec2 stop-instances \
+  --instance-ids $(aws ec2 describe-instances | jq -r ".Reservations[].Instances[] | select(.Tags[].Value == \"$1\") | .InstanceId")

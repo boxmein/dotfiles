@@ -1,0 +1,51 @@
+[user]
+	email = wsdf294@gmail.com
+	name = boxmein
+	signingkey = 3078540B
+[push]
+	default = simple
+[core]
+	excludesfile = ~/.gitignore_global
+	ignoreCase = true
+[merge]
+	tool = opendiff
+[diff]
+  tool = opendiff
+
+[alias]
+	# Graph all branches  
+	graph = log --all --graph --pretty=oneline --decorate
+	a = add --all
+	c = commit
+	d = diff
+	dc = diff --cached
+	dp = diff --patience
+	f = fetch
+	fo = fetch origin
+	g = grep -p
+	l = log --oneline
+	ls = ls-files
+	lsf = "!git ls-files | grep -i"
+	m = merge
+	co = checkout
+	cb = checkout -b
+	p = push
+	ra = remote add
+	s = status
+	sb = status -s -b
+    git = "!exec git"
+[commit]
+	gpgsign = true
+[credential]
+	helper = osxkeychain
+[gpg]
+	program = gpg
+[pull]
+	rebase = false
+[init]
+	defaultBranch = master
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f

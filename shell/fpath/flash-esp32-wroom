@@ -1,0 +1,9 @@
+echo "Beginning flash..."
+echo "If you see a A fatal error occurred: Timed out waiting for packet header error: https://github.com/espressif/arduino-esp32/issues/1097"
+esptool.py \
+  --port /dev/tty.usbserial-A50285BI \
+  --baud 115200 \
+  write_flash \
+  -fm qio \
+  0x00000 \
+  $*

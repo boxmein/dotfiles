@@ -1,0 +1,47 @@
+###########################
+# xbindkeys configuration #
+###########################
+# Version: 1.8.6
+
+"xbindkeys_show"
+  control+shift + q
+
+#
+# Useful hax
+#
+
+"rofi -combi-modi window,windowcd,drun,run,ssh -show combi -modi combi"
+  Mod4 + r
+  Mod4 + space
+
+"loginctl lock-session 1"
+  Mod4 + shift + XF86Eject
+
+# Disable the apple keyboard eject button's default action
+
+"true"
+  XF86Eject
+
+"xdg-open ~"
+  Mod4 + e
+
+# Screenshotter aligning with Mac keys
+
+"gnome-screenshot"
+  Mod4 + shift + 3
+
+"gnome-screenshot --clipboard"
+  Mod4 + ctrl + shift + 3
+
+"gnome-screenshot --area"
+  Mod4 + shift + 4
+
+"gnome-screenshot --area --clipboard"
+  Mod4 + ctrl + shift + 4
+
+"gnome-screenshot --interactive"
+  Mod4 + shift + 5
+
+##################################
+# End of xbindkeys configuration #
+##################################

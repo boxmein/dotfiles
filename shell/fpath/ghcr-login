@@ -1,0 +1,2 @@
+# Purpose: Sign in to GitHub Package Registry
+pass GitHub/Personal-Access-Token-GHPackages  | docker login ghcr.io --username boxmein --password-stdin

@@ -1,0 +1,55 @@
+##
+## HASH CRACKING
+##
+
+declare -A hashtypes
+
+hashtypes=(
+  [md4]=900
+  [md5]=0
+  [halfmd5]=5100
+  [sha1]=100
+  [sha2-256]=1400
+  [sha2-512]=1700
+  [scrypt]=8900
+  [lm]=3000
+  [ntlm]=1000
+)
+
+_crack_hash_with_wordlists() {
+  hashtype=$1
+  hashdigest=$2
+  wordlist=$3
+
+  hashcode=$hashtypes[$hashtype]
+  rm -f /tmp/tempdigest
+  echo $hashdigest > /tmp/tempdigest
+  hashcat \
+    --hash-type $hashcode \
+    --attack-mode 0 \
+    --opencl-device-types 2 \
+    -O \
+    /tmp/tempdigest \
+    $wordlist
+}
+
+_crack_hash_with_brute_force() {
+  hashtype=$1
+  hashdigest=$2
+  lettermask=$3
+
+  hashcode=$hashtypes[$hashtype]
+  rm -f /tmp/tempdigest
+  echo $hashdigest > /tmp/tempdigest
+  hashcat \
+    --hash-type $hashcode \
+    --attack-mode 3 \
+    --increment \
+    --increment-min 1 \
+    --increment-max 16 \
+    --opencl-device-types 2 \
+    /tmp/tempdigest
+    $lettermask
+}
+
+_crack_hash_with_wordlists $*

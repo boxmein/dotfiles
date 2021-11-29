@@ -1,0 +1,7 @@
+pushd ~/.dotfiles
+${EDITOR:-vim} .
+git add .
+git commit
+git push
+popd
+
