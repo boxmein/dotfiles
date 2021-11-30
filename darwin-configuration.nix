@@ -64,6 +64,9 @@
     binwalk
     # checksec
     python3
+    skaffold
+    kubernetes-helm
+    kubetail
   ];
 
   # Use a custom configuration.nix location.
