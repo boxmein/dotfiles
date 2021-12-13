@@ -49,6 +49,10 @@ if [[ -d ~/.cargo/bin ]]; then
   paths+=(~/.cargo/bin)
 fi
 
+if [[ -d ~/.nix-profile/bin ]]; then 
+  paths+=(~/.nix-profile/bin)
+fi
+
 # Add AVR tools to path
 if [[ -d /Applications/Arduino.app/Contents/Java/hardware/tools/avr/bin/ ]]; then
   paths+=(/Applications/Arduino.app/Contents/Java/hardware/tools/avr/bin)
