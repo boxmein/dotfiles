@@ -40,7 +40,7 @@ ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd history)
 #
 
 
-echo "Setting up antigen..."
+# echo "Setting up antigen..."
 
 source ~/.dotfiles/antigen.zsh
 
@@ -55,7 +55,7 @@ antigen theme romkatv/powerlevel10k
 
 antigen apply
 
-echo "Setting up aliases/vars/functions..."
+# echo "Setting up aliases/vars/functions..."
 
 . $SRCDIR/shell/aliases.zsh
 . $SRCDIR/shell/variables.zsh
@@ -83,12 +83,12 @@ fi
 #
 ####
 
-echo "Setting up program support..."
+# echo "Setting up program support..."
 
 ### NodeJS
 export NODE_PATH="/usr/local/lib/node_modules"
 
-echo "\tSetting up Homebrew..."
+# echo "\tSetting up Homebrew..."
 # NOTE: this command puts brew paths before /usr/bin etc... very bad!
 # [[ -f /home/linuxbrew/.linuxbrew/bin/brew ]] && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 # using its output instead:
@@ -125,40 +125,40 @@ autoload -Uz ~/.dotfiles/shell/fpath/*(.:t)
 autoload -Uz ~/.dotfiles-private/shell/fpath/*(.:t)
 
 ## Fuck
-echo "\tSetting up thefuck..."
+# echo "\tSetting up thefuck..."
 command -v thefuck >/dev/null 2>/dev/null && source <(thefuck --alias)
 
 ## FZF (fuzzy finder - <C-r> and **<Tab>)
-echo "\tSetting up fzf..."
+# echo "\tSetting up fzf..."
 [[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
 
 ## asdf version manager
-echo "\tSetting up asdf..."
+# echo "\tSetting up asdf..."
 [[ -f ~/.asdf/asdf.sh ]] && source $HOME/.asdf/asdf.sh
 
 ## asdf (java)
-echo "\t\tSetting up java env..."
+# echo "\t\tSetting up java env..."
 [[ -f ~/.asdf/plugins/java/set-java-home.zsh ]] && source ~/.asdf/plugins/java/set-java-home.zsh
 
 ## Google Cloud SDK
-echo "\tSetting up Google Cloud SDK..."
+# echo "\tSetting up Google Cloud SDK..."
 [[ -f "$boxGOOGLE_CLOUD_INSTALL_DIR/path.zsh.inc" ]] && source "$boxGOOGLE_CLOUD_INSTALL_DIR/path.zsh.inc"
 [[ -f "$boxGOOGLE_CLOUD_INSTALL_DIR/completion.zsh.inc" ]] && source "$boxGOOGLE_CLOUD_INSTALL_DIR/completion.zsh.inc"
 
 ## AWS CLI autocompletion
-echo "\tEnabling AWS autocompletion if possible..."
+# echo "\tEnabling AWS autocompletion if possible..."
 [[ -f "$HOME/Library/Python/3.8/bin/aws_zsh_completer.sh" ]] && source "$HOME/Library/Python/3.8/bin/aws_zsh_completer.sh"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-echo "\tSetting up powerline..."
+# echo "\tSetting up powerline..."
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
 if [[ -n "$ITERM_SESSION_ID" ]]; then
-  echo "\tSetting up iterm shell integration..."
+  # echo "\tSetting up iterm shell integration..."
   [[ -f ~/.dotfiles/iterm2-shell-integration.zsh ]] && source ~/.dotfiles/iterm2-shell-integration.zsh
 fi
 
-echo "\tSetting up nix..."
+# echo "\tSetting up nix..."
 # nix stuff
 [[ -f /etc/static/zshrc ]] && . /etc/static/zshrc
 
@@ -170,10 +170,10 @@ echo "\tSetting up nix..."
 
 # clear
 
-echo "You are logged onto $COMPUTER"
-echo "Uptime: " `uptime`
+# echo "You are logged onto $COMPUTER"
+# echo "Uptime: " `uptime`
 
-[[ -f "$SRCDIR/shell/motd.txt" ]] && cat $SRCDIR/shell/motd.txt
+# [[ -f "$SRCDIR/shell/motd.txt" ]] && cat $SRCDIR/shell/motd.txt
 
 ### GPG setup
 unset SSH_AGENT_PID
