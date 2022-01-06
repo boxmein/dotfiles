@@ -10,7 +10,12 @@ export boxGOOGLE_CLOUD_INSTALL_DIR=$HOME/.asdf/installs/gcloud/321.0.0/
 . ~/.dotfiles/shell/path.zsh
 [[ -f ~/.dotfiles-private/.zshenv ]] && . ~/.dotfiles-private/.zshenv
 
-export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+if [[ -z "$SSH_AUTH_SOCK" || "$SSH_AUTH_SOCK" == *com.apple.launchd* ]]; then
+	echo "Using GPG to provide ssh agent"
+	export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+else
+	echo "SSH client - using agent forwarding"
+fi
 
 # nix stuff
 [[ -f /etc/static/zshenv ]] && . /etc/static/zshenv
