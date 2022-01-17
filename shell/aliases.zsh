@@ -33,3 +33,4 @@ alias dotfiles="pushd ~/.dotfiles"
 alias dredd="docker run -it -v \$PWD:/api -w /api apiaryio/dredd dredd"
 
 alias gil="gh issue list -a @me"
+alias ec="emacsclient"
