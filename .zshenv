@@ -2,7 +2,7 @@
 export GO111MODULE=on
 export GOPATH=$HOME/gopath/
 export LANG=en_US.UTF-8
-export EDITOR=nvim
+export EDITOR=emacsclient
 export AWS_VAULT_BACKEND=pass
 
 export boxGOOGLE_CLOUD_INSTALL_DIR=$HOME/.asdf/installs/gcloud/321.0.0/

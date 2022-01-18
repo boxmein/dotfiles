@@ -7,6 +7,7 @@
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [
+    python3
     python39Packages.pip
     pipenv
     neovim
@@ -63,10 +64,11 @@
     testdisk
     binwalk
     # checksec
-    python3
     skaffold
     kubernetes-helm
     kubetail
+    websocat
+    R
   ];
 
   # Use a custom configuration.nix location.

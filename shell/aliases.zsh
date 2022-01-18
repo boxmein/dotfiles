@@ -8,6 +8,8 @@
 . ~/.dotfiles/shell/aliases.git.zsh
 
 alias vim="nvim"
+alias ec="emacsclient"
+alias renix="darwin-rebuild switch -I darwin-config=$HOME/.nixpkgs/darwin-configuration.nix"
 
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
