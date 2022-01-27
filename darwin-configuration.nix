@@ -69,6 +69,12 @@
     kubetail
     websocat
     R
+    swiProlog
+    leiningen
+    adoptopenjdk-hotspot-bin-11
+    nodejs
+    google-cloud-sdk
+    go
   ];
 
   # Use a custom configuration.nix location.
