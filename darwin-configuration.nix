@@ -1,81 +1,237 @@
-{ config, pkgs, ... }:
+# SETTING UP A MACOS COMPUTER WITH NIX
+#
+# Stage 1: Getting nix
+#
+# sh <(curl -L https://nixos.org/nix/install) --daemon
+#
+# Stage 2: Getting nix-darwin 
+#
+# Read: https://github.com/LnL7/nix-darwin
+# TL;DR:
+# nix-build https://github.com/LnL7/nix-darwin/archive/master.tar.gz -A installer
+# ./result/bin/darwin-installer
+# 
+# Stage 3: Home manager
+#
+# nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
+# nix-channel --update
+#
+# Stage 4: Rebuild
+# nixos-rebuild switch -I $HOME/.dotfiles/darwin-configuration.nix
+#
+# Future stuff:
+# - https://rycee.gitlab.io/home-manager/options.html
+# - Add more packages to nix management
+#
+#
+# Troubleshooting:
+# Error: error: file 'darwin' was not found in the Nix search path (add it using $NIX_PATH or -I)
+# Solution: Find file "darwin" in ~/.nix-defexpr/channels.
+# If not present, nix-channel --update
+# If still not present, remove all channels, update and re-add all channels:
+# nix-channel --remove <name>
+# sudo nix-channel --update && nix-channel --update
+# nix-channel --add https://github.com/LnL7/nix-darwin/archive/master.tar.gz darwin
+# nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
+# nix-channel --add https://channels.nixos.org/nixpkgs-unstable nixpkgs
+# nix-channel --update
+#
+# Error: error: file 'darwin-config' was not found in the Nix search path (add it using $NIX_PATH or -I), at /nix/store/f657vb8a4aqb7d1dln6wi4a1mh69s5ab-darwin/darwin/default.nix:2:19
+# Solution: Remember to use -I to specify location:
+# darwin-rebuild switch -I darwin-config=$HOME/.nixpkgs/darwin-configuration.nix
+# 
 
+{ config, pkgs, ... }:
+let
+  unstable = import <nixpkgs-unstable> { };
+in
 {
   imports = [
     <home-manager/nix-darwin>
   ];
+
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [
+    # Python
     python3
     python39Packages.pip
     pipenv
+    poetry
+
+    # Java, Clojure, Kotlin
+    clojure
+    gradle
+    bazel
+    kotlin
+    ktlint
+    leiningen
+    adoptopenjdk-hotspot-bin-11
+
+    # Ruby
+    ruby
+
+    # Rust
+    rustup
+
+    # Go
+    go
+
+    # Node.js
+    nodejs
+
+    # Haskell
+    stack
+
+    # OCaml / ReasonML
+    opam
+
+    # C, C++
+    autoconf
+    automake
+    libtool
+    cmake
+    binaryen
+    ninja
+    ccls
+    pkgconfig
+
+    # Lua
+    luajit
+
+    # Perl
+    perl
+
+    # Prolog
+    swiProlog
+
+    # R
+    R
+
+    # Cloud tools 
+    packer
+    kubeval
+    terraform
+    k9s
+    kubespy
+    lazydocker
+    skaffold
+    kubectl
+    kubernetes-helm
+    kubetail
+    google-cloud-sdk
+    # ansible (beautifulsoup unit tests fail)
+    # aws-sam-cli (beautifulsoup unit tests fail)
+    # awscli2 (beautifulsoup unit tests fail)
+    ctop
+    dnsmasq
+    docbook5
+    podman
+    pstree
+
+    # Editors
     neovim
     vim
     emacs
-    pandoc
-    # pg_top
+
+    # Chat
     weechat
-    yajl
-    yq
-    unicorn
-    packer
-    gradle
-    bazel
-    rustup
-    stack
-    ruby
-    kubeval
-    clojure
-    terraform
-    k9s
-    opam
-    # swift
-    cmake
-    kotlin
-    ktlint
+
+    # Git stuff
     git-secret
+
+    # Stuff
     act
     bat
     bats
-    binaryen
-    fcrackzip
-    # foremost
-    # hashcat
+    calc
+    yq
+    jq
+    gnupg
+    pandoc
     httpie
     hugo
     iperf
-    john
-    kubespy
-    lazydocker
-    luajit
-    mitmproxy
     mtr
     ncdu
-    ninja
-    perl
-    qrencode
-    # radare2
     redis
     socat
     tldr
     tmux
     toilet
+    websocat
+    fd
+    ffmpeg
+    fish
+    fswatch
+    fzf
+    github-cli
+    git-lfs
+    graphviz
+    qemu
+    libvirt
+    pinentry_mac
+    # openvpn
+    wireguard
+    pass
+    _1password
+    browserpass
+    # pg_top (unsupported system)
+    SDL2
+    # squid (unsupported)
+    sqlite
+    # thefuck
+    tree-sitter
+    tor
+    transmission
+    unbound
+    unzip
+    p7zip
+    watch
+    wget
+    zsh
+
+
+    # CTF tools
+    yajl
+    unicorn
+    fcrackzip
+    # foremost
+    # hashcat
+    john
+    mitmproxy
+    qrencode
+    # radare2
     testdisk
     binwalk
     # checksec
-    skaffold
-    kubernetes-helm
-    kubetail
-    websocat
-    R
-    swiProlog
-    leiningen
-    adoptopenjdk-hotspot-bin-11
-    nodejs
-    google-cloud-sdk
-    go
+    fcrackzip
+    # mysql-client (libressl-3.4.0 compile fails)
+    # netcat (libressl-3.4.0)
+    ncat
+
+    # To consider:
+    # https://github.com/oxalica/rust-overlay
+    # up (Ultimate Plumber)
+    # Firefox
+    # iTerm2
+    # google-chrome
+    # ipcalc
+    # ranger
+    # kail
+    # kops
+    # kubernetes-helm
+    # minikube
   ];
+
+  # environment.variables = { X = "Y"; };
+  # environment.shellAliases = { ll = "ls -l"; };
+  # environment.systemPath = ["${home}/bin"];
+  # environment.shells = ["/bin/zsh"];
+
+  # time.timeZone = "Europe/Tallinn";
+
+  # system.defaults.dock = { autohide = true; }
 
   # Use a custom configuration.nix location.
   # $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin/configuration.nix
@@ -84,6 +240,8 @@
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
   nix.package = pkgs.nix;
+
+  nixpkgs.config.allowUnfree = true;
 
   # Create /etc/bashrc that loads the nix-darwin environment.
   programs.zsh.enable = true;  # default shell on catalina
