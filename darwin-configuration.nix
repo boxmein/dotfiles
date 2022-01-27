@@ -95,6 +95,7 @@ in
     ninja
     ccls
     pkgconfig
+    # clang, llvm provided by macOS
 
     # Lua
     luajit
@@ -190,7 +191,16 @@ in
     watch
     wget
     zsh
-
+    htop
+    bottom 
+    parallel
+    z3
+    postgresql
+    pv
+    rename
+    ripgrep
+    rsync
+    tree
 
     # CTF tools
     yajl
@@ -209,6 +219,15 @@ in
     # mysql-client (libressl-3.4.0 compile fails)
     # netcat (libressl-3.4.0)
     ncat
+    # wireshark (collision between wireshark-cli and wireshark-qt)
+    tshark
+    # postman (unsupported)
+    screen
+    ngrok
+    powershell
+    syncthing
+    # vscode
+    aws-vault
 
     # To consider:
     # https://github.com/oxalica/rust-overlay
