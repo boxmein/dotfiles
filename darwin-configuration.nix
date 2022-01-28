@@ -110,7 +110,7 @@ in
     R
 
     # Cloud tools 
-    packer
+    # packer (mark as broken)
     kubeval
     terraform
     k9s
@@ -131,8 +131,8 @@ in
     pstree
 
     # Editors
-    neovim
-    vim
+    # neovim (broken on nix flakes)
+    # vim
     emacs
 
     # Chat
@@ -276,7 +276,7 @@ in
     programs.home-manager.enable = true;
     programs.command-not-found.enable = true;
     home.packages = with pkgs; [
-      neovim
+      # neovim
     ];
   };
 
