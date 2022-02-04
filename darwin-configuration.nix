@@ -56,6 +56,7 @@ in
     # Python
     python3
     python39Packages.pip
+    python39Packages.psycopg2
     pipenv
     poetry
 
