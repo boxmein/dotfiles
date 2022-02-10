@@ -56,6 +56,7 @@ in
     # Python
     python3
     python39Packages.pip
+    python39Packages.setuptools
     pipenv
     poetry
 
@@ -228,6 +229,7 @@ in
     syncthing
     # vscode
     aws-vault
+    rclone
 
     # To consider:
     # https://github.com/oxalica/rust-overlay
@@ -241,6 +243,9 @@ in
     # kops
     # kubernetes-helm
     # minikube
+    # aws-sam-cli
+    vips
+    imagemagick
   ];
 
   # environment.variables = { X = "Y"; };
@@ -259,6 +264,10 @@ in
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
   nix.package = pkgs.nix;
+
+  nix.extraOptions = ''
+    experimental-features = nix-command flakes
+  '';
 
   nixpkgs.config.allowUnfree = true;
 
