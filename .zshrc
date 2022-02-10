@@ -50,6 +50,8 @@ antigen bundle command-not-found
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle djui/alias-tips
+
 antigen theme romkatv/powerlevel10k
 
 antigen apply
@@ -87,28 +89,6 @@ fi
 ### NodeJS
 export NODE_PATH="/usr/local/lib/node_modules"
 
-# echo "\tSetting up Homebrew..."
-# NOTE: this command puts brew paths before /usr/bin etc... very bad!
-# [[ -f /home/linuxbrew/.linuxbrew/bin/brew ]] && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-# using its output instead:
-
-if [[ "$(uname -s)" == "Linux" ]]; then
-  export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew";
-  export HOMEBREW_CELLAR="/home/linuxbrew/.linuxbrew/Cellar";
-  export HOMEBREW_REPOSITORY="/home/linuxbrew/.linuxbrew/Homebrew";
-  # NOTE: modified from normal brew shellenv to put other paths first!
-  export PATH="${PATH+$PATH:}/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin";
-  export MANPATH="/home/linuxbrew/.linuxbrew/share/man${MANPATH+:$MANPATH}:";
-  export INFOPATH="/home/linuxbrew/.linuxbrew/share/info${INFOPATH+:$INFOPATH}";
-fi
-## Homebrew
-if type brew &>/dev/null; then
-  fpath+=(
-    $(brew --prefix)/share/zsh/site-functions
-  )
-fi
-
-
 # Custom zsh functions
 
 fpath+=(
@@ -130,23 +110,6 @@ command -v thefuck >/dev/null 2>/dev/null && source <(thefuck --alias)
 ## FZF (fuzzy finder - <C-r> and **<Tab>)
 # echo "\tSetting up fzf..."
 [[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
-
-## asdf version manager
-# echo "\tSetting up asdf..."
-[[ -f ~/.asdf/asdf.sh ]] && source $HOME/.asdf/asdf.sh
-
-## asdf (java)
-# echo "\t\tSetting up java env..."
-[[ -f ~/.asdf/plugins/java/set-java-home.zsh ]] && source ~/.asdf/plugins/java/set-java-home.zsh
-
-## Google Cloud SDK
-# echo "\tSetting up Google Cloud SDK..."
-[[ -f "$boxGOOGLE_CLOUD_INSTALL_DIR/path.zsh.inc" ]] && source "$boxGOOGLE_CLOUD_INSTALL_DIR/path.zsh.inc"
-[[ -f "$boxGOOGLE_CLOUD_INSTALL_DIR/completion.zsh.inc" ]] && source "$boxGOOGLE_CLOUD_INSTALL_DIR/completion.zsh.inc"
-
-## AWS CLI autocompletion
-# echo "\tEnabling AWS autocompletion if possible..."
-[[ -f "$HOME/Library/Python/3.8/bin/aws_zsh_completer.sh" ]] && source "$HOME/Library/Python/3.8/bin/aws_zsh_completer.sh"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 # echo "\tSetting up powerline..."
@@ -182,8 +145,7 @@ unset SSH_AGENT_PID
 # 1) powerlevel10k instant prompt affects this
 # 2) recommended solution is to not use tty command
 export GPG_TTY="$TTY"
-gpg-connect-agent updatestartuptty /bye >/dev/null
+gpg-connect-agent updatestartuptty /bye >/dev/null 2>/dev/null
 
 ### GPG end
-# ctf-tools: gem install
 
