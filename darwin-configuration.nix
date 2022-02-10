@@ -58,6 +58,7 @@ in
     python39Packages.pip
     python39Packages.setuptools
     python39Packages.psycopg2
+    python39Packages.setuptools
     pipenv
     poetry
 
@@ -77,10 +78,11 @@ in
     rustup
 
     # Go
-    go
+    go_1_17
 
     # Node.js
     nodejs
+    yarn
 
     # Haskell
     stack
