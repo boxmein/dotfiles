@@ -150,6 +150,7 @@ in
     bat
     bats
     calc
+    coreutils
     yq
     jq
     gnupg
