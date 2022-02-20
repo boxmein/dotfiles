@@ -56,14 +56,16 @@ in
     # Python
     python3
     python39Packages.pip
+    python39Packages.setuptools
     python39Packages.psycopg2
+    python39Packages.setuptools
     pipenv
     poetry
 
     # Java, Clojure, Kotlin
     clojure
     gradle
-    bazel
+    bazel_5
     kotlin
     ktlint
     leiningen
@@ -76,10 +78,11 @@ in
     rustup
 
     # Go
-    go
+    go_1_17
 
     # Node.js
     nodejs
+    yarn
 
     # Haskell
     stack
@@ -135,18 +138,29 @@ in
     # neovim (broken on nix flakes)
     # vim
     emacs
+    vscode
 
     # Chat
+    # slack
+    # telegram-desktop
+    # element-desktop
+    # ms teams
+    discord
     weechat
 
     # Git stuff
     git-secret
 
     # Stuff
+    vips
+    imagemagick
+    libvirt
+    exa
     act
     bat
     bats
     calc
+    coreutils
     yq
     jq
     gnupg
@@ -173,7 +187,7 @@ in
     qemu
     libvirt
     pinentry_mac
-    # openvpn
+    openvpn
     wireguard
     pass
     _1password
@@ -182,7 +196,7 @@ in
     SDL2
     # squid (unsupported)
     sqlite
-    # thefuck
+    thefuck
     tree-sitter
     tor
     transmission
@@ -193,7 +207,7 @@ in
     wget
     zsh
     htop
-    bottom 
+    bottom
     parallel
     z3
     postgresql
@@ -202,20 +216,21 @@ in
     ripgrep
     rsync
     tree
+    up
 
     # CTF tools
     yajl
     unicorn
     fcrackzip
-    # foremost
-    # hashcat
+    # foremost (unsupported)
+    # hashcat (unsupported)
     john
     mitmproxy
     qrencode
-    # radare2
+    radare2
     testdisk
     binwalk
-    # checksec
+    # checksec (unsupported)
     fcrackzip
     # mysql-client (libressl-3.4.0 compile fails)
     # netcat (libressl-3.4.0)
@@ -227,12 +242,12 @@ in
     ngrok
     powershell
     syncthing
-    # vscode
     aws-vault
+    rclone
+
 
     # To consider:
     # https://github.com/oxalica/rust-overlay
-    # up (Ultimate Plumber)
     # Firefox
     # iTerm2
     # google-chrome
@@ -242,6 +257,9 @@ in
     # kops
     # kubernetes-helm
     # minikube
+    # aws-sam-cli
+    # skhd
+    # yabai
   ];
 
   # environment.variables = { X = "Y"; };
@@ -260,6 +278,10 @@ in
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
   nix.package = pkgs.nix;
+
+  nix.extraOptions = ''
+    experimental-features = nix-command flakes
+  '';
 
   nixpkgs.config.allowUnfree = true;
 
