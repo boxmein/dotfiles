@@ -132,6 +132,7 @@ in
     dnsmasq
     docbook5
     podman
+    gvproxy # implicit dependency of podman
     pstree
 
     # Editors
@@ -213,6 +214,15 @@ in
     rsync
     tree
     up
+    screen
+    ngrok
+    powershell
+    syncthing
+    aws-vault
+    rclone
+    vips
+    imagemagick
+    xz
 
     # CTF tools
     yajl
@@ -234,13 +244,6 @@ in
     # wireshark (collision between wireshark-cli and wireshark-qt)
     tshark
     # postman (unsupported)
-    screen
-    ngrok
-    powershell
-    syncthing
-    aws-vault
-    rclone
-
 
     # To consider:
     # https://github.com/oxalica/rust-overlay
@@ -256,8 +259,7 @@ in
     # aws-sam-cli
     # skhd
     # yabai
-    vips
-    imagemagick
+    openssl
   ];
 
   # environment.variables = { X = "Y"; };
