@@ -65,7 +65,7 @@ in
     # Java, Clojure, Kotlin
     clojure
     gradle
-    bazel
+    bazel_5
     kotlin
     ktlint
     leiningen
@@ -153,6 +153,10 @@ in
     git-secret
 
     # Stuff
+    vips
+    imagemagick
+    libvirt
+    exa
     act
     bat
     bats
