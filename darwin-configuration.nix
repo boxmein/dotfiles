@@ -58,7 +58,6 @@ in
     python39Packages.pip
     python39Packages.setuptools
     python39Packages.psycopg2
-    python39Packages.setuptools
     pipenv
     poetry
 
@@ -154,6 +153,7 @@ in
     # Stuff
     vips
     imagemagick
+    # olm
     libvirt
     exa
     act

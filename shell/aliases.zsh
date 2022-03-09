@@ -13,10 +13,13 @@ alias renix="darwin-rebuild switch -I darwin-config=$HOME/.nixpkgs/darwin-config
 
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
-alias ll='ls -hal'
-alias la='ls -A'
-alias eit='exit' # this happens too often
-alias ös='ls'    # this too
+alias l='exa'
+alias sl='exa'       # choo choo
+alias ls='exa'
+alias ll='exa -hal'
+alias la='exa -A'
+alias eit='exit'     # this happens too often
+alias ös='exa'       # this too
 alias rm='rm -v'
 
 alias nets='ping 8.8.8.8'
