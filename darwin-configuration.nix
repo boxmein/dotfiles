@@ -134,6 +134,7 @@ in
     podman
     gvproxy # implicit dependency of podman
     pstree
+    mqttui
 
     # Editors
     # neovim (broken on nix flakes)
