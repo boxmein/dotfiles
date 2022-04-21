@@ -77,7 +77,7 @@ in
     rustup
 
     # Go
-    go_1_17
+    go_1_18
 
     # Node.js
     nodejs
@@ -155,7 +155,6 @@ in
     vips
     imagemagick
     # olm
-    libvirt
     exa
     act
     bat
@@ -166,8 +165,8 @@ in
     jq
     gnupg
     pandoc
-    httpie
-    hugo
+    # httpie (IPython broken)
+    # hugo
     iperf
     mtr
     ncdu
@@ -186,10 +185,9 @@ in
     git-lfs
     graphviz
     qemu
-    libvirt
     pinentry_mac
     openvpn
-    wireguard
+    wireguard-tools
     pass
     _1password
     browserpass
@@ -220,7 +218,7 @@ in
     up
     screen
     ngrok
-    powershell
+    # powershell
     syncthing
     aws-vault
     rclone
@@ -234,7 +232,7 @@ in
     fcrackzip
     # foremost (unsupported)
     # hashcat (unsupported)
-    john
+    # john (ipython)
     mitmproxy
     qrencode
     radare2
@@ -244,9 +242,7 @@ in
     fcrackzip
     # mysql-client (libressl-3.4.0 compile fails)
     # netcat (libressl-3.4.0)
-    ncat
     # wireshark (collision between wireshark-cli and wireshark-qt)
-    tshark
     # postman (unsupported)
 
     # To consider:
