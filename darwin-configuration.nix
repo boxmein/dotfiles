@@ -163,6 +163,7 @@ in
     coreutils
     yq
     jq
+    cloc
     gnupg
     pandoc
     # httpie (IPython broken)
