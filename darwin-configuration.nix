@@ -189,7 +189,7 @@ in
     qemu
     pinentry_mac
     openvpn
-    wireguard-tools
+    # wireguard-tools
     pass
     _1password
     browserpass
@@ -237,7 +237,7 @@ in
     # john (ipython)
     mitmproxy
     qrencode
-    radare2
+    # radare2 (unstable)
     testdisk
     binwalk
     # checksec (unsupported)
