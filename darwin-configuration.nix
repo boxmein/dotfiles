@@ -164,6 +164,7 @@ in
     yq
     jq
     cloc
+    k6
     gnupg
     pandoc
     # httpie (IPython broken)
