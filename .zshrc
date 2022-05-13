@@ -149,3 +149,7 @@ gpg-connect-agent updatestartuptty /bye >/dev/null 2>/dev/null
 
 ### GPG end
 
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
