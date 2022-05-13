@@ -68,7 +68,7 @@ in
     kotlin
     ktlint
     leiningen
-    adoptopenjdk-hotspot-bin-11
+    # adoptopenjdk-hotspot-bin-11
 
     # Ruby
     ruby
