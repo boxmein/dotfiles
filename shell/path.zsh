@@ -63,4 +63,8 @@ if [[ -d /usr/local/Cellar/john-jumbo/1.9.0/share/john ]]; then
   paths+=(/usr/local/Cellar/john-jumbo/1.9.0/share/john)
 fi
 
+if [[ -d "$GOPATH/bin" ]]; then
+  paths+=($GOPATH/bin)
+fi
+
 export PATH="${(j/:/)paths}:$PATH"
