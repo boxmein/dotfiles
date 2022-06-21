@@ -124,13 +124,13 @@ in
     kubernetes-helm
     kubetail
     google-cloud-sdk
-    # ansible (beautifulsoup unit tests fail)
-    # aws-sam-cli (beautifulsoup unit tests fail)
-    # awscli2 (beautifulsoup unit tests fail)
+    ansible # (beautifulsoup unit tests fail)
+    aws-sam-cli # (beautifulsoup unit tests fail)
+    awscli2  # (beautifulsoup unit tests fail)
     ctop
     dnsmasq
-    docbook5
-    podman
+    # docbook5
+    # podman
     gvproxy # implicit dependency of podman
     pstree
 
@@ -167,8 +167,8 @@ in
     k6
     gnupg
     pandoc
-    # httpie (IPython broken)
-    # hugo
+    httpie # (IPython broken)
+    hugo
     iperf
     mtr
     ncdu
@@ -237,7 +237,7 @@ in
     # john (ipython)
     mitmproxy
     qrencode
-    # radare2 (unstable)
+    radare2 # (unstable)
     testdisk
     binwalk
     # checksec (unsupported)
