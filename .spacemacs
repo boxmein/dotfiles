@@ -44,7 +44,11 @@ This function should only modify configuration layer settings."
      go
      html
      yaml
-     auto-completion
+     (auto-completion
+      :variables
+      auto-completion-tab-key-behavior 'cycle
+      auto-completion-idle-delay 0.1
+      )
      better-defaults
      emacs-lisp
      git
@@ -64,8 +68,8 @@ This function should only modify configuration layer settings."
           osx-right-control-as 'left
           osx-swap-option-and-command nil)
      (shell :variables
-             shell-default-height 30
-             shell-default-position 'bottom)
+            shell-default-height 30
+            shell-default-position 'bottom)
      spell-checking
      syntax-checking
      version-control)
@@ -567,7 +571,7 @@ before packages are loaded."
   (add-hook 'emacs-startup-hook 'treemacs)
   (setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo/")))
   (server-start)
-)
+  )
 
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -577,19 +581,19 @@ before packages are loaded."
 This is an auto-generated function, do not modify its content directly, use
 Emacs customize menu instead.
 This function is called at the very end of Spacemacs initialization."
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(evil-want-Y-yank-to-eol nil)
- '(highlight-parentheses-colors '("#2aa198" "#b58900" "#268bd2" "#6c71c4" "#859900"))
- '(package-selected-packages
-   '(jinja2-mode company-ansible ansible-doc ansible solarized-theme treemacs terminal-here pydoc pipenv load-env-vars nose live-py-mode inspector info+ flycheck-elsa evil-collection f yaml all-the-icons visual-fill-column font-lock+ seeing-is-believing rvm ruby-tools ruby-test-mode ruby-refactor ruby-hash-syntax rubocopfmt rubocop rspec-mode robe rbenv rake minitest helm-gtags ggtags enh-ruby-mode dap-mode lsp-treemacs bui lsp-mode counsel-gtags counsel swiper ivy chruby bundler inf-ruby add-node-modules-path sqlup-mode sql-indent nix-mode helm-nixos-options helm-cider company-nixos-options nixos-options clojure-snippets cider-eval-sexp-fu cider sesman seq queue parseedn clojure-mode parseclj kotlin-mode flycheck-kotlin reveal-in-osx-finder osx-trash osx-dictionary osx-clipboard launchctl tern yaml-mode which-key org-mime link-hint highlight-parentheses git-link expand-region evil-numbers evil-nerd-commenter evil-mc evil-matchit emmet-mode diff-hl cargo auto-highlight-symbol auto-compile iedit smartparens evil flyspell-correct git-gutter company request helm helm-core markdown-mode async projectile org-plus-contrib magit magit-section git-commit transient js2-mode flycheck dash xterm-color ws-butler with-editor winum web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package unfill undo-tree toml-mode toc-org tide tagedit spaceline smeargle slim-mode shell-pop scss-mode sass-mode restart-emacs rainbow-delimiters racer pug-mode popwin pkg-info persp-mode pcre2el paradox packed orgit org-projectile org-present org-pomodoro org-download org-bullets open-junk-file neotree mwim multi-term move-text mmm-mode markdown-toc magit-gitflow macrostep lorem-ipsum livid-mode linum-relative json-mode js2-refactor js-doc indent-guide hungry-delete htmlize ht hl-todo highlight-numbers highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag goto-chg google-translate golden-ratio go-guru go-eldoc gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger git-gutter-fringe git-gutter-fringe+ gh-md fuzzy flyspell-correct-helm flycheck-rust flycheck-pos-tip flx-ido fill-column-indicator fancy-battery eyebrowse exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help elisp-slime-nav dumb-jump diminish define-word company-web company-statistics company-go column-enforce-mode coffee-mode clean-aindent-mode auto-yasnippet auto-dictionary aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
-)
+  (custom-set-variables
+   ;; custom-set-variables was added by Custom.
+   ;; If you edit it by hand, you could mess it up, so be careful.
+   ;; Your init file should contain only one such instance.
+   ;; If there is more than one, they won't work right.
+   '(evil-want-Y-yank-to-eol nil)
+   '(highlight-parentheses-colors '("#2aa198" "#b58900" "#268bd2" "#6c71c4" "#859900"))
+   '(package-selected-packages
+     '(jinja2-mode company-ansible ansible-doc ansible solarized-theme treemacs terminal-here pydoc pipenv load-env-vars nose live-py-mode inspector info+ flycheck-elsa evil-collection f yaml all-the-icons visual-fill-column font-lock+ seeing-is-believing rvm ruby-tools ruby-test-mode ruby-refactor ruby-hash-syntax rubocopfmt rubocop rspec-mode robe rbenv rake minitest helm-gtags ggtags enh-ruby-mode dap-mode lsp-treemacs bui lsp-mode counsel-gtags counsel swiper ivy chruby bundler inf-ruby add-node-modules-path sqlup-mode sql-indent nix-mode helm-nixos-options helm-cider company-nixos-options nixos-options clojure-snippets cider-eval-sexp-fu cider sesman seq queue parseedn clojure-mode parseclj kotlin-mode flycheck-kotlin reveal-in-osx-finder osx-trash osx-dictionary osx-clipboard launchctl tern yaml-mode which-key org-mime link-hint highlight-parentheses git-link expand-region evil-numbers evil-nerd-commenter evil-mc evil-matchit emmet-mode diff-hl cargo auto-highlight-symbol auto-compile iedit smartparens evil flyspell-correct git-gutter company request helm helm-core markdown-mode async projectile org-plus-contrib magit magit-section git-commit transient js2-mode flycheck dash xterm-color ws-butler with-editor winum web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package unfill undo-tree toml-mode toc-org tide tagedit spaceline smeargle slim-mode shell-pop scss-mode sass-mode restart-emacs rainbow-delimiters racer pug-mode popwin pkg-info persp-mode pcre2el paradox packed orgit org-projectile org-present org-pomodoro org-download org-bullets open-junk-file neotree mwim multi-term move-text mmm-mode markdown-toc magit-gitflow macrostep lorem-ipsum livid-mode linum-relative json-mode js2-refactor js-doc indent-guide hungry-delete htmlize ht hl-todo highlight-numbers highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag goto-chg google-translate golden-ratio go-guru go-eldoc gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger git-gutter-fringe git-gutter-fringe+ gh-md fuzzy flyspell-correct-helm flycheck-rust flycheck-pos-tip flx-ido fill-column-indicator fancy-battery eyebrowse exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help elisp-slime-nav dumb-jump diminish define-word company-web company-statistics company-go column-enforce-mode coffee-mode clean-aindent-mode auto-yasnippet auto-dictionary aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
+  (custom-set-faces
+   ;; custom-set-faces was added by Custom.
+   ;; If you edit it by hand, you could mess it up, so be careful.
+   ;; Your init file should contain only one such instance.
+   ;; If there is more than one, they won't work right.
+   )
+  )
