@@ -34,8 +34,9 @@ autoload -Uz compinit
 compinit
 
 ## configure autosuggestions
-ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd history)
-
+export ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd history)
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#31d970"
+# 
 ## Antigen setup
 #
 
@@ -50,7 +51,6 @@ antigen bundle command-not-found
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle djui/alias-tips
 
 antigen theme romkatv/powerlevel10k
 

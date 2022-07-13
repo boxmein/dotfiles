@@ -57,9 +57,9 @@ in
     python3
     python39Packages.pip
     python39Packages.setuptools
-    python39Packages.psycopg2
-    pipenv
-    poetry
+    #python39Packages.psycopg2
+    #pipenv
+    #poetry
 
     # Java, Clojure, Kotlin
     clojure
@@ -92,7 +92,7 @@ in
     # C, C++
     autoconf
     automake
-    libtool
+    # libtool
     cmake
     binaryen
     ninja
@@ -168,7 +168,7 @@ in
     gnupg
     pandoc
     httpie # (IPython broken)
-    hugo
+    # hugo
     iperf
     mtr
     ncdu
@@ -303,6 +303,7 @@ in
     home.packages = with pkgs; [
       # neovim
     ];
+    home.stateVersion = "22.11";
   };
 
   users.users.johannes.home = "/Users/johannes";
