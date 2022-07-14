@@ -53,13 +53,16 @@ in
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [
+    # GPG + SSH setup
+    pinentry_mac
+
     # Python
     python3
     python39Packages.pip
     python39Packages.setuptools
     #python39Packages.psycopg2
     #pipenv
-    #poetry
+    poetry
 
     # Java, Clojure, Kotlin
     clojure
@@ -92,7 +95,7 @@ in
     # C, C++
     autoconf
     automake
-    # libtool
+     libtool
     cmake
     binaryen
     ninja
@@ -114,6 +117,7 @@ in
 
     # Cloud tools 
     # packer (mark as broken)
+    ctop
     kubeval
     terraform
     k9s
@@ -252,16 +256,17 @@ in
     # Firefox
     # iTerm2
     # google-chrome
-    # ipcalc
+    ipcalc
     # ranger
     # kail
     # kops
     # kubernetes-helm
     # minikube
     # aws-sam-cli
-    # skhd
-    # yabai
+    skhd
+    yabai
     openssl
+    viddy
   ];
 
   # environment.variables = { X = "Y"; };
