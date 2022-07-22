@@ -53,12 +53,15 @@ in
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [
+    # GPG + SSH setup
+    pinentry_mac
+
     # Python
     python3
     python39Packages.pip
     python39Packages.setuptools
-    python39Packages.psycopg2
-    pipenv
+    #python39Packages.psycopg2
+    #pipenv
     poetry
 
     # Java, Clojure, Kotlin
@@ -68,7 +71,7 @@ in
     kotlin
     ktlint
     leiningen
-    adoptopenjdk-hotspot-bin-11
+    # adoptopenjdk-hotspot-bin-11
 
     # Ruby
     ruby
@@ -93,7 +96,7 @@ in
     # C, C++
     autoconf
     automake
-    libtool
+     libtool
     cmake
     binaryen
     ninja
@@ -115,6 +118,7 @@ in
 
     # Cloud tools 
     # packer (mark as broken)
+    ctop
     kubeval
     terraform
     k9s
@@ -125,13 +129,13 @@ in
     kubernetes-helm
     kubetail
     google-cloud-sdk
-    # ansible (beautifulsoup unit tests fail)
-    # aws-sam-cli (beautifulsoup unit tests fail)
-    # awscli2 (beautifulsoup unit tests fail)
+    ansible # (beautifulsoup unit tests fail)
+    aws-sam-cli # (beautifulsoup unit tests fail)
+    awscli2  # (beautifulsoup unit tests fail)
     ctop
     dnsmasq
-    docbook5
-    podman
+    # docbook5
+    # podman
     gvproxy # implicit dependency of podman
     pstree
 
@@ -165,9 +169,10 @@ in
     yq
     jq
     cloc
+    k6
     gnupg
     pandoc
-    # httpie (IPython broken)
+    httpie # (IPython broken)
     # hugo
     iperf
     mtr
@@ -238,7 +243,7 @@ in
     # john (ipython)
     mitmproxy
     qrencode
-    # radare2 (unstable)
+    radare2 # (unstable)
     testdisk
     binwalk
     # checksec (unsupported)
@@ -253,16 +258,17 @@ in
     # Firefox
     # iTerm2
     # google-chrome
-    # ipcalc
+    ipcalc
     # ranger
     # kail
     # kops
     # kubernetes-helm
     # minikube
     # aws-sam-cli
-    # skhd
-    # yabai
+    skhd
+    yabai
     openssl
+    viddy
   ];
 
   # environment.variables = { X = "Y"; };
@@ -304,6 +310,7 @@ in
     home.packages = with pkgs; [
       # neovim
     ];
+    home.stateVersion = "22.11";
   };
 
   users.users.johannes.home = "/Users/johannes";

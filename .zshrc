@@ -34,8 +34,9 @@ autoload -Uz compinit
 compinit
 
 ## configure autosuggestions
-ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd history)
-
+export ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd history)
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#31d970"
+# 
 ## Antigen setup
 #
 
@@ -47,11 +48,10 @@ source ~/.dotfiles/antigen.zsh
 antigen use oh-my-zsh
 antigen bundle git
 antigen bundle command-not-found
-antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle djui/alias-tips
-
+# Must be the last thing to register ZLE related stuff!
+antigen bundle zsh-users/zsh-syntax-highlighting
 antigen theme romkatv/powerlevel10k
 
 antigen apply
@@ -150,3 +150,7 @@ gpg-connect-agent updatestartuptty /bye >/dev/null 2>/dev/null
 ### GPG end
 
 source "/Users/johannes/.rover/env"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
