@@ -78,6 +78,7 @@ in
 
     # Go
     go_1_18
+    dbmate
 
     # Node.js
     nodejs
@@ -210,7 +211,8 @@ in
     bottom
     parallel
     z3
-    postgresql
+    scour
+    postgresql_14
     pv
     rename
     ripgrep
