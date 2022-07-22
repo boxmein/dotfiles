@@ -149,3 +149,4 @@ gpg-connect-agent updatestartuptty /bye >/dev/null 2>/dev/null
 
 ### GPG end
 
+source "/Users/johannes/.rover/env"
