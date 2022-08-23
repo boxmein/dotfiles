@@ -80,11 +80,11 @@ in
     rustup
 
     # Go
-    go_1_18
+    go_1_19
     dbmate
 
     # Node.js
-    nodejs
+    nodejs-18_x
     yarn
 
     # Haskell
@@ -119,19 +119,14 @@ in
     # Cloud tools 
     # packer (mark as broken)
     ctop
-    kubeval
     terraform
     k9s
-    kubespy
     lazydocker
     skaffold
     kubectl
     kubernetes-helm
     kubetail
     google-cloud-sdk
-    ansible # (beautifulsoup unit tests fail)
-    aws-sam-cli # (beautifulsoup unit tests fail)
-    awscli2  # (beautifulsoup unit tests fail)
     ctop
     dnsmasq
     # docbook5
@@ -140,8 +135,6 @@ in
     pstree
 
     # Editors
-    # neovim (broken on nix flakes)
-    # vim
     emacs
     vscode
 
@@ -172,8 +165,6 @@ in
     k6
     gnupg
     pandoc
-    httpie # (IPython broken)
-    # hugo
     iperf
     mtr
     ncdu
@@ -194,13 +185,10 @@ in
     qemu
     pinentry_mac
     openvpn
-    # wireguard-tools
     pass
     _1password
     browserpass
-    # pg_top (unsupported system)
     SDL2
-    # squid (unsupported)
     sqlite
     thefuck
     tree-sitter
@@ -238,20 +226,11 @@ in
     yajl
     unicorn
     fcrackzip
-    # foremost (unsupported)
-    # hashcat (unsupported)
-    # john (ipython)
     mitmproxy
     qrencode
-    radare2 # (unstable)
     testdisk
     binwalk
-    # checksec (unsupported)
     fcrackzip
-    # mysql-client (libressl-3.4.0 compile fails)
-    # netcat (libressl-3.4.0)
-    # wireshark (collision between wireshark-cli and wireshark-qt)
-    # postman (unsupported)
 
     # To consider:
     # https://github.com/oxalica/rust-overlay
@@ -259,12 +238,6 @@ in
     # iTerm2
     # google-chrome
     ipcalc
-    # ranger
-    # kail
-    # kops
-    # kubernetes-helm
-    # minikube
-    # aws-sam-cli
     skhd
     yabai
     openssl
@@ -310,7 +283,7 @@ in
     home.packages = with pkgs; [
       # neovim
     ];
-    home.stateVersion = "22.11";
+    home.stateVersion = "22.05";
   };
 
   users.users.johannes.home = "/Users/johannes";

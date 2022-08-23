@@ -33,10 +33,7 @@ This function should only modify configuration layer settings."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(ansible
-<<<<<<< HEAD
-=======
      ruby
->>>>>>> b6ad8c6943d2110d7fda23157107d3654952b5b5
      sql
      clojure
      python
