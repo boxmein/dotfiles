@@ -149,8 +149,9 @@ gpg-connect-agent updatestartuptty /bye >/dev/null 2>/dev/null
 
 ### GPG end
 
-source "/Users/johannes/.rover/env"
+[[ -s "$HOME/.rover/env" ]] && . "$HOME/.rover/env"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && . "$HOME/.sdkman/bin/sdkman-init.sh"
