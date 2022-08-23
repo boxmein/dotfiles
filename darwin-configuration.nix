@@ -60,6 +60,7 @@ in
     python3
     python39Packages.pip
     python39Packages.setuptools
+    python39Packages.cfn-lint
     #python39Packages.psycopg2
     #pipenv
     poetry
