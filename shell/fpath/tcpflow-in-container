@@ -1,0 +1,8 @@
+
+if [[ "$#" -gt 2 ]]; then
+   echo "usage: $0 container-id-or-name [tcpflow-args...]"
+   echo "where container-id-or-name is a short or long container ID, or container name"
+   echo "where tcpflow-args is any arguments that tcpflow takes, incl. rule/filter"
+fi 
+
+docker run -it --net "container:$1" byfcz/tcpflow -p -c "${@:2}"
