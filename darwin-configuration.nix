@@ -57,12 +57,12 @@ in
     pinentry_mac
 
     # Python
-    python3
-    python39Packages.pip
-    python39Packages.setuptools
-    python39Packages.cfn-lint
-    #python39Packages.psycopg2
-    #pipenv
+    python310
+    python310Packages.pip
+    python310Packages.setuptools
+    python310Packages.cfn-lint
+    python310Packages.pyyaml
+    #python310Packages.psycopg2
     poetry
 
     # Java, Clojure, Kotlin
@@ -81,7 +81,7 @@ in
     rustup
 
     # Go
-    go_1_19
+    go1_19
     dbmate
 
     # Node.js
