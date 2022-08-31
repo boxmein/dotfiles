@@ -1,0 +1,3 @@
+cat package.json \
+	| jq -r '.scripts | to_entries | [.[] | "\(.key);\(.value)"] | join("\n")' \
+	| column -s\; -t
