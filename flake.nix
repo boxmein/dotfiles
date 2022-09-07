@@ -17,11 +17,9 @@
   };
 
   outputs = { self, nixpkgs, darwin, home-manager, ... }@inputs:
-    let importPkgs = system: import nixpkgs {
-        inherit system;
-        config = {
-          allowUnfree = true;
-        };
+    let configuration = { pkgs, ... }: {
+        nix.package = pkgs.nixFlakes;
+        services.nix-daemon.enable = true;
       };
     in
     {
@@ -29,12 +27,10 @@
       nyx = darwin.lib.darwinSystem rec {
         system = "x86_64-darwin";
         modules = [
+          configuration
           home-manager.darwinModules.home-manager
           ./nyx.nix
         ];
-        specialArgs = inputs // rec {
-          pkgs = importPkgs system;
-        };
       };
     };
   };
