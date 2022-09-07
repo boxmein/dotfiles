@@ -42,14 +42,7 @@
 # 
 
 { config, pkgs, ... }:
-let
-  unstable = import <nixpkgs-unstable> { };
-in
 {
-  imports = [
-    <home-manager/nix-darwin>
-  ];
-
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [
@@ -279,7 +272,7 @@ in
   home-manager.useGlobalPkgs = true;
 
   home-manager.users.johannes = { config, pkgs, ... }: {
-    programs.home-manager.enable = true;
+    programs.home-manager.enable = false;
     programs.command-not-found.enable = true;
     home.packages = with pkgs; [
       # neovim
