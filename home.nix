@@ -7,7 +7,8 @@ let username = "johannes"; in
   programs.home-manager.enable = true;
   home.username = username;
   home.stateVersion = "22.05";
-  home.packages = [
+  home.packages = with pkgs; [
     # user packages
+    vim
   ];
 }
