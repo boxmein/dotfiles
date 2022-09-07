@@ -29,7 +29,7 @@
         modules = [
           configuration
           home-manager.darwinModules.home-manager
-          ./darwin-configuration.nix
+          ./nyx.nix
         ];
       };
     };
