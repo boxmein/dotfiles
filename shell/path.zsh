@@ -63,6 +63,10 @@ if [[ -d /usr/local/Cellar/john-jumbo/1.9.0/share/john ]]; then
   paths+=(/usr/local/Cellar/john-jumbo/1.9.0/share/john)
 fi
 
+if [[ -d ~/Documents/Projects/small-programs ]]; then
+  paths+=("$HOME/Documents/Projects/small-programs")
+fi
+
 if [[ -d "$GOPATH/bin" ]]; then
   paths+=($GOPATH/bin)
 fi
