@@ -57,11 +57,11 @@ in
     pinentry_mac
 
     # Python
-    python3
-    python39Packages.pip
-    python39Packages.setuptools
-    python39Packages.cfn-lint
-    #python39Packages.psycopg2
+    python310
+    python310Packages.pip
+    python310Packages.setuptools
+    python310Packages.cfn-lint
+    python310Packages.psycopg
     #pipenv
     poetry
 
