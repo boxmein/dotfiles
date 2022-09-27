@@ -62,7 +62,7 @@ in
     python310Packages.setuptools
     python310Packages.cfn-lint
     python310Packages.psycopg
-    #pipenv
+    python310Packages.pyyaml
     poetry
 
     # Java, Clojure, Kotlin
@@ -81,7 +81,7 @@ in
     rustup
 
     # Go
-    go_1_19
+    go1_19
     dbmate
 
     # Node.js
