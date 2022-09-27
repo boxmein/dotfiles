@@ -39,3 +39,7 @@ alias dredd="docker run -it -v \$PWD:/api -w /api apiaryio/dredd dredd"
 
 alias gil="gh issue list -a @me"
 alias ec="emacsclient"
+
+# fzf-powered aliases
+alias look="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
+alias rgi="run-interactive-ripgrep"

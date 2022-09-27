@@ -53,12 +53,16 @@ in
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [
+    # GPG + SSH setup
+    pinentry_mac
+
     # Python
-    python3
-    python39Packages.pip
-    python39Packages.setuptools
-    python39Packages.psycopg2
-    pipenv
+    python310
+    python310Packages.pip
+    python310Packages.setuptools
+    python310Packages.cfn-lint
+    python310Packages.pyyaml
+    #python310Packages.psycopg2
     poetry
 
     # Java, Clojure, Kotlin
@@ -77,10 +81,11 @@ in
     rustup
 
     # Go
-    go_1_18
+    go1_19
+    dbmate
 
     # Node.js
-    nodejs
+    nodejs-18_x
     yarn
 
     # Haskell
@@ -92,7 +97,7 @@ in
     # C, C++
     autoconf
     automake
-    libtool
+     libtool
     cmake
     binaryen
     ninja
@@ -114,29 +119,23 @@ in
 
     # Cloud tools 
     # packer (mark as broken)
-    kubeval
+    ctop
     terraform
     k9s
-    kubespy
     lazydocker
     skaffold
     kubectl
     kubernetes-helm
     kubetail
     google-cloud-sdk
-    # ansible (beautifulsoup unit tests fail)
-    # aws-sam-cli (beautifulsoup unit tests fail)
-    # awscli2 (beautifulsoup unit tests fail)
     ctop
     dnsmasq
-    docbook5
-    podman
+    # docbook5
+    # podman
     gvproxy # implicit dependency of podman
     pstree
 
     # Editors
-    # neovim (broken on nix flakes)
-    # vim
     emacs
     vscode
 
@@ -167,8 +166,6 @@ in
     k6
     gnupg
     pandoc
-    # httpie (IPython broken)
-    # hugo
     iperf
     mtr
     ncdu
@@ -189,13 +186,10 @@ in
     qemu
     pinentry_mac
     openvpn
-    # wireguard-tools
     pass
     _1password
     browserpass
-    # pg_top (unsupported system)
     SDL2
-    # squid (unsupported)
     sqlite
     thefuck
     tree-sitter
@@ -211,7 +205,8 @@ in
     bottom
     parallel
     z3
-    postgresql
+    scour
+    postgresql_14
     pv
     rename
     ripgrep
@@ -232,36 +227,22 @@ in
     yajl
     unicorn
     fcrackzip
-    # foremost (unsupported)
-    # hashcat (unsupported)
-    # john (ipython)
     mitmproxy
     qrencode
-    # radare2 (unstable)
     testdisk
     binwalk
-    # checksec (unsupported)
     fcrackzip
-    # mysql-client (libressl-3.4.0 compile fails)
-    # netcat (libressl-3.4.0)
-    # wireshark (collision between wireshark-cli and wireshark-qt)
-    # postman (unsupported)
 
     # To consider:
     # https://github.com/oxalica/rust-overlay
     # Firefox
     # iTerm2
     # google-chrome
-    # ipcalc
-    # ranger
-    # kail
-    # kops
-    # kubernetes-helm
-    # minikube
-    # aws-sam-cli
-    # skhd
-    # yabai
+    ipcalc
+    skhd
+    yabai
     openssl
+    viddy
   ];
 
   # environment.variables = { X = "Y"; };
@@ -303,6 +284,7 @@ in
     home.packages = with pkgs; [
       # neovim
     ];
+    home.stateVersion = "22.05";
   };
 
   users.users.johannes.home = "/Users/johannes";
