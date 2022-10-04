@@ -1,0 +1,2 @@
+echo "Starting on localhost port 8123..."
+docker run -it -v "$(pwd):/var/www/html/" -p8123:8080 trafex/php-nginx
