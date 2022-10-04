@@ -61,8 +61,8 @@ in
     python310Packages.pip
     python310Packages.setuptools
     python310Packages.cfn-lint
+    python310Packages.psycopg
     python310Packages.pyyaml
-    #python310Packages.psycopg2
     poetry
 
     # Java, Clojure, Kotlin
