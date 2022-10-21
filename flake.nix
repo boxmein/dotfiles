@@ -16,10 +16,16 @@
 #   $ nix build ~/.dotfiles\#darwinConfigurations.nyx.system
 #   $ ./result/sw/bin/darwin-rebuild switch --flake ~/.dotfiles 
 # 
-# 
-# Stage 4: every time you change stuff:
+# DONE!
+# Now, every time you change the nix config:
 # 
 #   $ darwin-rebuild switch --flake ~/.dotfiles
+# 
+# And every now and then, update deps:
+# 
+#   $ nix flake update
+#   $ nix flake lock --update-input <xyz>
+
 
 {
   description = "boxmein darwin flake";
@@ -40,6 +46,9 @@
   outputs = { self, nixpkgs, darwin, home-manager, ... }@inputs:
     let configuration = { pkgs, ... }: {
         nix.package = pkgs.nixFlakes;
+        nix.extraOptions = ''
+          experimental-features = nix-command flakes
+        '';
         services.nix-daemon.enable = true;
       };
     in
