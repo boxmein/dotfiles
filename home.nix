@@ -58,7 +58,7 @@ let username = "johannes"; in
     rustup
 
     # Go
-    # go1_19
+    go_1_18
     dbmate
 
     # Node.js
