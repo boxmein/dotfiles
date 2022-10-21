@@ -9,8 +9,7 @@
 
 alias vim="nvim"
 alias ec="emacsclient"
-alias renix="darwin-rebuild switch -I darwin-config=$HOME/.nixpkgs/darwin-configuration.nix"
-alias renix2="darwin-rebuild build --flake .#johannes"
+alias renix="darwin-rebuild switch --flake ~/.dotfiles"
 
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
