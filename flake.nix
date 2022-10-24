@@ -62,6 +62,14 @@
           ./nyx.nix
         ];
       };
+      mycroft = darwin.lib.darwinSystem rec {
+        system = "x86_64-darwin";
+        modules = [
+          configuration
+          home-manager.darwinModules.home-manager
+          ./mycroft.nix
+        ];
+      };
     };
   };
 }
