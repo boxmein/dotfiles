@@ -220,5 +220,6 @@ let username = "johannes"; in
     # yabai
     openssl
     viddy
+    discord
   ];
 }
