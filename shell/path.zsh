@@ -75,4 +75,8 @@ if [[ -d "$GOPATH/bin" ]]; then
   paths+=($GOPATH/bin)
 fi
 
+if [[ -d "$HOME/.asdf/shims" ]]; then
+  paths+=($HOME/.asdf/shims)
+fi
+
 export PATH="${(j/:/)paths}:$PATH"

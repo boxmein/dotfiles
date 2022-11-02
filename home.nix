@@ -58,12 +58,9 @@ let username = "johannes"; in
     rustup
 
     # Go
-    go_1_18
     dbmate
 
     # Node.js
-    nodejs-18_x
-    yarn
 
     # Haskell
     stack
@@ -221,5 +218,6 @@ let username = "johannes"; in
     openssl
     viddy
     discord
+    asdf-vm
   ];
 }
