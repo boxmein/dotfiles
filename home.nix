@@ -219,5 +219,8 @@ let username = "johannes"; in
     viddy
     discord
     asdf-vm
+    packer
+    lima
+    colima
   ];
 }
