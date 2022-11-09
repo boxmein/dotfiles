@@ -31,25 +31,23 @@ let username = "johannes"; in
 
   home.packages = with pkgs; [
     # GPG + SSH setup
-    pinentry_mac
+    pinentry_mac                      # graphical pinentry
 
     # Python
-    python310
+    python310                         # Python
     python310Packages.pip
     python310Packages.setuptools
-    python310Packages.cfn-lint
-    # python310Packages.psycopg
+    python310Packages.cfn-lint        # cloudformation linter
     python310Packages.pyyaml
-    poetry
+    poetry                            # python package manager
 
     # Java, Clojure, Kotlin
-    clojure
-    gradle
-    bazel_5
+    clojure                   
+    gradle                            # build tool
+    bazel_5                           # build tool
     kotlin
     ktlint
-    leiningen
-    # adoptopenjdk-hotspot-bin-11
+    leiningen                         # clojure build tool
 
     # Ruby
     ruby
@@ -58,7 +56,7 @@ let username = "johannes"; in
     rustup
 
     # Go
-    dbmate
+    dbmate                            # database migration tool
 
     # Node.js
 
@@ -71,11 +69,11 @@ let username = "johannes"; in
     # C, C++
     autoconf
     automake
-     libtool
+    libtool
     cmake
-    binaryen
-    ninja
-    ccls
+    binaryen                          # c++ to wasm
+    ninja                             # build tool
+    ccls                              # c++ lsp server
     pkgconfig
     # clang, llvm provided by macOS
 
@@ -92,32 +90,23 @@ let username = "johannes"; in
     R
 
     # Cloud tools 
-    # packer (mark as broken)
-    ctop
-    terraform
-    k9s
-    lazydocker
-    skaffold
-    kubectl
-    kubernetes-helm
-    kubetail
+    ctop                               # top(1) but for containers
+    terraform                          # infra as code
+    k9s                                # kubernetes htop
+    lazydocker                         # multi panel dashboard for local docker
+    skaffold                           # tooling for kubernetes
+    kubectl                            # kubernetes cli
+    kubernetes-helm                    # kubernetes tooling
+    kubetail                           # kubernetes log viewing helper
     google-cloud-sdk
-    ctop
-    dnsmasq
-    # docbook5
-    # podman
-    gvproxy # implicit dependency of podman
-    pstree
+    dnsmasq                            # local DNS 
+    pstree                             # ps aux, except treeview
 
     # Editors
     emacs
     vscode
 
     # Chat
-    # slack
-    # telegram-desktop
-    # element-desktop
-    # ms teams
     discord
     weechat
 
@@ -126,101 +115,90 @@ let username = "johannes"; in
 
     # Stuff
     vips
-    imagemagick
+    imagemagick                       # image manipulation
     # olm
-    exa
-    act
-    bat
-    bats
-    calc
+    exa                               # ls(1) replacement
+    act                               # github actions local emulator
+    bat                               # cat with syntax highlighting
+    bats                              # bash-based integration testing system
+    calc                              # cli calculator
     coreutils
-    yq
-    jq
-    cloc
-    k6
-    gnupg
-    pandoc
-    iperf
-    mtr
-    ncdu
+    yq                                # jq(1) for yaml
+    jq                                # essential json manipulation cli
+    cloc                              # count project lines of code
+    k6                                # load tester
+    gnupg                             # digital signing + web of trust
+    pandoc                            # convert between document file formats
+    iperf                             # IP link performance testing tool
+    mtr                               # my traceroute, combination of traceroute+ping
+    ncdu                              # cli version of daisydisk/windirstat
     redis
-    socat
-    tldr
-    tmux
-    toilet
-    websocat
-    fd
-    ffmpeg
-    fish
-    fswatch
-    fzf
+    socat                             # useful data plumbing tool (netcat on steroids)
+    tldr                              # alternative manpages
+    tmux                              # multipane terminal manager
+    toilet                            # funny ascii text art
+    websocat                          # websocket version of netcat
+    fd                                # find file by name, fast version of `find . -name ...`
+    ffmpeg                            # convert between media formats
+    fish                              # alternative shell
+    fswatch                           # cli to interact with fsevents / inotify
+    fzf                               # fuzzy searcher terminal ui
     github-cli
     git-lfs
-    graphviz
+    graphviz                          # dot(1)
     qemu
     pinentry_mac
     openvpn
-    pass
+    pass                              # gpg-based password manager cli
     _1password
-    browserpass
+    browserpass                       # pass(1) integration with browsers
     SDL2
     sqlite
-    thefuck
-    tree-sitter
-    tor
-    transmission
-    unbound
+    thefuck                           # fuck, i misspelled my last command
+    tree-sitter                       # parser generator
+    tor                               # network
+    transmission                      # torrent
+    unbound                           # dns server
     unzip
-    p7zip
+    p7zip                             # 7z(1)
     watch
     wget
     zsh
     htop
-    bottom
-    parallel
-    z3
-    scour
+    bottom                            # current system load monitor
+    parallel                          # gnu tool to parallelize commands
+    z3                                # symbolic execution tool
+    scour                             # svg optimizer
     postgresql_14
-    pv
-    rename
-    ripgrep
+    pv                                # cat BIGFILE.tar | pv | nc ... -- show a progress bar
+    rename                            # pattern based renaming
+    ripgrep                           # find file by content, `rg`
     rsync
     tree
-    up
+    up                                # fancy version of pv
     screen
-    ngrok
+    ngrok                             # expose ports publicly
     # powershell
-    syncthing
+    syncthing                         # self hosted dropbox
     aws-vault
-    rclone
+    rclone                            # cli tool to copy files between s3, drive, icloud ...
     vips
-    imagemagick
     xz
 
     # CTF tools
     yajl
     unicorn
     fcrackzip
-    mitmproxy
+    mitmproxy                         # view, edit, and replay browser requests, really useful for web dev
     qrencode
     testdisk
-    # binwalk
-    fcrackzip
-
-    # To consider:
-    # https://github.com/oxalica/rust-overlay
-    # Firefox
-    # iTerm2
-    # google-chrome
-    ipcalc
-    # skhd
-    # yabai
+    ipcalc                            # ip range calculator 
     openssl
-    viddy
+    viddy                             # magic version of watch(1)
     discord
-    asdf-vm
-    packer
-    lima
+    asdf-vm                           # software version manager, supports per-directory versions
+    packer                            # vm image builder
+    lima                              # linux vm manager
     colima
   ];
 }
