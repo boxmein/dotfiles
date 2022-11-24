@@ -34,11 +34,11 @@ let username = "johannes"; in
     pinentry_mac                      # graphical pinentry
 
     # Python
-    python310                         # Python
-    python310Packages.pip
-    python310Packages.setuptools
+    # python310                         # Python
+    # python310Packages.pip
+    # python310Packages.setuptools
     python310Packages.cfn-lint        # cloudformation linter
-    python310Packages.pyyaml
+    # python310Packages.pyyaml
     poetry                            # python package manager
 
     # Java, Clojure, Kotlin
