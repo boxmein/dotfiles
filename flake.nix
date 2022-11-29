@@ -46,6 +46,7 @@
   outputs = { self, nixpkgs, darwin, home-manager, ... }@inputs:
     let configuration = { pkgs, ... }: {
         nix.package = pkgs.nixFlakes;
+        nix.registry.nixpkgs.flake = nixpkgs;
         nix.extraOptions = ''
           experimental-features = nix-command flakes
         '';

@@ -200,5 +200,8 @@ let username = "johannes"; in
     packer                            # vm image builder
     lima                              # linux vm manager
     colima
+
+    rnix-lsp                          # useful for writing nix
+    nixpkgs-fmt
   ];
 }

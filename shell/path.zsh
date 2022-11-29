@@ -1,6 +1,9 @@
 # Shared path management
+
 paths=(
   /run/current-system/sw/bin
+  $HOME/.nix-profile/bin
+  $HOME/.asdf/shims
   /usr/local/bin
   /usr/local/sbin
   $HOME/bin
@@ -37,20 +40,12 @@ if [[ -d "$HOME/Programs/ctf-tools/bin" ]]; then
   )
 fi
 
-if [[ -d ~/Programs/flutter/bin ]]; then
-  paths+=(~/Programs/flutter/bin)
-fi
-
 if [[ -d ~/Documents/Projects/ctf-tools/bin ]]; then
   paths+=(~/Documents/Projects/ctf-tools/bin)
 fi
 
 if [[ -d ~/.cargo/bin ]]; then
   paths+=(~/.cargo/bin)
-fi
-
-if [[ -d ~/.nix-profile/bin ]]; then 
-  paths+=(~/.nix-profile/bin)
 fi
 
 # Add AVR tools to path
@@ -73,10 +68,6 @@ fi
 
 if [[ -d "$GOPATH/bin" ]]; then
   paths+=($GOPATH/bin)
-fi
-
-if [[ -d "$HOME/.asdf/shims" ]]; then
-  paths+=($HOME/.asdf/shims)
 fi
 
 export PATH="${(j/:/)paths}:$PATH"
