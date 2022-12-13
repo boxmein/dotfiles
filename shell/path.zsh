@@ -70,4 +70,13 @@ if [[ -d "$GOPATH/bin" ]]; then
   paths+=($GOPATH/bin)
 fi
 
+if [[ -d "/opt/asdf-vm/bin" ]]; then
+  paths+=(/opt/asdf-vm/bin)
+fi
+
+if [[ -d "$HOME/.cargo/bin" ]]; then 
+  paths+=("$HOME/.cargo/bin")
+fi
+
 export PATH="${(j/:/)paths}:$PATH"
+
