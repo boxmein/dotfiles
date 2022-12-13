@@ -60,7 +60,6 @@ if [[ ! -d ~/.dotfiles-private ]]; then
 	git clone git@github.com:boxmein/dotfiles-private.git $HOME/.dotfiles-private
 fi
 
-
 ln -sf $HOME/.dotfiles/.zshrc ./.zshrc
 ln -sf $HOME/.dotfiles/.zshenv ./.zshenv
 ln -sf $HOME/.dotfiles-private/.pgpass ./.pgpass
@@ -80,24 +79,29 @@ ln -sf $HOME/.dotfiles-private/.gnupg/gpg-agent.conf ~/.gnupg/gpg-agent.conf
 ln -sf $HOME/.dotfiles-private/.gnupg/gpg.conf ~/.gnupg/gpg.conf
 ln -sf $HOME/.dotfiles-private/.gnupg/sshcontrol ~/.gnupg/sshcontrol
 ln -sf $HOME/.dotfiles/.emacs ~/.emacs
+ln -sf $HOME/.dotfiles/.emacs.d ~/.emacs.d
 ln -sf $HOME/.dotfiles/.spacemacs ~/.spacemacs
 
-curl -sLf https://spacevim.org/install.sh | bash
-ln -sf $HOME/.dotfiles-private/.SpaceVim.d ~/.SpaceVim.d
+if [[ ! -d ~/.SpaceVim.d ]]; then
+  curl -sLf https://spacevim.org/install.sh | bash
+  ln -sf $HOME/.dotfiles-private/.SpaceVim.d ~/.SpaceVim.d
+fi
 
-sudo usermod -aG docker $(whoami)
+# sudo usermod -aG docker $(whoami)
 
-curl -fsSL https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.sh | bash
+if ! has_command tilt; then
+  curl -fsSL https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.sh | bash
+fi
 
 # template and insert the wireguard config
 # set up tailscale
 # tailscale up --allow-dns --allow-routes --shields-up
 
-gcloud auth login
-gcloud config set project calidity-prod
-gcloud auth configure-docker
-gcloud container clusters get-credentials falcon --region europe-north1 --internal-ip
+# gcloud auth login
+# gcloud config set project calidity-prod
+# gcloud auth configure-docker
+# gcloud container clusters get-credentials falcon --region europe-north1 --internal-ip
 
-flatpak install com.slack.Slack
+# flatpak install com.slack.Slack
 
 # todo: Google Drive fs mount, iCloud fs mount, fuse smb client, fuse sftp client
