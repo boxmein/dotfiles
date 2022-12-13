@@ -7,6 +7,15 @@ has_command() {
     return $?
 }
 
+echo "Updating dotfiles..."
+git pull
+
+echo "Updating dotfiles-private..."
+(
+    cd ../.dotfiles-private
+    git pull
+)
+
 if has_command brew; then
     echo "Running brew upgrade..."
     brew upgrade || true
