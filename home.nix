@@ -39,7 +39,7 @@ let username = "johannes"; in
     # python310Packages.setuptools
     python310Packages.cfn-lint        # cloudformation linter
     # python310Packages.pyyaml
-    poetry                            # python package manager
+    # poetry                            # python package manager
 
     # Java, Clojure, Kotlin
     clojure                   
@@ -200,8 +200,10 @@ let username = "johannes"; in
     packer                            # vm image builder
     lima                              # linux vm manager
     colima
+    ffuf
 
     rnix-lsp                          # useful for writing nix
     nixpkgs-fmt
+    powershell
   ];
 }
