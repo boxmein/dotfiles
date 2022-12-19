@@ -51,3 +51,5 @@
 	clean = git-lfs clean -- %f
 [fetch]
 	prune = true
+[url "git@github.com:"]
+	insteadOf = https://github.com/

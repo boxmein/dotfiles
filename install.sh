@@ -24,7 +24,7 @@ yay -S --needed \
 	rustup \
 	make cmake ninja gcc clang openssl-1.1 qemu-user-binfmt valgrind rr pkgconf \
 	ctop terraform k9s skaffold kubectl cmctl krew-bin stern aws-vault aws-cli-v2 packer k6-bin \
-	bc cloc ncdu tealdeer screen tmux fd fzf upcmd zip unzip time bind \
+	bc cloc ncdu tealdeer screen tmux fd fzf upcmd zip unzip time bind ripgrep \
 	iperf mtr iproute2 socat \
 	docker \
 	fish zsh \
