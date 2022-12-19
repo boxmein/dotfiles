@@ -6,6 +6,10 @@ has_command() {
   return $?
 }
 
+if ! has_command nix && [[ ! -d /run/current-system ]]; then
+    sh <(curl -L https://nixos.org/nix/install) --daemon
+fi
+
 if [[ `uname -s` == "Linux" ]]; then
     if ! has_command yay; then
         sudo pacman -S --needed \
