@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/zsh
 set -e
 
 has_command() {
@@ -7,14 +7,17 @@ has_command() {
 }
 
 if ! has_command nix && [[ ! -d /run/current-system ]]; then
+    echo "Installing nixpkgs..."
     sh <(curl -L https://nixos.org/nix/install) --daemon
 fi
 
 if [[ `uname -s` == "Linux" ]]; then
     if ! has_command yay; then
+        echo "Installing yay..."
         sudo pacman -S --needed \
             yay
     fi
+    echo "Installing packages..."
     yay -S --needed \
       wireguard-tools tailscale openvpn \
       steam runescape \
@@ -42,26 +45,30 @@ if [[ `uname -s` == "Linux" ]]; then
       linux-headers xone-dkms xone-dongle-firmware
 fi
 
+echo "Installing rust stable..."
 rustup default stable
 
 # copy GPG key to x.pem
 # gpg --import-keys ./x.pem
-
 if [[ ! -d ~/.dotfiles ]]; then
+  echo "Cloning dotfiles..."
 	git clone git@github.com:boxmein/dotfiles.git $HOME/.dotfiles
 fi
 
 if [[ ! -d ~/.dotfiles-private ]]; then
+  echo "Cloning dotfiles-private..."
 	git clone git@github.com:boxmein/dotfiles-private.git $HOME/.dotfiles-private
 fi
 
+echo "Linking..."
+set -x
 ln -sf $HOME/.dotfiles/.zshrc $HOME/.zshrc
 ln -sf $HOME/.dotfiles/.zshenv $HOME/.zshenv
 ln -sf $HOME/.dotfiles-private/.pgpass $HOME/.pgpass
 ln -sf $HOME/.dotfiles-private/.serverlessrc $HOME/.serverlessrc
-ln -sf $HOME/.dotfiles-private/.aws $HOME/.aws
-ln -sf $HOME/.dotfiles-private/.config/fish $HOME/.config/fish
-ln -sf $HOME/.dotfiles-private/.config/weechat $HOME/.config/weechat
+ln -sf $HOME/.dotfiles-private/.aws $HOME/.aws/
+ln -sf $HOME/.dotfiles-private/.config/fish $HOME/.config/fish/
+ln -sf $HOME/.dotfiles-private/.config/weechat $HOME/.config/weechat/
 ln -sf $HOME/.dotfiles/.asdrc $HOME/.asdfrc
 ln -sf $HOME/.dotfiles/.alacritty.yml $HOME/.alacritty.yml
 ln -sf $HOME/.dotfiles/antigen.zsh $HOME/antigen.zsh
@@ -74,11 +81,18 @@ ln -sf $HOME/.dotfiles-private/.gnupg/gpg-agent.conf $HOME/.gnupg/gpg-agent.conf
 ln -sf $HOME/.dotfiles-private/.gnupg/gpg.conf $HOME/.gnupg/gpg.conf
 ln -sf $HOME/.dotfiles-private/.gnupg/sshcontrol $HOME/.gnupg/sshcontrol
 ln -sf $HOME/.dotfiles/.emacs $HOME/.emacs
-ln -sf $HOME/.dotfiles/.emacs.d $HOME/.emacs.d
+ln -sf $HOME/.dotfiles/.emacs.d $HOME/.emacs.d/
 ln -sf $HOME/.dotfiles/.spacemacs $HOME/.spacemacs
-ln -sf $HOME/.dotfiles/usr/local/share/zsh /usr/local/share/zsh
+
+#
+# /usr/local
+#
+ln -sf $HOME/.dotfiles/usr/local/share/zsh /usr/local/share/zsh/
+
+set +x
 
 if [[ ! -d ~/.SpaceVim.d ]]; then
+  echo "Installing SpaceVim..."
   curl -sLf https://spacevim.org/install.sh | bash
   ln -sf $HOME/.dotfiles-private/.SpaceVim.d ~/.SpaceVim.d
 fi
@@ -86,6 +100,7 @@ fi
 # sudo usermod -aG docker $(whoami)
 
 if ! has_command tilt; then
+  echo "Installing tilt..."
   curl -fsSL https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.sh | bash
 fi
 
