@@ -76,6 +76,7 @@ ln -sf $HOME/.dotfiles-private/.gnupg/sshcontrol $HOME/.gnupg/sshcontrol
 ln -sf $HOME/.dotfiles/.emacs $HOME/.emacs
 ln -sf $HOME/.dotfiles/.emacs.d $HOME/.emacs.d
 ln -sf $HOME/.dotfiles/.spacemacs $HOME/.spacemacs
+ln -sf $HOME/.dotfiles/usr/local/share/zsh /usr/local/share/zsh
 
 if [[ ! -d ~/.SpaceVim.d ]]; then
   curl -sLf https://spacevim.org/install.sh | bash
@@ -100,3 +101,4 @@ fi
 # flatpak install com.slack.Slack
 
 # todo: Google Drive fs mount, iCloud fs mount, fuse smb client, fuse sftp client
+
