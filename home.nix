@@ -105,6 +105,8 @@ let username = "johannes"; in
     # Editors
     emacs
     vscode
+    neovim
+    nano
 
     # Chat
     discord
