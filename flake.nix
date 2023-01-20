@@ -31,12 +31,12 @@
   description = "boxmein darwin flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-22.05-darwin";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-22.11-darwin";
     # nixpkgsUnstable.url = "github:nixos/nixpkgs/unstable";
     darwin.url = "github:lnl7/nix-darwin/master";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
     #flake-utils.url = "github:numtide/flake-utils";
-    home-manager.url = "github:nix-community/home-manager/release-22.05";
+    home-manager.url = "github:nix-community/home-manager/release-22.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     #impermanence.url = "github:nix-community/impermanence/master";
     #nixos-generators.url = "github:nix-community/nixos-generators";
