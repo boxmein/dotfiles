@@ -105,6 +105,8 @@ let username = "johannes"; in
     # Editors
     emacs
     vscode
+    neovim
+    nano
 
     # Chat
     discord
@@ -131,7 +133,6 @@ let username = "johannes"; in
     pandoc                            # convert between document file formats
     iperf                             # IP link performance testing tool
     mtr                               # my traceroute, combination of traceroute+ping
-    ncdu                              # cli version of daisydisk/windirstat
     redis
     socat                             # useful data plumbing tool (netcat on steroids)
     tldr                              # alternative manpages
