@@ -5,6 +5,7 @@ export LANG=en_US.UTF-8
 export EDITOR=emacsclient
 export AWS_VAULT_BACKEND=pass
 export C_HOST=http://10.0.37.8:8099
+export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 
 export boxGOOGLE_CLOUD_INSTALL_DIR=$HOME/.asdf/installs/gcloud/321.0.0/
 
