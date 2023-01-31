@@ -124,19 +124,6 @@ fi
 # nix stuff
 [[ -f /etc/static/zshrc ]] && . /etc/static/zshrc
 
-####
-#
-# Header
-#
-####
-
-# clear
-
-# echo "You are logged onto $COMPUTER"
-# echo "Uptime: " `uptime`
-
-# [[ -f "$SRCDIR/shell/motd.txt" ]] && cat $SRCDIR/shell/motd.txt
-
 ### GPG setup
 unset SSH_AGENT_PID
 # zshenv has the rest
@@ -154,3 +141,4 @@ gpg-connect-agent updatestartuptty /bye >/dev/null 2>/dev/null
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && . "$HOME/.sdkman/bin/sdkman-init.sh"
+
