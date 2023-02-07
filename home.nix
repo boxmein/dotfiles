@@ -44,7 +44,7 @@ let username = "johannes"; in
     # Java, Clojure, Kotlin
     clojure                   
     gradle                            # build tool
-    bazel_5                           # build tool
+    bazelisk
     kotlin
     ktlint
     leiningen                         # clojure build tool
