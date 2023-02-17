@@ -7,16 +7,10 @@ export AWS_VAULT_BACKEND=pass
 export C_HOST=http://10.0.37.8:8099
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 export boxGOOGLE_CLOUD_INSTALL_DIR=$HOME/.asdf/installs/gcloud/321.0.0/
-
-# Use 1password SSH agent for SSH support
-export SSH_AUTH_SOCK=~/.1password/agent.sock
-
-if [[ -S ~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock ]]; then
-	export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
-fi
-
 . ~/.dotfiles/shell/path.zsh
-[[ -f ~/.dotfiles-private/.zshenv ]] && . ~/.dotfiles-private/.zshenv
 
 # nix stuff
 [[ -f /etc/static/zshenv ]] && . /etc/static/zshenv
+
+. ~/.dotfiles/shell/agent.zsh
+[[ -f ~/.dotfiles-private/.zshenv ]] && . ~/.dotfiles-private/.zshenv
