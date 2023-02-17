@@ -1,0 +1,2 @@
+zip2john $1 > $TMPDIR/zip.hash
+hashcat -w 3 -a 3 -m 13000 $TMPDIR/zip.hash ${@:2}

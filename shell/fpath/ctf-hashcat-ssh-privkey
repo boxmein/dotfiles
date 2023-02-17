@@ -1,0 +1,3 @@
+openssl2john $1 > $TMPDIR/key.hash
+hashcat -w 3 -a 3 -m 13000 $TMPDIR/key.hash ${@:2}
+

@@ -1,0 +1,1 @@
+nmap -T4 -v -sV -p- --script=vuln -o nmap-vuln.txt
