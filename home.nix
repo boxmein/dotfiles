@@ -8,7 +8,7 @@ let username = "johannes"; in
 
   programs.home-manager.enable = true;
   # programs.zsh.enable = true
-  # programs.zsh.shellAliases = { "ga" = "git add"; }
+  programs.zsh.shellAliases = { "bazel" = "bazelisk"; };
   # programs.zsh.plugins = ...
   home.username = username;
   home.stateVersion = "22.05";
@@ -38,6 +38,7 @@ let username = "johannes"; in
     # python310Packages.pip
     # python310Packages.setuptools
     python310Packages.cfn-lint        # cloudformation linter
+    python310Packages.angr
     # python310Packages.pyyaml
     # poetry                            # python package manager
 

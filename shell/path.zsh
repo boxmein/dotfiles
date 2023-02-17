@@ -66,6 +66,10 @@ if [[ -d /usr/local/go/bin ]]; then
   paths+=(/usr/local/go/bin)
 fi
 
+if [[ -d "$HOME/perl5/bin" ]]; then 
+  paths+=($HOME/perl5/bin)
+fi
+
 if [[ -d "$GOPATH/bin" ]]; then
   paths+=($GOPATH/bin)
 fi
