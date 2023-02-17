@@ -151,8 +151,6 @@ let username = "johannes"; in
     pinentry_mac
     openvpn
     pass                              # gpg-based password manager cli
-    _1password
-    browserpass                       # pass(1) integration with browsers
     SDL2
     sqlite
     thefuck                           # fuck, i misspelled my last command
@@ -206,5 +204,6 @@ let username = "johannes"; in
     rnix-lsp                          # useful for writing nix
     nixpkgs-fmt
     powershell
+    steampipe
   ];
 }
