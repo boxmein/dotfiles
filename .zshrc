@@ -37,7 +37,7 @@ compinit -C
 # echo "Setting up antigen..."
 
 source ~/.dotfiles/antigen.zsh
-
+antigen use oh-my-zsh
 antigen bundle git
 antigen bundle command-not-found
 antigen bundle zsh-users/zsh-completions
