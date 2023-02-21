@@ -84,10 +84,8 @@ ln -sf $HOME/.dotfiles/.emacs $HOME/.emacs
 ln -sf $HOME/.dotfiles/.emacs.d $HOME/.emacs.d/
 ln -sf $HOME/.dotfiles/.spacemacs $HOME/.spacemacs
 
-#
-# /usr/local
-#
-ln -sf $HOME/.dotfiles/usr/local/share/zsh /usr/local/share/zsh/
+sudo ln -sf $HOME/.dotfiles/etc/zshrc /etc/zshrc
+sudo ln -sf $HOME/.dotfiles/usr/local/share/zsh /usr/local/share/zsh/
 
 set +x
 
