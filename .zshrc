@@ -19,27 +19,29 @@ setopt extendedglob
 setopt interactivecomments
 unsetopt beep
 
-bindkey -e
-
-bindkey '^[[1;9C' forward-word
-bindkey '^[[1;9D' backward-word
-
-zstyle :compinstall filename '~/.zshrc'
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
-autoload -Uz compinit
-compinit -C
-
-# 
-## Antigen setup
-#
-
-
-# echo "Setting up antigen..."
-
 source ~/.dotfiles/antigen.zsh
 antigen use oh-my-zsh
-antigen bundle git
+antigen bundle asdf
+antigen bundle aws
+antigen bundle bazel
+antigen bundle colored-man-pages
 antigen bundle command-not-found
+antigen bundle copyfile
+antigen bundle docker
+antigen bundle docker-compose
+antigen bundle dotenv
+antigen bundle fzf
+antigen bundle gh
+antigen bundle git
+antigen bundle golang
+antigen bundle gradle
+antigen bundle helm
+antigen bundle httpie
+antigen bundle iterm2
+antigen bundle kn
+antigen bundle kubectl
+antigen bundle minikube
+antigen bundle thefuck
 antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-autosuggestions
 # Must be the last thing to register ZLE related stuff!
@@ -48,11 +50,12 @@ antigen theme romkatv/powerlevel10k
 
 antigen apply
 
-# echo "Setting up aliases/vars/functions..."
-
 . $SRCDIR/shell/aliases.zsh
 . $SRCDIR/shell/variables.zsh
 
+[[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
+[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
+[[ -f /etc/static/zshrc ]] && . /etc/static/zshrc
 [[ -f $SRCDIR_PRIVATE/.zshrc ]] && . $SRCDIR_PRIVATE/.zshrc
 
 # OS-specific changes
@@ -63,7 +66,6 @@ elif [[ "$UNAME" == "Linux" ]]; then
   . $SRCDIR/shell/aliases.linux.zsh
 fi
 
-. $SRCDIR/shell/completions.zsh
 
 # ############################################################################ #
 
@@ -81,18 +83,7 @@ autoload -Uz ~/.dotfiles-private/shell/fpath/*(.:t)
 
 command -v thefuck >/dev/null 2>/dev/null && source <(thefuck --alias)
 
-[[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
-
-if [[ -n "$ITERM_SESSION_ID" ]]; then
-  [[ -f ~/.dotfiles/iterm2-shell-integration.zsh ]] && source ~/.dotfiles/iterm2-shell-integration.zsh
-fi
-
-[[ -f /etc/static/zshrc ]] && . /etc/static/zshrc
-
-unset SSH_AGENT_PID
+[[ -n "$ITERM_SESSION_ID" ]] && [[ -f ~/.dotfiles/iterm2-shell-integration.zsh ]] && source ~/.dotfiles/iterm2-shell-integration.zsh
 
 # https://unix.stackexchange.com/questions/608842/zshrc-export-gpg-tty-tty-says-not-a-tty
 # 1) powerlevel10k instant prompt affects this
