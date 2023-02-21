@@ -1,5 +1,9 @@
 # Shared path management
 
+if [ -x /usr/libexec/path_helper ]; then
+    eval `/usr/libexec/path_helper -s`
+fi
+
 paths=(
   /run/current-system/sw/bin
   $HOME/.nix-profile/bin
