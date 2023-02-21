@@ -7,8 +7,7 @@ let username = "johannes"; in
   nixpkgs.config.allowUnfree = true;
 
   programs.home-manager.enable = true;
-  # programs.zsh.enable = true
-  programs.zsh.shellAliases = { "bazel" = "bazelisk"; };
+
   # programs.zsh.plugins = ...
   home.username = username;
   home.stateVersion = "22.05";
