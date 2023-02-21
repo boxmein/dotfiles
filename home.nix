@@ -43,6 +43,7 @@ let username = "johannes"; in
     # poetry                            # python package manager
 
     # Java, Clojure, Kotlin
+    openjdk11
     clojure                   
     gradle                            # build tool
     bazelisk
