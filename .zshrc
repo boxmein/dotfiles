@@ -31,11 +31,9 @@ antigen bundle docker
 antigen bundle docker-compose
 antigen bundle dotenv
 antigen bundle fzf
-antigen bundle gh
 antigen bundle git
 antigen bundle golang
 antigen bundle gradle
-antigen bundle helm
 antigen bundle httpie
 antigen bundle iterm2
 antigen bundle kn
