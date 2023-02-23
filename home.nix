@@ -180,12 +180,9 @@ let username = "johannes"; in
     ngrok                             # expose ports publicly
     # powershell
     syncthing                         # self hosted dropbox
-    aws-vault
     rclone                            # cli tool to copy files between s3, drive, icloud ...
     vips
     xz
-
-    # CTF tools
     yajl
     unicorn
     fcrackzip
@@ -201,10 +198,11 @@ let username = "johannes"; in
     lima                              # linux vm manager
     colima
     ffuf
-
     rnix-lsp                          # useful for writing nix
     nixpkgs-fmt
     powershell
     steampipe
+    awscli2
+    alacritty
   ];
 }
