@@ -18,31 +18,7 @@ if [[ `uname -s` == "Linux" ]]; then
             yay
     fi
     echo "Installing packages..."
-    yay -S --needed \
-      wireguard-tools tailscale openvpn \
-      steam runescape \
-      neovim emacs visual-studio-code-bin intellij-idea-ce-eap \
-      google-chrome \
-      python python-poetry python-pip python-virtualenv \
-      stack \
-      clojure kotlin leiningen \
-      python-cfn-lint ansible \
-      asdf-vm \
-      rustup \
-      make cmake ninja gcc clang openssl-1.1 qemu-user-binfmt valgrind rr pkgconf \
-      ctop terraform k9s skaffold kubectl cmctl krew-bin stern aws-vault aws-cli-v2 packer k6-bin \
-      bc cloc ncdu tealdeer screen tmux fd fzf upcmd zip unzip time bind ripgrep \
-      iperf mtr iproute2 socat \
-      docker \
-      fish zsh \
-      github-cli git git-lfs git-secret \
-      qemu-full \
-      1password pass \
-      discord telegram-desktop weechat element-desktop slack-desktop \
-      wget curl htop rsync ngrok syncthing rclone \
-      python-z3-solver \
-      nerd-fonts-jetbrains-mono ttf-jetbrains-mono nerd-fonts-ibm-plex-mono ttf-ibm-plex ttf-apple-emoji tor-browser \
-      linux-headers xone-dkms xone-dongle-firmware
+    yay -S --needed < ./arch-packages.txt 
 fi
 
 echo "Installing rust stable..."
