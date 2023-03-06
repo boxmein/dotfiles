@@ -110,7 +110,6 @@ let username = "johannes"; in
     nano
 
     # Chat
-    discord
     weechat
 
     # Git stuff
@@ -192,7 +191,6 @@ let username = "johannes"; in
     ipcalc                            # ip range calculator 
     openssl
     viddy                             # magic version of watch(1)
-    discord
     asdf-vm                           # software version manager, supports per-directory versions
     packer                            # vm image builder
     lima                              # linux vm manager
