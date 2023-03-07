@@ -12,6 +12,7 @@ ansible
 ansible-lint
 arduino
 ark
+arp-scan
 asdf-vm
 autoconf
 avahi
@@ -23,6 +24,7 @@ bind
 bluedevil
 breeze-gtk
 btrfs-progs
+burpsuite
 bzip2
 calligra
 cloc
@@ -35,6 +37,7 @@ cronie
 cryptsetup
 ctop
 cubicsdr
+datagrip-eap
 device-mapper
 dhclient
 dhcpcd
@@ -72,12 +75,14 @@ fzf
 gawk
 gcc-libs
 gettext
+ghidra
 git-lfs
 git-secret
 github-cli
 glibc
 glibc-locales
 gnome-themes-extra
+gnu-netcat
 gnuradio
 gnuradio-companion
 gnuradio-iqbal
@@ -101,6 +106,7 @@ handbrake
 haveged
 helm
 htop
+hugo
 inetutils
 intel-ucode
 intellij-idea-ce-eap
@@ -140,6 +146,7 @@ ksshaskpass
 ksysguard
 ksystemlog
 kubectl
+kubetail
 kwallet-pam
 kwalletmanager
 kwayland-integration
@@ -224,6 +231,7 @@ ntfs-3g
 ntp
 numlockx
 nvidia-utils
+obs-studio
 obsidian
 okular
 openresolv
@@ -279,6 +287,7 @@ qemu-user-binfmt
 qmk
 qt5-imageformats
 qt5-virtualkeyboard
+radare2
 rclone
 reiserfsprogs
 renode-bin
@@ -301,6 +310,7 @@ shadow
 skaffold
 skanlite
 slack-desktop
+soapyrtlsdr
 sof-firmware
 spectacle
 spectre-meltdown-checker
