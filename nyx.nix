@@ -34,7 +34,6 @@
 
   networking.hostName = "nyx";
   networking.computerName = "nyx";
-  networking.localHostName = "nyx.local";
 
 
   # programs.gpg

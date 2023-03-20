@@ -33,7 +33,6 @@
 
   networking.hostName = "mycroft";
   networking.computerName = "mycroft";
-  networking.localHostName = "mycroft.local";
 
 
   # programs.gpg
