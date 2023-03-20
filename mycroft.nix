@@ -20,11 +20,10 @@
     enable = true;
 
     brews = [
-
     ];
 
     casks = [
-
+	"google-cloud-sdk"
     ];
 
     taps = [];
