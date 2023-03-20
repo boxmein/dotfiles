@@ -32,7 +32,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-22.11-darwin";
-    # nixpkgsUnstable.url = "github:nixos/nixpkgs/unstable";
+    nixpkgsUnstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     darwin.url = "github:lnl7/nix-darwin/master";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
     #flake-utils.url = "github:numtide/flake-utils";
@@ -43,7 +43,7 @@
     # nixos-generators.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, darwin, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, darwin, home-manager, nixpkgsUnstable, ... }@inputs:
     let configuration = { pkgs, ... }: {
         nix.package = pkgs.nixFlakes;
         nix.registry.nixpkgs.flake = nixpkgs;
@@ -62,6 +62,7 @@
           home-manager.darwinModules.home-manager
           ./nyx.nix
         ];
+	inputs = { inherit darwin nixpkgs nixpkgsUnstable; };
       };
       mycroft = darwin.lib.darwinSystem rec {
         system = "x86_64-darwin";
@@ -70,6 +71,7 @@
           home-manager.darwinModules.home-manager
           ./mycroft.nix
         ];
+	inputs = { inherit darwin nixpkgs nixpkgsUnstable; };
       };
     };
   };

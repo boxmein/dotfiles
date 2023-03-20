@@ -2,7 +2,7 @@
   users.users.johannes = {
     shell = pkgs.zsh;
   };
-  home-manager.users.johannes = import ./home.nix;
+  home-manager.users.johannes = import ./home.nix { inherit pkgs nixpkgsUnstable; };
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
