@@ -20,11 +20,22 @@
     enable = true;
 
     brews = [
-      
+      "cloudformation-guard"
+      "semgrep"
+      "tilt"
+      "ctop"
+      "radare2"
+      "just"
+      "calc"
+
+      "pinentry-mac"
     ];
 
     casks = [
-      
+      "wireshark"
+      "sage"
+      "docker"
+      "postman"
     ];
 
     taps = [];
@@ -34,7 +45,6 @@
 
   networking.hostName = "nyx";
   networking.computerName = "nyx";
-  networking.localHostName = "nyx.local";
 
 
   # programs.gpg
