@@ -88,3 +88,8 @@ command -v thefuck >/dev/null 2>/dev/null && source <(thefuck --alias)
 # 2) recommended solution is to not use tty command
 export GPG_TTY="$TTY"
 gpg-connect-agent updatestartuptty /bye >/dev/null 2>/dev/null
+
+# https://github.com/alacritty/alacritty/issues/2950#issuecomment-706610878
+printf "\e[?1042l"
+
+

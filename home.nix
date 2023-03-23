@@ -99,7 +99,6 @@ let username = "johannes"; in
     kubectl                            # kubernetes cli
     kubernetes-helm                    # kubernetes tooling
     kubetail                           # kubernetes log viewing helper
-    google-cloud-sdk
     dnsmasq                            # local DNS 
     pstree                             # ps aux, except treeview
 

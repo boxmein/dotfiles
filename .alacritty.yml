@@ -9,8 +9,10 @@ window:
 
 shell:
   program: /bin/zsh
-  args: 
-    - '--login'
+  args:
+    - -l
+    - -c
+    - "tmux attach || tmux"
 
 hints:
   enabled:
@@ -25,10 +27,10 @@ hints:
 alt_send_esc: false
 
 key_bindings:
-  # Collaborate with tmux to provide iTerm2-like pane management
   - { key: D,        mods: Command,              chars: "\x1bd"          }
   - { key: D,        mods: Command|Shift,        chars: "\x1bD"          }
   - { key: W,        mods: Command,              chars: "\x1bw"          }
+  - { key: T,        mods: Command,              chars: "\x1bt"          }
 
   # Quality of Life - macOS
   - { key: Back, mods: Super, chars: "\x15" } # delete word/line

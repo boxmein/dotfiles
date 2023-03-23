@@ -8,4 +8,48 @@
   environment.systemPackages = with pkgs; [
     discord
   ];
+
+  # environment.systemPath = [ ... ];
+  # environment.shellAliases = { ... };
+  # environment.profiles  ???;
+  # environment.launchDaemons
+  # environment.launchAgents
+  # environment.variables = { EDITOR = "nvim" };
+
+  homebrew = {
+    enable = true;
+
+    brews = [
+      "cloudformation-guard"
+      "semgrep"
+      "tilt"
+      "ctop"
+      "radare2"
+      "just"
+      "calc"
+
+      "pinentry-mac"
+    ];
+
+    casks = [
+      "wireshark"
+      "sage"
+      "docker"
+      "postman"
+    ];
+
+    taps = [];
+
+    # masApps = [...]; (Installing from Mac App Store)
+  };
+
+  networking.hostName = "nyx";
+  networking.computerName = "nyx";
+
+
+  # programs.gpg
+
+
+  # services
+  services.emacs.enable = true;
 }
