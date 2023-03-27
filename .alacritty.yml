@@ -9,8 +9,10 @@ window:
 
 shell:
   program: /bin/zsh
-  args: 
-    - '--login'
+  args:
+    - -l
+    - -c
+    - "tmux attach || tmux"
 
 hints:
   enabled:
