@@ -20,13 +20,30 @@
     enable = true;
 
     brews = [
+    	"qemu"
+	"podman"
+	"protobuf"
+	"wireguard-tools"
+	"semgrep"
+	"tilt"
     ];
 
     casks = [
+	"google-chrome"
 	"google-cloud-sdk"
+	"slack"
+	"telegram-desktop"
+	"postman"
+	"sage"
     ];
 
-    taps = [];
+    taps = [
+	"boxmein/tap"
+	"aws/tap"
+	"aspect-build/aspect"
+	"arthurk/virt-manager"
+	"johanhaleby/kubetail"
+    ];
 
     # masApps = [...]; (Installing from Mac App Store)
   };
