@@ -64,6 +64,9 @@ sudo ln -sf $HOME/.dotfiles/etc/zshrc /etc/zshrc
 sudo ln -sf $HOME/.dotfiles/etc/zprofile /etc/zprofile
 sudo ln -sf $HOME/.dotfiles/usr/local/share/zsh/ /usr/local/share/zsh/
 
+mkdir -p $HOME/.config/polybar
+ln -sf $HOME/.dotfiles/.config/polybar/config.ini $HOME/.config/polybar/config.ini
+
 set +x
 
 if [[ ! -d ~/.SpaceVim.d ]]; then
