@@ -66,6 +66,7 @@ sudo ln -sf $HOME/.dotfiles/usr/local/share/zsh/ /usr/local/share/zsh/
 
 mkdir -p $HOME/.config/polybar
 ln -sf $HOME/.dotfiles/.config/polybar/config.ini $HOME/.config/polybar/config.ini
+ln -sf $HOME/.dotfiles/.config/polybar/start.sh $HOME/.config/polybar/start.sh
 
 set +x
 
