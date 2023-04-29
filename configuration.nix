@@ -1,6 +1,7 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
+# vim:set ft=nix tw=80 expandtabs shiftwidth=2
 
 { config, pkgs, ... }:
 
@@ -10,6 +11,9 @@
       ./hardware-configuration.nix
       <home-manager/nixos>
     ];
+
+  nix.settings.experimental-features = ["nix-command" "flakes"];
+
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -70,15 +74,100 @@
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
+      usbutils
       discord
-        firefox
-        _1password-gui
-        gnupg
-        pinentry
-        pinentry-curses
-        exa
-        google-cloud-sdk
-        #  thunderbird
+      firefox
+      _1password-gui
+      gnupg
+      pinentry
+      pinentry-qt
+      exa
+      google-cloud-sdk
+      alacritty
+      rustup
+      google-chrome
+
+      rustup
+      clang
+      gcc
+      
+      stack
+      
+      python310
+      
+      autoconf
+      automake
+      libtool
+      cmake
+      ninja
+      ccls
+      pkgconfig
+      
+      perl
+      
+      terraform
+      k9s
+      lazydocker
+      skaffold
+      kubectl
+      kubernetes-helm
+      kubetail
+      packer
+      
+      vscode
+
+      git-secret
+      bat
+      calc
+      jq
+      k6
+      pandoc
+      iperf
+      socat
+      fd
+      ffmpeg
+      fzf
+      github-cli
+      git-lfs
+
+      qemu
+      openvpn
+      pass
+      thefuck
+
+      tor
+      transmission
+      unzip
+      p7zip
+      watch
+      wget
+      pv
+      rename
+      ripgrep
+      rsync
+      tree
+      up
+      screen
+      ngrok
+      rclone
+      syncthing
+      htop
+      killall
+      
+      z3
+      fcrackzip
+      mitmproxy
+      ipcalc
+      ffuf
+
+      asdf-vm
+      steampipe
+      awscli2
+
+      rnix-lsp
+      nixpkgs-fmt
+
+      jetbrains-mono
     ];
   };
 
@@ -96,6 +185,18 @@
     tailscale.enable = true;
     openssh.enable = true;
     flatpak.enable = true;
+    fprintd = {
+      enable = true;
+      tod.enable = true;
+      tod.driver = pkgs.libfprint-2-tod1-vfs0090;
+    };
+    weechat.enable = true;
+
+    emacs = {
+      enable = true;
+      defaultEditor = true;
+      # TODO: spacemacs
+    };
     xserver = {
       layout = "ee";
       xkbVariant = "";
@@ -119,17 +220,19 @@
   };
 
   programs = {
+    tmux.enable = true;
+    # TODO: my tmux config
     mtr.enable = true;
     git.enable = true;
     zsh.enable = true;
-    neovim.enable = true;
+    neovim.enable = true; 
+    # TODO: spacenvim
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
-      pinentryFlavor = "curses";
+      pinentryFlavor = "qt";
     };
   };
-
 
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [

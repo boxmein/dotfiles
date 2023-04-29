@@ -2,13 +2,13 @@ font:
   normal:
     family: Jetbrains Mono
     style: Variable
-  size: 12.0
+  size: 6.0
 
 window:
   dynamic_padding: true
 
 shell:
-  program: /bin/zsh
+  program: /run/current-system/sw/bin/zsh
   args:
     - -l
     - -c

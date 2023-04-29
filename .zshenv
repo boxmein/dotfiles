@@ -1,6 +1,6 @@
 # NOTE: don't echo in this file
 export PAGER=less
-export SHELL=/etc/profiles/per-user/johannes/bin/zsh
+export SHELL=/run/current-system/sw/bin/zsh
 export HISTFILE=~/.histfile
 export HISTSIZE=50000
 export SAVEHIST=10000
