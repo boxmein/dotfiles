@@ -5,9 +5,9 @@ if [ -x /usr/libexec/path_helper ]; then
 fi
 
 paths=(
+  $HOME/.asdf/shims
   /run/current-system/sw/bin
   $HOME/.nix-profile/bin
-  $HOME/.asdf/shims
   /usr/local/bin
   /usr/local/sbin
   $HOME/bin

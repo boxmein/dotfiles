@@ -29,6 +29,7 @@ let username = "johannes"; in
   programs.bat.enable = true;
 
   home.packages = with pkgs; [
+    gitui
     # GPG + SSH setup
     pinentry_mac                      # graphical pinentry
 
