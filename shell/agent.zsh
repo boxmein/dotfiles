@@ -12,9 +12,9 @@ _use_gpg_ssh_agent() {
 	export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 }
 
-if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+#if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
 	_use_gpg_ssh_agent
-else
-	_use_1password_ssh_agent
-fi
+#else
+#	_use_1password_ssh_agent
+#fi
 

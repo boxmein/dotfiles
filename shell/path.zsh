@@ -86,5 +86,5 @@ if [[ -d "$HOME/.cargo/bin" ]]; then
   paths+=("$HOME/.cargo/bin")
 fi
 
-export PATH="${(j/:/)paths}:$PATH"
+export PATH="$PATH:${(j/:/)paths}"
 

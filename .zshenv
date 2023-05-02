@@ -1,6 +1,6 @@
 # NOTE: don't echo in this file
 export PAGER=less
-export SHELL=/bin/zsh
+export SHELL=/run/current-system/sw/bin/zsh
 export HISTFILE=~/.histfile
 export HISTSIZE=50000
 export SAVEHIST=10000
@@ -26,7 +26,7 @@ export ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd history)
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#31d970"
 
 # Path
-. ~/.dotfiles/shell/path.zsh
+# . ~/.dotfiles/shell/path.zsh
 
 # nix stuff
 [[ -f /etc/static/zshenv ]] && . /etc/static/zshenv
