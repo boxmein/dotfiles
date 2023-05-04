@@ -86,5 +86,10 @@ if [[ -d "$HOME/.cargo/bin" ]]; then
   paths+=("$HOME/.cargo/bin")
 fi
 
+# CloudFormation Guard
+if [[ -d "$HOME/.guard/bin" ]]; then 
+  paths+=("$HOME/.guard/bin")
+fi
+
 export PATH="$PATH:${(j/:/)paths}"
 
