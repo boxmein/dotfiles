@@ -7,12 +7,11 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
       <home-manager/nixos>
     ];
-
-  nix.settings.experimental-features = ["nix-command" "flakes"];
 
 
   # Bootloader.
@@ -29,7 +28,6 @@
   boot.initrd.luks.devices."luks-d51cea4e-b12a-46a1-8f7d-3ea03dcd70e5".device = "/dev/disk/by-uuid/d51cea4e-b12a-46a1-8f7d-3ea03dcd70e5";
   boot.initrd.luks.devices."luks-d51cea4e-b12a-46a1-8f7d-3ea03dcd70e5".keyFile = "/crypto_keyfile.bin";
 
-  networking.hostName = "trifle"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -66,113 +64,6 @@
   sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.johannes = {
-    isNormalUser = true;
-    description = "johannes";
-    extraGroups = [ "networkmanager" "wheel" ];
-    shell = pkgs.zsh;
-    packages = with pkgs; [
-      usbutils
-      discord
-      firefox
-      _1password-gui
-      gnupg
-      pinentry
-      pinentry-qt
-      exa
-      google-cloud-sdk
-      alacritty
-      rustup
-      google-chrome
-
-      rustup
-      clang
-      gcc
-      
-      stack
-      
-      python310
-      
-      autoconf
-      automake
-      libtool
-      cmake
-      ninja
-      ccls
-      pkgconfig
-      
-      perl
-      
-      terraform
-      k9s
-      lazydocker
-      skaffold
-      kubectl
-      kubernetes-helm
-      kubetail
-      packer
-      
-      vscode
-
-      git-secret
-      bat
-      calc
-      jq
-      k6
-      pandoc
-      iperf
-      socat
-      fd
-      ffmpeg
-      fzf
-      github-cli
-      git-lfs
-
-      qemu
-      openvpn
-      pass
-      thefuck
-
-      tor
-      transmission
-      unzip
-      p7zip
-      watch
-      wget
-      pv
-      rename
-      ripgrep
-      rsync
-      tree
-      up
-      screen
-      ngrok
-      rclone
-      syncthing
-      htop
-      killall
-      
-      z3
-      fcrackzip
-      mitmproxy
-      ipcalc
-      ffuf
-
-      asdf-vm
-      steampipe
-      awscli2
-
-      rnix-lsp
-      nixpkgs-fmt
-
-      jetbrains-mono
-    ];
-  };
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -225,7 +116,7 @@
     mtr.enable = true;
     git.enable = true;
     zsh.enable = true;
-    neovim.enable = true; 
+    neovim.enable = true;
     # TODO: spacenvim
     gnupg.agent = {
       enable = true;
