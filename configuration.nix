@@ -86,6 +86,7 @@
       alacritty
       rustup
       google-chrome
+      obsidian
 
       rustup
       clang
