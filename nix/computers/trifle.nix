@@ -116,7 +116,9 @@
   # home-manager.users.johannes = import ../homemanager/home.nix;
 
   # environment.systemPath = [ ... ];
-  # environment.shellAliases = { ... };
+  environment.shellAliases = { 
+	"renix" = "nixos-rebuild switch --flake ~/.dotfiles";
+  };
   # environment.profiles  ???;
   # environment.launchDaemons
   # environment.launchAgents
@@ -253,4 +255,7 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "22.11"; # Did you read the comment?
 
+  # https://github.com/NixOS/nixpkgs/issues/180175
+  systemd.services.NetworkManager-wait-online.enable = lib.mkForce false;
+  systemd.services.systemd-networkd-wait-online.enable = lib.mkForce false;
 }
