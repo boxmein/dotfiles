@@ -44,35 +44,60 @@
   };
 
   outputs = { self, nixpkgs, darwin, home-manager, ... }@inputs:
+    let
+      importPkgs = system: import nixpkgs {
+        inherit system;
+        config = {
+          allowUnfree = true;
+        };
+      };
+      configuration = { pkgs, ... }: {
+        nix.package = pkgs.nixFlakes;
+        nix.registry.nixpkgs.flake = nixpkgs;
+        nix.extraOptions = ''
+          experimental-features = nix-command flakes
+        '';
+        services.nix-daemon.enable = true;
+      };
+
+    in
     {
       nixosConfigurations = {
         trifle = nixpkgs.lib.nixosSystem
           rec {
             system = "x86_64-linux";
             modules = [
-              ./nix/modules/common.nix
+              configuration
               ./nix/modules/trifle.nix
             ];
+            specialArgs = inputs // rec {
+              pkgs = importPkgs system;
+            };
           };
       };
       darwinConfigurations = {
         nyx = darwin.lib.darwinSystem rec {
           system = "x86_64-darwin";
           modules = [
+            configuration
             home-manager.darwinModules.home-manager
-            ./nix/modules/common.nix
             ./nix/modules/mac.nix
             ./nix/modules/nyx.nix
           ];
+          specialArgs = inputs // rec {
+            pkgs = importPkgs system;
+          };
         };
         mycroft = darwin.lib.darwinSystem rec {
           system = "x86_64-darwin";
           modules = [
             home-manager.darwinModules.home-manager
-            ./nix/modules/common.nix
             ./nix/modules/mac.nix
             ./nix/modules/mycroft.nix
           ];
+          specialArgs = inputs // rec {
+            pkgs = importPkgs system;
+          };
         };
       };
     };

@@ -2,6 +2,9 @@
 
 let username = "johannes"; in
 {
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
+
   programs.home-manager.enable = true;
 
   # programs.zsh.plugins = ...
