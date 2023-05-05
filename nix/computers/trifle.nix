@@ -1,71 +1,13 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-# vim:set ft=nix tw=80 expandtabs shiftwidth=2
-
-{ config, pkgs, ... }:
-
-{
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      <home-manager/nixos>
-    ];
-
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+{ config, lib, pkgs, ... }: {
+  networking.hostName = "trifle";
 
 
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.efi.efiSysMountPoint = "/boot/efi";
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    <home-manager/nixos>
+  ];
 
-  # Setup keyfile
-  boot.initrd.secrets = {
-    "/crypto_keyfile.bin" = null;
-  };
-
-  # Enable swap on luks
-  boot.initrd.luks.devices."luks-d51cea4e-b12a-46a1-8f7d-3ea03dcd70e5".device = "/dev/disk/by-uuid/d51cea4e-b12a-46a1-8f7d-3ea03dcd70e5";
-  boot.initrd.luks.devices."luks-d51cea4e-b12a-46a1-8f7d-3ea03dcd70e5".keyFile = "/crypto_keyfile.bin";
-
-  networking.hostName = "trifle"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
-  networking.networkmanager.enable = true;
-
-  # Set your time zone.
-  time.timeZone = "Europe/Tallinn";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "et_EE.UTF-8";
-    LC_IDENTIFICATION = "et_EE.UTF-8";
-    LC_MEASUREMENT = "et_EE.UTF-8";
-    LC_MONETARY = "et_EE.UTF-8";
-    LC_NAME = "et_EE.UTF-8";
-    LC_NUMERIC = "et_EE.UTF-8";
-    LC_PAPER = "et_EE.UTF-8";
-    LC_TELEPHONE = "et_EE.UTF-8";
-    LC_TIME = "et_EE.UTF-8";
-  };
-
-
-  # Configure console keymap
-  console.keyMap = "et";
-
-
-  # Enable sound with pipewire.
-  sound.enable = true;
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.johannes = {
@@ -91,11 +33,11 @@
       rustup
       clang
       gcc
-      
+
       stack
-      
+
       python310
-      
+
       autoconf
       automake
       libtool
@@ -103,9 +45,9 @@
       ninja
       ccls
       pkgconfig
-      
+
       perl
-      
+
       terraform
       k9s
       lazydocker
@@ -114,7 +56,7 @@
       kubernetes-helm
       kubetail
       packer
-      
+
       vscode
 
       git-secret
@@ -154,7 +96,7 @@
       syncthing
       htop
       killall
-      
+
       z3
       fcrackzip
       mitmproxy
@@ -172,8 +114,71 @@
     ];
   };
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  home-manager.users.johannes = import ../homemanager/home.nix;
+
+  environment.systemPackages = with pkgs; [
+    discord
+  ];
+
+  # environment.systemPath = [ ... ];
+  # environment.shellAliases = { ... };
+  # environment.profiles  ???;
+  # environment.launchDaemons
+  # environment.launchAgents
+  # environment.variables = { EDITOR = "nvim" };
+  # programs.gpg
+
+
+  # Bootloader.
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.efi.efiSysMountPoint = "/boot/efi";
+
+  # Setup keyfile
+  boot.initrd.secrets = {
+    "/crypto_keyfile.bin" = null;
+  };
+
+  # Enable swap on luks
+  boot.initrd.luks.devices."luks-d51cea4e-b12a-46a1-8f7d-3ea03dcd70e5".device = "/dev/disk/by-uuid/d51cea4e-b12a-46a1-8f7d-3ea03dcd70e5";
+  boot.initrd.luks.devices."luks-d51cea4e-b12a-46a1-8f7d-3ea03dcd70e5".keyFile = "/crypto_keyfile.bin";
+
+  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+
+  # Configure network proxy if necessary
+  # networking.proxy.default = "http://user:password@proxy:port/";
+  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+
+  # Enable networking
+  networking.networkmanager.enable = true;
+
+  # Set your time zone.
+  time.timeZone = "Europe/Tallinn";
+
+  # Select internationalisation properties.
+  i18n.defaultLocale = "en_US.UTF-8";
+
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "et_EE.UTF-8";
+    LC_IDENTIFICATION = "et_EE.UTF-8";
+    LC_MEASUREMENT = "et_EE.UTF-8";
+    LC_MONETARY = "et_EE.UTF-8";
+    LC_NAME = "et_EE.UTF-8";
+    LC_NUMERIC = "et_EE.UTF-8";
+    LC_PAPER = "et_EE.UTF-8";
+    LC_TELEPHONE = "et_EE.UTF-8";
+    LC_TIME = "et_EE.UTF-8";
+  };
+
+
+  # Configure console keymap
+  console.keyMap = "et";
+
+
+  # Enable sound with pipewire.
+  sound.enable = true;
+  hardware.pulseaudio.enable = false;
+  security.rtkit.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -226,7 +231,7 @@
     mtr.enable = true;
     git.enable = true;
     zsh.enable = true;
-    neovim.enable = true; 
+    neovim.enable = true;
     # TODO: spacenvim
     gnupg.agent = {
       enable = true;

@@ -5,9 +5,9 @@ if [ -x /usr/libexec/path_helper ]; then
 fi
 
 paths=(
+  $HOME/.asdf/shims
   /run/current-system/sw/bin
   $HOME/.nix-profile/bin
-  $HOME/.asdf/shims
   /usr/local/bin
   /usr/local/sbin
   $HOME/bin
@@ -84,6 +84,11 @@ fi
 
 if [[ -d "$HOME/.cargo/bin" ]]; then 
   paths+=("$HOME/.cargo/bin")
+fi
+
+# CloudFormation Guard
+if [[ -d "$HOME/.guard/bin" ]]; then 
+  paths+=("$HOME/.guard/bin")
 fi
 
 export PATH="$PATH:${(j/:/)paths}"
