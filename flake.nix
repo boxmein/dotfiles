@@ -68,7 +68,7 @@
             system = "x86_64-linux";
             modules = [
               configuration
-              ./nix/modules/trifle.nix
+              ./nix/computers/trifle.nix
             ];
             specialArgs = inputs // rec {
               pkgs = importPkgs system;
@@ -82,7 +82,7 @@
             configuration
             home-manager.darwinModules.home-manager
             ./nix/modules/mac.nix
-            ./nix/modules/nyx.nix
+            ./nix/computers/nyx.nix
           ];
           specialArgs = inputs // rec {
             pkgs = importPkgs system;
@@ -93,7 +93,7 @@
           modules = [
             home-manager.darwinModules.home-manager
             ./nix/modules/mac.nix
-            ./nix/modules/mycroft.nix
+            ./nix/computers/mycroft.nix
           ];
           specialArgs = inputs // rec {
             pkgs = importPkgs system;
