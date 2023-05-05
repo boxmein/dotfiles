@@ -4,8 +4,7 @@
 
   imports = [
     # Include the results of the hardware scan.
-    ./hardware-configuration.nix
-    <home-manager/nixos>
+    ./trifle-hardware-configuration.nix
   ];
 
 
@@ -114,11 +113,7 @@
     ];
   };
 
-  home-manager.users.johannes = import ../homemanager/home.nix;
-
-  environment.systemPackages = with pkgs; [
-    discord
-  ];
+  # home-manager.users.johannes = import ../homemanager/home.nix;
 
   # environment.systemPath = [ ... ];
   # environment.shellAliases = { ... };
