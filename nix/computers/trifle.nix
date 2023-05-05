@@ -117,7 +117,7 @@
 
   # environment.systemPath = [ ... ];
   environment.shellAliases = { 
-	"renix" = "nixos-rebuild switch --flake ~/.dotfiles";
+	"renix" = "sudo nixos-rebuild switch --flake ~/.dotfiles";
   };
   # environment.profiles  ???;
   # environment.launchDaemons
