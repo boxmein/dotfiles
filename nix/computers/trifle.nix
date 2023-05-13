@@ -15,12 +15,17 @@
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
+      file
+      infracost
+      k3s
       usbutils
       discord
       firefox
+      postgresql_15
       _1password-gui
       gnupg
       pinentry
+      wireshark
       pinentry-qt
       exa
       google-cloud-sdk
@@ -108,6 +113,7 @@
 
       rnix-lsp
       nixpkgs-fmt
+      tcpdump
 
       jetbrains-mono
     ];
@@ -240,6 +246,7 @@
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [
     22 # SSH
+    6443
   ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
@@ -258,4 +265,11 @@
   # https://github.com/NixOS/nixpkgs/issues/180175
   systemd.services.NetworkManager-wait-online.enable = lib.mkForce false;
   systemd.services.systemd-networkd-wait-online.enable = lib.mkForce false;
+
+  # This is required so that pod can reach the API server (running on port 6443 by default)
+  services.k3s.enable = true;
+  services.k3s.role = "server";
+  services.k3s.extraFlags = toString [
+    # "--kubelet-arg=v=4" # Optionally add additional args to k3s
+  ];
 }
