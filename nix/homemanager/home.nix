@@ -27,6 +27,19 @@ let username = "johannes"; in
 
   programs.bat.enable = true;
 
+  programs.zsh = {
+    enable = true;
+    shellAliases = {
+      "renix" = "darwin-rebuild switch --flake ~/.dotfiles"; 
+    };
+    initExtra = ''
+source ~/.dotfiles/.zshrc
+    '';
+    envExtra = ''
+source ~/.dotfiles/.zshenv
+    '';
+  };
+
   home.packages = with pkgs; [
     gitui
     # GPG + SSH setup

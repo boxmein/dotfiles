@@ -10,9 +10,6 @@
   ];
 
   # environment.systemPath = [ ... ];
-  environment.shellAliases = {
-	"renix" = "darwin-rebuild switch --flake ~/.dotfiles";
-  };
   # environment.profiles  ???;
   # environment.launchDaemons
   # environment.launchAgents
