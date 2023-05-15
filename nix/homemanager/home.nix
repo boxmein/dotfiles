@@ -37,10 +37,12 @@ source ~/.dotfiles/.zshrc
     '';
     envExtra = ''
 source ~/.dotfiles/.zshenv
+source ~/.dotfiles/shell/path.zsh
     '';
   };
 
   home.packages = with pkgs; [
+    nmap
     gitui
     # GPG + SSH setup
     pinentry_mac # graphical pinentry
