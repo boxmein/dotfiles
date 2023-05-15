@@ -15,6 +15,8 @@
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
+      slack
+      libstdcxx5
       file
       infracost
       k3s
