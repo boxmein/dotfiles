@@ -1,4 +1,4 @@
-# ############################################################################ #
+ ############################################################################ #
 #
 # Aliases
 #
@@ -9,7 +9,6 @@
 
 alias vim="nvim"
 alias ec="emacsclient"
-alias renix="darwin-rebuild switch --flake ~/.dotfiles"
 
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'

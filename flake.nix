@@ -44,33 +44,61 @@
   };
 
   outputs = { self, nixpkgs, darwin, home-manager, ... }@inputs:
-    let configuration = { pkgs, ... }: {
+    let
+      importPkgs = system: import nixpkgs {
+        inherit system;
+        config = {
+          allowUnfree = true;
+        };
+      };
+      configuration = { pkgs, ... }: {
         nix.package = pkgs.nixFlakes;
         nix.registry.nixpkgs.flake = nixpkgs;
         nix.extraOptions = ''
           experimental-features = nix-command flakes
         '';
-        services.nix-daemon.enable = true;
+        # services.nix-daemon.enable = true;
       };
+
     in
     {
-    darwinConfigurations = {
-      nyx = darwin.lib.darwinSystem rec {
-        system = "x86_64-darwin";
-        modules = [
-          configuration
-          home-manager.darwinModules.home-manager
-          ./nyx.nix
-        ];
+      nixosConfigurations = {
+        trifle = nixpkgs.lib.nixosSystem
+          rec {
+            system = "x86_64-linux";
+            modules = [
+              configuration
+              ./nix/computers/trifle.nix
+            ];
+            specialArgs = inputs // rec {
+              pkgs = importPkgs system;
+            };
+          };
       };
-      mycroft = darwin.lib.darwinSystem rec {
-        system = "x86_64-darwin";
-        modules = [
-          configuration
-          home-manager.darwinModules.home-manager
-          ./mycroft.nix
-        ];
+      darwinConfigurations = {
+        nyx = darwin.lib.darwinSystem rec {
+          system = "x86_64-darwin";
+          modules = [
+            configuration
+            home-manager.darwinModules.home-manager
+            ./nix/modules/mac.nix
+            ./nix/computers/nyx.nix
+          ];
+          specialArgs = inputs // rec {
+            pkgs = importPkgs system;
+          };
+        };
+        mycroft = darwin.lib.darwinSystem rec {
+          system = "x86_64-darwin";
+          modules = [
+            home-manager.darwinModules.home-manager
+            ./nix/modules/mac.nix
+            ./nix/computers/mycroft.nix
+          ];
+          specialArgs = inputs // rec {
+            pkgs = importPkgs system;
+          };
+        };
       };
     };
-  };
 }
