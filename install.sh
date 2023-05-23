@@ -64,9 +64,10 @@ sudo ln -sf $HOME/.dotfiles/etc/zshrc /etc/zshrc
 sudo ln -sf $HOME/.dotfiles/etc/zprofile /etc/zprofile
 sudo ln -sf $HOME/.dotfiles/usr/local/share/zsh/ /usr/local/share/zsh/
 
-mkdir -p $HOME/.config/polybar
+mkdir -p $HOME/.config/polybar $HOME/.config/plasma-workspace/env/
 ln -sf $HOME/.dotfiles/.config/polybar/config.ini $HOME/.config/polybar/config.ini
 ln -sf $HOME/.dotfiles/.config/polybar/start.sh $HOME/.config/polybar/start.sh
+ln -sf $HOME/.dotfiles/.config/polybar/start.sh $HOME/.config/plasma-workspace/env/polybar.sh
 
 set +x
 
