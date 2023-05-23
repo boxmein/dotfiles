@@ -15,6 +15,10 @@
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
+      runescape
+      transmission-qt
+      ipfs
+      gnumake
       slack
       libstdcxx5
       file
@@ -43,6 +47,7 @@
       stack
 
       python310
+      python310Packages.poetry
 
       autoconf
       automake

@@ -46,6 +46,7 @@ source ~/.dotfiles/shell/path.zsh
     gitui
     # GPG + SSH setup
     pinentry_mac # graphical pinentry
+    wpscan
 
     # Python
     # python310                         # Python
