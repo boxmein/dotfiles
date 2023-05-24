@@ -201,5 +201,6 @@ let username = "johannes"; in
     steampipe
     awscli2
     nodePackages."@angular/cli"
+    fastlane
   ];
 }
