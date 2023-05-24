@@ -27,10 +27,26 @@ let username = "johannes"; in
 
   programs.bat.enable = true;
 
+  programs.zsh = {
+    enable = true;
+    shellAliases = {
+      "renix" = "darwin-rebuild switch --flake ~/.dotfiles"; 
+    };
+    initExtra = ''
+source ~/.dotfiles/.zshrc
+    '';
+    envExtra = ''
+source ~/.dotfiles/.zshenv
+source ~/.dotfiles/shell/path.zsh
+    '';
+  };
+
   home.packages = with pkgs; [
+    nmap
     gitui
     # GPG + SSH setup
     pinentry_mac # graphical pinentry
+    wpscan
 
     # Python
     # python310                         # Python

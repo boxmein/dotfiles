@@ -1,4 +1,4 @@
-# ############################################################################ #
+ ############################################################################ #
 #
 # Aliases
 #
@@ -9,12 +9,6 @@
 
 alias vim="nvim"
 alias ec="emacsclient"
-
-if [[ "$(uname -s)" == "Linux" ]]; then 
-	alias renix="sudo cp ~/.dotfiles/configuration.nix /etc/nixos/configuration.nix && sudo nixos-rebuild switch"
-else
-	alias renix="darwin-rebuild switch --flake ~/.dotfiles"
-fi
 
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'

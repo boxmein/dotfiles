@@ -4,8 +4,7 @@
 
   imports = [
     # Include the results of the hardware scan.
-    ./hardware-configuration.nix
-    <home-manager/nixos>
+    ./trifle-hardware-configuration.nix
   ];
 
 
@@ -16,18 +15,30 @@
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
+      runescape
+      transmission-qt
+      ipfs
+      gnumake
+      slack
+      libstdcxx5
+      file
+      infracost
+      k3s
       usbutils
       discord
       firefox
+      postgresql_15
       _1password-gui
       gnupg
       pinentry
+      wireshark
       pinentry-qt
       exa
-      google-cloud-sdk
+      (google-cloud-sdk.withExtraComponents [google-cloud-sdk.components.gke-gcloud-auth-plugin]) 
       alacritty
       rustup
       google-chrome
+      obsidian
 
       rustup
       clang
@@ -36,6 +47,7 @@
       stack
 
       python310
+      python310Packages.poetry
 
       autoconf
       automake
@@ -108,19 +120,18 @@
 
       rnix-lsp
       nixpkgs-fmt
+      tcpdump
 
       jetbrains-mono
     ];
   };
 
-  home-manager.users.johannes = import ../homemanager/home.nix;
-
-  environment.systemPackages = with pkgs; [
-    discord
-  ];
+  # home-manager.users.johannes = import ../homemanager/home.nix;
 
   # environment.systemPath = [ ... ];
-  # environment.shellAliases = { ... };
+  environment.shellAliases = { 
+	"renix" = "sudo nixos-rebuild switch --flake ~/.dotfiles";
+  };
   # environment.profiles  ???;
   # environment.launchDaemons
   # environment.launchAgents
@@ -242,6 +253,7 @@
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [
     22 # SSH
+    6443
   ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
@@ -257,4 +269,14 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "22.11"; # Did you read the comment?
 
+  # https://github.com/NixOS/nixpkgs/issues/180175
+  systemd.services.NetworkManager-wait-online.enable = lib.mkForce false;
+  systemd.services.systemd-networkd-wait-online.enable = lib.mkForce false;
+
+  # This is required so that pod can reach the API server (running on port 6443 by default)
+  services.k3s.enable = true;
+  services.k3s.role = "server";
+  services.k3s.extraFlags = toString [
+    # "--kubelet-arg=v=4" # Optionally add additional args to k3s
+  ];
 }

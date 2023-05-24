@@ -1,4 +1,5 @@
 { config, pkgs, ... }: {
+  services.nix-daemon.enable = true;
   homebrew = {
     enable = true;
 
@@ -21,8 +22,6 @@
     ];
 
     casks = [
-      "wireshark"
-      "sage"
       "docker"
       "postman"
       # "google-chrome"

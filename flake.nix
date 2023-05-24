@@ -57,7 +57,7 @@
         nix.extraOptions = ''
           experimental-features = nix-command flakes
         '';
-        services.nix-daemon.enable = true;
+        # services.nix-daemon.enable = true;
       };
 
     in

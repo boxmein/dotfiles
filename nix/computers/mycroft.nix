@@ -9,8 +9,7 @@
     discord
   ];
 
-  # environment.systemPath = [ ... ];
-  # environment.shellAliases = { ... };
+  # environment.systemPath = [];
   # environment.profiles  ???;
   # environment.launchDaemons
   # environment.launchAgents
