@@ -25,8 +25,6 @@ hints:
         enabled: true
         mods: None
 
-alt_send_esc: false
-
 key_bindings:
   - { key: D,        mods: Command,              chars: "\x1bd"          }
   - { key: D,        mods: Command|Shift,        chars: "\x1bD"          }
