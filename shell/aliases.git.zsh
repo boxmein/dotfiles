@@ -11,9 +11,16 @@ alias gl="git log --pretty=oneline"
 alias gg="git log --all --graph --oneline --decorate"
 alias gdc="git diff --cached"
 alias gp="git push"
-alias unstage="git reset HEAD"
 alias gd="git diff --"
 alias gcom="git checkout master"
 alias gpu="git pull"
 alias gpsu='git-push-set-upstream'
 alias gbo='git-move-branch-to-origin'
+
+unstage() {
+    local pat=$1
+    if [[ $# -eq 0 ]]; then
+        pat=$(git diff --cached --name-only | fzf --preview 'git diff --color --cached {}')
+    fi
+    git reset HEAD $pat "${@:2}"
+}
