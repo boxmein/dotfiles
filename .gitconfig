@@ -4,6 +4,7 @@
 	signingkey = 3078540B
 [push]
 	default = simple
+	autoSetupRemote = true
 [core]
 	excludesfile = ~/.gitignore_global
 	ignoreCase = true

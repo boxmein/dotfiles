@@ -13,7 +13,7 @@
       "calc"
 
       "pinentry-mac"
-      "qemu"
+      # "qemu"
       "podman"
       "protobuf"
       "wireguard-tools"
@@ -24,12 +24,12 @@
     casks = [
       "docker"
       "postman"
-      "google-chrome"
+      # "google-chrome"
       "google-cloud-sdk"
-      "slack"
-      "telegram-desktop"
+      # "slack"
+      # "telegram-desktop"
       "postman"
-      "sage"
+      # "sage"
     ];
 
     taps = [

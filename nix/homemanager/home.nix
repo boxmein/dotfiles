@@ -217,5 +217,6 @@ source ~/.dotfiles/shell/path.zsh
     steampipe
     awscli2
     nodePackages."@angular/cli"
+    fastlane
   ];
 }
