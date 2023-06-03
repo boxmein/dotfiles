@@ -8,8 +8,9 @@ window:
   dynamic_padding: true
 
 shell:
-  program: /bin/zsh
+  program: /usr/bin/env
   args:
+    - zsh
     - -l
     - -c
     - "tmux attach || tmux"
