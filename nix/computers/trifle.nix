@@ -15,7 +15,6 @@
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
-      runescape
       transmission-qt
       ipfs
       gnumake
