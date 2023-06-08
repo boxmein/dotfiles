@@ -42,6 +42,7 @@ source ~/.dotfiles/shell/path.zsh
   };
 
   home.packages = with pkgs; [
+    git-branchless
     nmap
     gitui
     # GPG + SSH setup
