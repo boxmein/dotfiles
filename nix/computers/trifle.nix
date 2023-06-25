@@ -12,9 +12,10 @@
   users.users.johannes = {
     isNormalUser = true;
     description = "johannes";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
+      element-desktop
       steam
       transmission-qt
       ipfs
@@ -280,4 +281,8 @@
   services.k3s.extraFlags = toString [
     # "--kubelet-arg=v=4" # Optionally add additional args to k3s
   ];
+
+  virtualisation.docker = {
+  	enable = true;
+  };
 }
