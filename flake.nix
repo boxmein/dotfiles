@@ -31,7 +31,8 @@
   description = "boxmein darwin flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-22.11-darwin";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
+    nixpkgsDarwin.url = "github:nixos/nixpkgs/nixpkgs-23.05-darwin";
     # nixpkgsUnstable.url = "github:nixos/nixpkgs/unstable";
     darwin.url = "github:lnl7/nix-darwin/master";
     darwin.inputs.nixpkgs.follows = "nixpkgs";

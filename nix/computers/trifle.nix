@@ -15,6 +15,7 @@
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
+      remmina
       element-desktop
       steam
       transmission-qt
