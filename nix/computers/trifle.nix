@@ -49,7 +49,7 @@
       stack
 
       python310
-      python310Packages.poetry
+      poetry
 
       autoconf
       automake
