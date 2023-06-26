@@ -29,7 +29,6 @@ antigen bundle command-not-found
 antigen bundle copyfile
 antigen bundle docker
 antigen bundle docker-compose
-antigen bundle dotenv
 antigen bundle fzf
 antigen bundle git
 antigen bundle golang
