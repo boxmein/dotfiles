@@ -15,6 +15,9 @@
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
+      go_1_19
+      dig
+      just
       remmina
       element-desktop
       steam
