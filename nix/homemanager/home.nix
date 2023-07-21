@@ -205,7 +205,6 @@ source ~/.dotfiles/shell/path.zsh
     qrencode
     testdisk
     ipcalc # ip range calculator 
-    openssl
     viddy # magic version of watch(1)
     asdf-vm # software version manager, supports per-directory versions
     packer # vm image builder
