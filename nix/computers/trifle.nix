@@ -246,7 +246,6 @@
       #media-session.enable = true;
     };
 
-    localtimed.enable = true;
   };
 
   programs = {
