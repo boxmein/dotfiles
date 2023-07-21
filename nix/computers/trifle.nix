@@ -15,6 +15,11 @@
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
+      weechat
+      lnav
+      wireguard-tools
+      nmap
+      ansible
       go_1_19
       dig
       just
@@ -39,7 +44,7 @@
       wireshark
       pinentry-qt
       exa
-      (google-cloud-sdk.withExtraComponents [google-cloud-sdk.components.gke-gcloud-auth-plugin]) 
+      (google-cloud-sdk.withExtraComponents [ google-cloud-sdk.components.gke-gcloud-auth-plugin ])
       alacritty
       rustup
       google-chrome
@@ -134,8 +139,8 @@
   # home-manager.users.johannes = import ../homemanager/home.nix;
 
   # environment.systemPath = [ ... ];
-  environment.shellAliases = { 
-	"renix" = "sudo nixos-rebuild switch --flake ~/.dotfiles";
+  environment.shellAliases = {
+    "renix" = "sudo nixos-rebuild switch --flake ~/.dotfiles";
   };
   # environment.profiles  ???;
   # environment.launchDaemons
@@ -157,6 +162,8 @@
   # Enable swap on luks
   boot.initrd.luks.devices."luks-d51cea4e-b12a-46a1-8f7d-3ea03dcd70e5".device = "/dev/disk/by-uuid/d51cea4e-b12a-46a1-8f7d-3ea03dcd70e5";
   boot.initrd.luks.devices."luks-d51cea4e-b12a-46a1-8f7d-3ea03dcd70e5".keyFile = "/crypto_keyfile.bin";
+
+  boot.kernel.sysctl."net.ipv4.ip_forward" = 1;
 
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -238,6 +245,8 @@
       # no need to redefine it in your config for now)
       #media-session.enable = true;
     };
+
+    localtimed.enable = true;
   };
 
   programs = {
@@ -266,6 +275,10 @@
 
   networking.firewall.checkReversePath = "loose";
 
+  networking.extraHosts = ''
+    127.0.0.1 cc.smartvent.test cc-api.smartvent.test api.smartvent.test smartvent.test id.smartvent.test
+  '';
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
@@ -287,6 +300,6 @@
   ];
 
   virtualisation.docker = {
-  	enable = true;
+    enable = true;
   };
 }
