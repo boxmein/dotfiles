@@ -49,8 +49,12 @@ key_bindings:
   - { key: Key7,      mods: Alt,          chars: "\x7C"                  }
   - { key: Key0,      mods: Alt,          chars: "≈"                     }
   - { key: Minus,     mods: Alt,          chars: "\xB1"                  }
-  - { key: LBracket,  mods: Alt,          chars: "[" }
-  - { key: RBracket,  mods: Alt,          chars: "]" }
+  - { key: 28,  mods: Alt,          chars: "[" }
+  - { key: 25,  mods: Alt,          chars: "]" }
+  - { key: 26,  mods: Alt,          chars: "{" }
+  - { key: 29,  mods: Alt,          chars: "}" }
+  - { key: 27,  mods: Alt,          chars: "\\" }
+  - { key: 50,  mods: Alt,          chars: "|" }
   
   - { key: Key1,      mods: Alt|Shift,    chars: "\xA1"                  }
   - { key: Key2,      mods: Alt|Shift,    chars: "”"                     }
