@@ -6,6 +6,9 @@ fi
 
 function _local_paths() {
   local possiblepaths=(
+    $HOME/.asdf/shims
+    /run/current-system/sw/bin
+    $HOME/.nix-profile/bin
     $HOME/bin
     $HOME/.local/bin
     /snap/bin
