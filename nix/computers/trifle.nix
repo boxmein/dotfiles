@@ -15,6 +15,8 @@
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
+      exfat
+      gptfdisk
       weechat
       lnav
       wireguard-tools
