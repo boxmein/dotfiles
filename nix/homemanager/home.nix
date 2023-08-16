@@ -42,6 +42,7 @@ source ~/.dotfiles/shell/path.zsh
   };
 
   home.packages = with pkgs; [
+    gnused
     git-branchless
     nmap
     gitui
