@@ -26,7 +26,6 @@
 #   $ nix flake update
 #   $ nix flake lock --update-input <xyz>
 
-
 {
   description = "boxmein darwin flake";
 
@@ -97,6 +96,9 @@
             ./nix/modules/mac.nix
             ./nix/computers/tethys.nix
           ];
+          specialArgs = inputs // rec {
+            pkgs = importPkgs system;
+          };
         };
         mycroft = darwin.lib.darwinSystem rec {
           system = "x86_64-darwin";
