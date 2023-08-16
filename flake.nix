@@ -89,6 +89,15 @@
             pkgs = importPkgs system;
           };
         };
+        tethys = darwin.lib.darwinSystem rec {
+          system = "aarch64-darwin";
+          modules = [
+            configuration
+            home-manager.darwinModules.home-manager
+            ./nix/modules/mac.nix
+            ./nix/computers/tethys.nix
+          ];
+        };
         mycroft = darwin.lib.darwinSystem rec {
           system = "x86_64-darwin";
           modules = [

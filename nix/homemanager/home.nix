@@ -99,12 +99,6 @@ source ~/.dotfiles/shell/path.zsh
     # Lua
     luajit
 
-    # Perl
-    perl
-
-    # Prolog
-    swiProlog
-
     # R
     R
 

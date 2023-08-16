@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }: {
-  networking.hostName = "nyx";
-  networking.computerName = "nyx";
+  networking.hostName = "tethys";
+  networking.computerName = "tethys";
   users.users.johannes = {
     shell = pkgs.zsh;
     home = "/Users/johannes";
