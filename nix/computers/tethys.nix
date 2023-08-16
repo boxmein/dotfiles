@@ -19,5 +19,16 @@
 
   # programs.gpg
   # services
+  system.defaults.dock = {
+    autohide = true;
+    show-recents = false;
+    orientation = "bottom";
+  };
+
+  system.defaults.finder = {
+    AppleShowAllExtensions = true;
+    AppleShowAllFiles = true;
+  };
+
   services.emacs.enable = true;
 }
