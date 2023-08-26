@@ -26,7 +26,6 @@
 #   $ nix flake update
 #   $ nix flake lock --update-input <xyz>
 
-
 {
   description = "boxmein darwin flake";
 
@@ -84,6 +83,18 @@
             home-manager.darwinModules.home-manager
             ./nix/modules/mac.nix
             ./nix/computers/nyx.nix
+          ];
+          specialArgs = inputs // rec {
+            pkgs = importPkgs system;
+          };
+        };
+        tethys = darwin.lib.darwinSystem rec {
+          system = "aarch64-darwin";
+          modules = [
+            configuration
+            home-manager.darwinModules.home-manager
+            ./nix/modules/mac.nix
+            ./nix/computers/tethys.nix
           ];
           specialArgs = inputs // rec {
             pkgs = importPkgs system;

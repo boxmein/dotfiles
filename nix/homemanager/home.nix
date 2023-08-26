@@ -1,11 +1,10 @@
 { pkgs, ... }:
 
 let username = "johannes"; in
+rec
 {
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
-  programs.home-manager.enable = true;
 
   # programs.zsh.plugins = ...
   home.username = username;
@@ -18,30 +17,33 @@ let username = "johannes"; in
 
   # time.timeZone = "Europe/Tallinn";
 
-  # system.defaults.dock = { autohide = true; }
-
   programs.exa = {
     enable = true;
     enableAliases = true;
   };
 
+  programs.home-manager.enable = true;
   programs.bat.enable = true;
+  # programs.tmux.enable = true;
+  programs.vscode.enable = true;
+  # programs.zsh.enable = true;
 
   programs.zsh = {
     enable = true;
     shellAliases = {
-      "renix" = "darwin-rebuild switch --flake ~/.dotfiles"; 
+      "renix" = "darwin-rebuild switch --flake ~/.dotfiles";
     };
     initExtra = ''
-source ~/.dotfiles/.zshrc
+      source ~/.dotfiles/.zshrc
     '';
     envExtra = ''
-source ~/.dotfiles/.zshenv
-source ~/.dotfiles/shell/path.zsh
+      source ~/.dotfiles/.zshenv
+      source ~/.dotfiles/shell/path.zsh
     '';
   };
 
   home.packages = with pkgs; [
+    gnused
     git-branchless
     nmap
     gitui
@@ -97,12 +99,6 @@ source ~/.dotfiles/shell/path.zsh
 
     # Lua
     luajit
-
-    # Perl
-    perl
-
-    # Prolog
-    swiProlog
 
     # R
     R
