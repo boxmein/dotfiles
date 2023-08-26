@@ -7,7 +7,6 @@
     ./trifle-hardware-configuration.nix
   ];
 
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.johannes = {
     isNormalUser = true;
@@ -15,7 +14,10 @@
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
+      libclang
       exfat
+      yarn
+      nodejs-18_x
       gptfdisk
       weechat
       lnav
@@ -126,7 +128,6 @@
       ipcalc
       ffuf
 
-      asdf-vm
       steampipe
       awscli2
 
