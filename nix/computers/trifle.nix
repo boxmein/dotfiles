@@ -139,7 +139,7 @@
     ];
   };
 
-  # home-manager.users.johannes = import ../homemanager/home.nix;
+  home-manager.users.johannes = import ../homemanager/home.nix;
 
   # environment.systemPath = [ ... ];
   environment.shellAliases = {

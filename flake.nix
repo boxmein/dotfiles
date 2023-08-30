@@ -68,6 +68,7 @@
             system = "x86_64-linux";
             modules = [
               configuration
+	      home-manager.nixosModules.home-manager
               ./nix/computers/trifle.nix
             ];
             specialArgs = inputs // rec {
