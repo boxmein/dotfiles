@@ -43,6 +43,7 @@ rec
   };
 
   home.packages = with pkgs; [
+    mkcert
     gnused
     git-branchless
     nmap
