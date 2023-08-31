@@ -43,174 +43,179 @@ rec
   };
 
   home.packages = with pkgs; [
-    gnused
-    git-branchless
-    nmap
-    gitui
-    # GPG + SSH setup
-    wpscan
-
-    # Python
+    # olm
+    # poetry                            # python package manager
+    # powershell
     # python310                         # Python
     # python310Packages.pip
-    # python310Packages.setuptools
-    python310Packages.cfn-lint # cloudformation linter
-    python310Packages.angr
     # python310Packages.pyyaml
-    # poetry                            # python package manager
-
-    # Java, Clojure, Kotlin
-    openjdk11
-    clojure
-    gradle # build tool
-    bazelisk
-    kotlin
-    ktlint
-    leiningen # clojure build tool
-
-    # Ruby
-    ruby
-
-    # Rust
-    rustup
-
-    # Go
-    dbmate # database migration tool
-
-    # Node.js
-
-    # Haskell
-    stack
-
-    # OCaml / ReasonML
-    opam
-
-    # C, C++
+    # python310Packages.setuptools
+    (google-cloud-sdk.withExtraComponents [ google-cloud-sdk.components.gke-gcloud-auth-plugin ])
+    R
+    SDL2
+    _1password-gui
+    act # github actions local emulator
+    ansible
+    asdf-vm # software version manager, supports per-directory versions
     autoconf
     automake
-    libtool
-    cmake
-    binaryen # c++ to wasm
-    ninja # build tool
-    ccls # c++ lsp server
-    pkgconfig
-    # clang, llvm provided by macOS
-
-    # Lua
-    luajit
-
-    # R
-    R
-
-    # Cloud tools 
-    ctop # top(1) but for containers
-    terraform # infra as code
-    k9s # kubernetes htop
-    lazydocker # multi panel dashboard for local docker
-    skaffold # tooling for kubernetes
-    kubectl # kubernetes cli
-    kubernetes-helm # kubernetes tooling
-    kubetail # kubernetes log viewing helper
-    dnsmasq # local DNS 
-    pstree # ps aux, except treeview
-
-    # Editors
-    emacs
-    vscode
-    neovim
-    nano
-
-    # Chat
-    weechat
-
-    # Git stuff
-    git-secret
-
-    # Stuff
-    vips
-    imagemagick # image manipulation
-    # olm
-    exa # ls(1) replacement
-    act # github actions local emulator
+    automake
+    awscli2
     bat # cat with syntax highlighting
     bats # bash-based integration testing system
+    bazelisk
+    binaryen # c++ to wasm
+    bottom # current system load monitor
     calc # cli calculator
-    coreutils
-    yq # jq(1) for yaml
-    jq # essential json manipulation cli
+    ccls # c++ lsp server
+    clang
     cloc # count project lines of code
-    k6 # load tester
-    gnupg # digital signing + web of trust
-    pandoc # convert between document file formats
-    iperf # IP link performance testing tool
-    mtr # my traceroute, combination of traceroute+ping
-    redis
-    socat # useful data plumbing tool (netcat on steroids)
-    tldr # alternative manpages
-    tmux # multipane terminal manager
-    toilet # funny ascii text art
-    websocat # websocket version of netcat
+    clojure
+    cmake
+    colima
+    coreutils
+    ctop # top(1) but for containers
+    dbmate # database migration tool
+    dig
+    discord
+    dnsmasq # local DNS 
+    element-desktop
+    emacs
+    exa # ls(1) replacement
+    exfat
+    fastlane
+    fcrackzip
     fd # find file by name, fast version of `find . -name ...`
     ffmpeg # convert between media formats
+    ffuf
+    file
+    firefox
     fish # alternative shell
     fswatch # cli to interact with fsevents / inotify
     fzf # fuzzy searcher terminal ui
-    github-cli
+    gcc
+    git-branchless
     git-lfs
+    git-secret
+    github-cli
+    gitui
+    gnumake
+    gnupg # digital signing + web of trust
+    gnused
+    go_1_19
+    gptfdisk
+    gradle # build tool
     graphviz # dot(1)
-    qemu
-    openvpn
-    pass # gpg-based password manager cli
-    SDL2
-    sqlite
-    thefuck # fuck, i misspelled my last command
-    tree-sitter # parser generator
-    tor # network
-    transmission # torrent
-    unbound # dns server
-    unzip
-    p7zip # 7z(1)
-    watch
-    wget
-    zsh
     htop
-    bottom # current system load monitor
+    imagemagick # image manipulation
+    infracost
+    ipcalc # ip range calculator 
+    iperf # IP link performance testing tool
+    ipfs
+    jetbrains-mono
+    jq # essential json manipulation cli
+    just
+    k3s
+    k6 # load tester
+    k9s # kubernetes htop
+    killall
+    kotlin
+    ktlint
+    kubectl # kubernetes cli
+    kubernetes-helm # kubernetes tooling
+    kubetail # kubernetes log viewing helper
+    lazydocker # multi panel dashboard for local docker
+    leiningen # clojure build tool
+    libclang
+    libstdcxx5
+    libtool
+    lima # linux vm manager
+    lnav
+    luajit
+    minikube
+    mitmproxy # view, edit, and replay browser requests, really useful for web dev
+    mtr # my traceroute, combination of traceroute+ping
+    nano
+    neovim
+    ngrok # expose ports publicly
+    ninja # build tool
+    nixpkgs-fmt
+    nmap
+    nodePackages."@angular/cli"
+    nodejs-18_x
+    opam
+    openjdk11
+    openvpn
+    p7zip # 7z(1)
+    packer # vm image builder
+    pandoc # convert between document file formats
     parallel # gnu tool to parallelize commands
-    z3 # symbolic execution tool
-    scour # svg optimizer
-    postgresql_14
+    pass # gpg-based password manager cli
+    perl
+    pinentry
+    pinentry-qt
+    pkgconfig
+    poetry
+    postgresql_15
+    powershell
+    pstree # ps aux, except treeview
     pv # cat BIGFILE.tar | pv | nc ... -- show a progress bar
+    python310
+    python310Packages.angr
+    python310Packages.cfn-lint # cloudformation linter
+    qemu
+    qrencode
+    rclone # cli tool to copy files between s3, drive, icloud ...
+    redis
+    remmina
     rename # pattern based renaming
     ripgrep # find file by content, `rg`
+    rnix-lsp # useful for writing nix
     rsync
-    tree
-    up # fancy version of pv
+    ruby
+    rustup
+    scour # svg optimizer
     screen
-    ngrok # expose ports publicly
-    # powershell
+    skaffold # tooling for kubernetes
+    slack
+    socat # useful data plumbing tool (netcat on steroids)
+    sqlite
+    stack
+    steam
+    steampipe
     syncthing # self hosted dropbox
-    rclone # cli tool to copy files between s3, drive, icloud ...
-    vips
+    tcpdump
+    terraform # infra as code
+    testdisk
+    thefuck # fuck, i misspelled my last command
+    tldr # alternative manpages
+    tmux # multipane terminal manager
+    toilet # funny ascii text art
+    tor # network
+    transmission # torrent
+    transmission-qt
+    tree
+    tree-sitter # parser generator
+    unbound # dns server
+    unicorn
+    unzip
+    up # fancy version of pv
+    usbutils
+    viddy # magic version of watch(1)
+    vips    
+    vscode
+    watch
+    websocat # websocket version of netcat
+    weechat
+    wget
+    wireguard-tools
+    wireshark
+    wpscan
     xz
     yajl
-    unicorn
-    fcrackzip
-    mitmproxy # view, edit, and replay browser requests, really useful for web dev
-    qrencode
-    testdisk
-    ipcalc # ip range calculator 
-    viddy # magic version of watch(1)
-    asdf-vm # software version manager, supports per-directory versions
-    packer # vm image builder
-    lima # linux vm manager
-    colima
-    ffuf
-    rnix-lsp # useful for writing nix
-    nixpkgs-fmt
-    powershell
-    steampipe
-    awscli2
-    nodePackages."@angular/cli"
-    fastlane
+    yarn
+    yq # jq(1) for yaml
+    z3 # symbolic execution tool
+    zsh
   ];
 }

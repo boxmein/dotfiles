@@ -14,128 +14,114 @@
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
-      libclang
-      exfat
-      yarn
-      nodejs-18_x
-      gptfdisk
-      weechat
-      lnav
-      wireguard-tools
-      nmap
-      ansible
-      go_1_19
-      dig
-      just
-      remmina
-      element-desktop
-      steam
-      transmission-qt
-      ipfs
-      gnumake
-      slack
-      libstdcxx5
-      file
-      infracost
-      k3s
-      usbutils
-      discord
-      firefox
-      postgresql_15
-      _1password-gui
-      gnupg
-      pinentry
-      wireshark
-      pinentry-qt
-      exa
       (google-cloud-sdk.withExtraComponents [ google-cloud-sdk.components.gke-gcloud-auth-plugin ])
+      _1password-gui
       alacritty
-      rustup
-      google-chrome
-      obsidian
-
-      rustup
-      clang
-      gcc
-
-      stack
-
-      python310
-      poetry
-
+      ansible
       autoconf
       automake
-      libtool
-      cmake
-      ninja
+      awscli2
+      bat
+      calc
       ccls
-      pkgconfig
-
-      perl
-
-      terraform
+      clang
+      cmake
+      dig
+      discord
+      element-desktop
+      exa
+      exfat
+      fcrackzip
+      fd
+      ffmpeg
+      ffuf
+      file
+      firefox
+      fzf
+      gcc
+      git-lfs
+      git-secret
+      github-cli
+      gnumake
+      gnupg
+      go_1_19
+      google-chrome
+      gptfdisk
+      htop
+      infracost
+      ipcalc
+      iperf
+      ipfs
+      jetbrains-mono
+      jq
+      just
+      k3s
+      k6
       k9s
-      lazydocker
-      skaffold
+      killall
       kubectl
       kubernetes-helm
       kubetail
-      packer
-
-      vscode
-
-      git-secret
-      bat
-      calc
-      jq
-      k6
-      pandoc
-      iperf
-      socat
-      fd
-      ffmpeg
-      fzf
-      github-cli
-      git-lfs
-
-      qemu
+      lazydocker
+      libclang
+      libstdcxx5
+      libtool
+      lnav
+      mitmproxy
+      ngrok
+      ninja
+      nixpkgs-fmt
+      nmap
+      nodejs-18_x
+      obsidian
       openvpn
-      pass
-      thefuck
-
-      tor
-      transmission
-      unzip
       p7zip
-      watch
-      wget
+      packer
+      pandoc
+      pass
+      perl
+      pinentry
+      pinentry-qt
+      pkgconfig
+      poetry
+      postgresql_15
       pv
+      python310
+      qemu
+      rclone
+      remmina
       rename
       ripgrep
-      rsync
-      tree
-      up
-      screen
-      ngrok
-      rclone
-      syncthing
-      htop
-      killall
-
-      z3
-      fcrackzip
-      mitmproxy
-      ipcalc
-      ffuf
-
-      steampipe
-      awscli2
-
       rnix-lsp
-      nixpkgs-fmt
+      rsync
+      rustup
+      rustup
+      screen
+      skaffold
+      slack
+      socat
+      stack
+      steam
+      steampipe
+      syncthing
       tcpdump
-
-      jetbrains-mono
+      terraform
+      thefuck
+      tor
+      transmission
+      transmission-qt
+      tree
+      unzip
+      up
+      usbutils
+      vscode
+      watch
+      weechat
+      wget
+      wireguard-tools
+      wireshark
+      yarn
+      z3
     ];
   };
 
