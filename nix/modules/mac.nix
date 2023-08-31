@@ -1,7 +1,7 @@
 { config, pkgs, ... }: {
   services.nix-daemon.enable = true;
   homebrew = {
-    enable = true;
+    enable = false;
 
     brews = [
       "cloudformation-guard"

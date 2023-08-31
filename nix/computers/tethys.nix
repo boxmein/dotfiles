@@ -17,7 +17,7 @@
   # environment.launchDaemons
   # environment.launchAgents
   environment.variables = {
-    JAVA_HOME = "${pkgs.openjdk11.outputPath}";
+    JAVA_HOME = "${pkgs.openjdk11.out}";
   };
 
   # programs.gpg
