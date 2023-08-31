@@ -15,7 +15,9 @@
   # environment.profiles  ???;
   # environment.launchDaemons
   # environment.launchAgents
-  # environment.variables = { EDITOR = "nvim" };
+  environment.variables = {
+    JAVA_HOME = "${pkgs.openjdk11.outputPath}";
+  };
 
   # programs.gpg
   # services
