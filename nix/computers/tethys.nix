@@ -8,6 +8,7 @@
   home-manager.users.johannes = import ../homemanager/home.nix;
   environment.systemPackages = with pkgs; [
     discord
+    pinentry_mac
   ];
 
   # environment.systemPath = [ ... ];

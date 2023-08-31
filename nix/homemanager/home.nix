@@ -42,7 +42,6 @@ rec
     nmap
     gitui
     # GPG + SSH setup
-    pinentry_mac # graphical pinentry
     wpscan
 
     # Python
@@ -154,7 +153,6 @@ rec
     git-lfs
     graphviz # dot(1)
     qemu
-    pinentry_mac
     openvpn
     pass # gpg-based password manager cli
     SDL2
