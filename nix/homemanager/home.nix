@@ -10,13 +10,6 @@ rec
   home.username = username;
   home.stateVersion = "22.05";
 
-  # environment.variables = { X = "Y"; };
-  # environment.shellAliases = { ll = "ls -l"; };
-  # environment.systemPath = ["${home}/bin"];
-  # environment.shells = ["/bin/zsh"];
-
-  # time.timeZone = "Europe/Tallinn";
-
   programs.exa = {
     enable = true;
     enableAliases = true;
@@ -43,6 +36,7 @@ rec
   };
 
   home.packages = with pkgs; [
+    mkcert
     gnused
     git-branchless
     nmap
