@@ -14,7 +14,6 @@
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
-      buck2
       libclang
       exfat
       yarn
