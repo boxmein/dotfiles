@@ -25,6 +25,7 @@ rec
     enable = true;
     shellAliases = {
       "renix" = "darwin-rebuild switch --flake ~/.dotfiles";
+      "bazel" = "bazelisk";
     };
     initExtra = ''
       source ~/.dotfiles/.zshrc
@@ -54,7 +55,7 @@ rec
     # poetry                            # python package manager
 
     # Java, Clojure, Kotlin
-    openjdk11
+    openjdk17
     clojure
     gradle # build tool
     bazelisk
@@ -82,7 +83,6 @@ rec
     # C, C++
     autoconf
     automake
-    libtool
     cmake
     binaryen # c++ to wasm
     ninja # build tool
@@ -129,7 +129,6 @@ rec
     bat # cat with syntax highlighting
     bats # bash-based integration testing system
     calc # cli calculator
-    coreutils
     yq # jq(1) for yaml
     jq # essential json manipulation cli
     cloc # count project lines of code
