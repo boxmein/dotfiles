@@ -1,44 +1,15 @@
 { config, pkgs, ... }: {
   services.nix-daemon.enable = true;
   homebrew = {
-    enable = false;
+    enable = true;
 
-    brews = [
-      "cloudformation-guard"
-      "semgrep"
-      "tilt"
-      "ctop"
-      "radare2"
-      "just"
-      "calc"
+    brews = [];
+    casks = [];
+    taps = [];
 
-      "pinentry-mac"
-      # "qemu"
-      "podman"
-      "protobuf"
-      "wireguard-tools"
-      "semgrep"
-      "tilt"
-    ];
-
-    casks = [
-      "docker"
-      "postman"
-      # "google-chrome"
-      "google-cloud-sdk"
-      # "slack"
-      # "telegram-desktop"
-      "postman"
-      # "sage"
-    ];
-
-    taps = [
-      "boxmein/tap"
-      "aws/tap"
-      "aspect-build/aspect"
-      "arthurk/virt-manager"
-      "johanhaleby/kubetail"
-    ];
+    masApps = {
+	"Magnet" = 441258766;
+    };
 
     # masApps = [...]; (Installing from Mac App Store)
   };

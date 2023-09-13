@@ -24,6 +24,7 @@ function _local_paths() {
     $GOPATH/bin
     /opt/asdf-vm/bin
     $HOME/.guard/bin
+    $HOME/.cargo/bin
   )
 
   local paths=()
