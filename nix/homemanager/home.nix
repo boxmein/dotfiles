@@ -37,6 +37,8 @@ rec
   };
 
   home.packages = with pkgs; [
+    python3Packages.pip
+    zip
     tor
     tor-browser-bundle-bin
     protobuf
