@@ -37,6 +37,7 @@ rec
   };
 
   home.packages = with pkgs; [
+    radare2
     mkcert
     gnused
     git-branchless
