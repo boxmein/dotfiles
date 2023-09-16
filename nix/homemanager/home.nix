@@ -38,6 +38,10 @@ rec
 
   home.packages = with pkgs; [
     radare2
+    python3Packages.pip
+    zip
+    tor
+    protobuf
     mkcert
     gnused
     git-branchless
@@ -206,5 +210,7 @@ rec
     awscli2
     nodePackages."@angular/cli"
     fastlane
+    binwalk
+    foremost
   ];
 }

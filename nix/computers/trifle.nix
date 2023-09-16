@@ -14,6 +14,9 @@
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
+
+      tor-browser-bundle-bin
+      python310Packages.z3
       libclang
       exfat
       yarn
