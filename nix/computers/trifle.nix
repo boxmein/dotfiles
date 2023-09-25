@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }: {
+{ config, lib, pkgs, pkgsUnstable, ... }: {
   networking.hostName = "trifle";
 
 
@@ -14,6 +14,7 @@
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
+      pkgsUnstable.docker-compose
 
       tor-browser-bundle-bin
       python310Packages.z3
@@ -306,5 +307,6 @@
 
   virtualisation.docker = {
     enable = true;
+    package = pkgsUnstable.docker;
   };
 }
