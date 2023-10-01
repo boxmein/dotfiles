@@ -14,10 +14,14 @@
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
+      openssl
+      dirb
+      gobuster
       pkgsUnstable.docker-compose
 
       tor-browser-bundle-bin
       python310Packages.z3
+      python310Packages.setuptools
       libclang
       exfat
       yarn
