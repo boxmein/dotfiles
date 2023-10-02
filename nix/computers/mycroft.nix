@@ -3,6 +3,7 @@
   networking.computerName = "mycroft";
   users.users.johannes = {
     shell = pkgs.zsh;
+    home = "/Users/johannes";
   };
   home-manager.users.johannes = import ../homemanager/home.nix;
   environment.systemPackages = with pkgs; [
@@ -23,7 +24,7 @@
 
   system.defaults = {
 	".GlobalPreferences" = {
-		"com.apple.mouse.scaling" = -1;
+		# "com.apple.mouse.scaling" = -1.0;
 	};
   };
 }

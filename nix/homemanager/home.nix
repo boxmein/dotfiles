@@ -37,8 +37,8 @@ rec
   };
 
   home.packages = with pkgs; [
+    
     radare2
-    python3Packages.pip
     zip
     tor
     protobuf
@@ -51,13 +51,13 @@ rec
     wpscan
 
     # Python
-    # python310                         # Python
-    # python310Packages.pip
-    # python310Packages.setuptools
+    python310                         # Python
+    python310Packages.pip
+    python310Packages.setuptools
     python310Packages.cfn-lint # cloudformation linter
     python310Packages.angr
     # python310Packages.pyyaml
-    # poetry                            # python package manager
+    poetry                            # python package manager
 
     # Java, Clojure, Kotlin
     openjdk17
