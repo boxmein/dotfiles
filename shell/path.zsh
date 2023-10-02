@@ -6,6 +6,7 @@ fi
 
 function _local_paths() {
   local possiblepaths=(
+    /run/wrappers/bin
     $HOME/.asdf/shims
     /run/current-system/sw/bin
     $HOME/.nix-profile/bin
@@ -23,6 +24,7 @@ function _local_paths() {
     $GOPATH/bin
     /opt/asdf-vm/bin
     $HOME/.guard/bin
+    $HOME/.cargo/bin
   )
 
   local paths=()

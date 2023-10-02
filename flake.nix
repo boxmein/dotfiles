@@ -26,14 +26,13 @@
 #   $ nix flake update
 #   $ nix flake lock --update-input <xyz>
 
-
 {
   description = "boxmein darwin flake";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
     nixpkgsDarwin.url = "github:nixos/nixpkgs/nixpkgs-23.05-darwin";
-    # nixpkgsUnstable.url = "github:nixos/nixpkgs/unstable";
+    nixpkgsUnstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     darwin.url = "github:lnl7/nix-darwin/master";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
     #flake-utils.url = "github:numtide/flake-utils";
@@ -44,9 +43,15 @@
     # nixos-generators.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, darwin, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, darwin, home-manager, nixpkgsUnstable, ... }@inputs:
     let
       importPkgs = system: import nixpkgs {
+        inherit system;
+        config = {
+          allowUnfree = true;
+        };
+      };
+      importUnstablePkgs = system: import nixpkgsUnstable {
         inherit system;
         config = {
           allowUnfree = true;
@@ -69,10 +74,12 @@
             system = "x86_64-linux";
             modules = [
               configuration
+              home-manager.nixosModules.home-manager
               ./nix/computers/trifle.nix
             ];
             specialArgs = inputs // rec {
               pkgs = importPkgs system;
+              pkgsUnstable = importUnstablePkgs system;
             };
           };
       };
@@ -87,6 +94,19 @@
           ];
           specialArgs = inputs // rec {
             pkgs = importPkgs system;
+            pkgsUnstable = importUnstablePkgs system;
+          };
+        };
+        tethys = darwin.lib.darwinSystem rec {
+          system = "aarch64-darwin";
+          modules = [
+            configuration
+            home-manager.darwinModules.home-manager
+            ./nix/modules/mac.nix
+            ./nix/computers/tethys.nix
+          ];
+          specialArgs = inputs // rec {
+            pkgs = importPkgs system;
           };
         };
         mycroft = darwin.lib.darwinSystem rec {
@@ -98,6 +118,7 @@
           ];
           specialArgs = inputs // rec {
             pkgs = importPkgs system;
+            pkgsUnstable = importUnstablePkgs system;
           };
         };
       };

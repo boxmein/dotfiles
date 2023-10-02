@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }: {
+{ config, lib, pkgs, pkgsUnstable, ... }: {
   networking.hostName = "trifle";
 
 
@@ -7,7 +7,6 @@
     ./trifle-hardware-configuration.nix
   ];
 
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.johannes = {
     isNormalUser = true;
@@ -15,7 +14,18 @@
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
+      openssl
+      dirb
+      gobuster
+      pkgsUnstable.docker-compose
+
+      tor-browser-bundle-bin
+      python310Packages.z3
+      python310Packages.setuptools
+      libclang
       exfat
+      yarn
+      nodejs-18_x
       gptfdisk
       weechat
       lnav
@@ -126,7 +136,6 @@
       ipcalc
       ffuf
 
-      asdf-vm
       steampipe
       awscli2
 
@@ -138,7 +147,7 @@
     ];
   };
 
-  # home-manager.users.johannes = import ../homemanager/home.nix;
+  home-manager.users.johannes = import ../homemanager/home.nix;
 
   # environment.systemPath = [ ... ];
   environment.shellAliases = {
@@ -302,5 +311,6 @@
 
   virtualisation.docker = {
     enable = true;
+    package = pkgsUnstable.docker;
   };
 }

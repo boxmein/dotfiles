@@ -1,52 +1,53 @@
 { pkgs, ... }:
 
 let username = "johannes"; in
+rec
 {
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  programs.home-manager.enable = true;
-
   # programs.zsh.plugins = ...
   home.username = username;
   home.stateVersion = "22.05";
-
-  # environment.variables = { X = "Y"; };
-  # environment.shellAliases = { ll = "ls -l"; };
-  # environment.systemPath = ["${home}/bin"];
-  # environment.shells = ["/bin/zsh"];
-
-  # time.timeZone = "Europe/Tallinn";
-
-  # system.defaults.dock = { autohide = true; }
 
   programs.exa = {
     enable = true;
     enableAliases = true;
   };
 
+  programs.home-manager.enable = true;
   programs.bat.enable = true;
+  # programs.tmux.enable = true;
+  programs.vscode.enable = true;
+  # programs.zsh.enable = true;
 
   programs.zsh = {
     enable = true;
     shellAliases = {
-      "renix" = "darwin-rebuild switch --flake ~/.dotfiles"; 
+      "renix" = "darwin-rebuild switch --flake ~/.dotfiles";
+      "bazel" = "bazelisk";
     };
     initExtra = ''
-source ~/.dotfiles/.zshrc
+      source ~/.dotfiles/.zshrc
     '';
     envExtra = ''
-source ~/.dotfiles/.zshenv
-source ~/.dotfiles/shell/path.zsh
+      source ~/.dotfiles/.zshenv
+      source ~/.dotfiles/shell/path.zsh
     '';
   };
 
   home.packages = with pkgs; [
+    radare2
+    python3Packages.pip
+    zip
+    tor
+    protobuf
+    mkcert
+    gnused
     git-branchless
     nmap
     gitui
     # GPG + SSH setup
-    pinentry_mac # graphical pinentry
     wpscan
 
     # Python
@@ -59,7 +60,7 @@ source ~/.dotfiles/shell/path.zsh
     # poetry                            # python package manager
 
     # Java, Clojure, Kotlin
-    openjdk11
+    openjdk17
     clojure
     gradle # build tool
     bazelisk
@@ -87,7 +88,6 @@ source ~/.dotfiles/shell/path.zsh
     # C, C++
     autoconf
     automake
-    libtool
     cmake
     binaryen # c++ to wasm
     ninja # build tool
@@ -97,12 +97,6 @@ source ~/.dotfiles/shell/path.zsh
 
     # Lua
     luajit
-
-    # Perl
-    perl
-
-    # Prolog
-    swiProlog
 
     # R
     R
@@ -140,7 +134,6 @@ source ~/.dotfiles/shell/path.zsh
     bat # cat with syntax highlighting
     bats # bash-based integration testing system
     calc # cli calculator
-    coreutils
     yq # jq(1) for yaml
     jq # essential json manipulation cli
     cloc # count project lines of code
@@ -164,7 +157,6 @@ source ~/.dotfiles/shell/path.zsh
     git-lfs
     graphviz # dot(1)
     qemu
-    pinentry_mac
     openvpn
     pass # gpg-based password manager cli
     SDL2
@@ -218,5 +210,7 @@ source ~/.dotfiles/shell/path.zsh
     awscli2
     nodePackages."@angular/cli"
     fastlane
+    binwalk
+    foremost
   ];
 }
