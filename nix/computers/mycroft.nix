@@ -20,4 +20,10 @@
 
   # services
   services.emacs.enable = true;
+
+  system.defaults = {
+	".GlobalPreferences" = {
+		"com.apple.mouse.scaling" = -1;
+	};
+  };
 }
