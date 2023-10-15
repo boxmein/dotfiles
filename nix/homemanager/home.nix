@@ -19,7 +19,6 @@ rec
   programs.bat.enable = true;
   # programs.tmux.enable = true;
   programs.vscode.enable = true;
-  # programs.zsh.enable = true;
 
   programs.zsh = {
     enable = true;
@@ -37,7 +36,7 @@ rec
   };
 
   home.packages = with pkgs; [
-    
+    _1password
     radare2
     zip
     tor
@@ -213,4 +212,17 @@ rec
     binwalk
     foremost
   ];
+
+
+  home.file = {
+	".p10k.zsh".source = ../../.p10k.zsh;
+	".alacritty.yml".source = ../../.alacritty.yml;
+	".tmux.conf".source = ../../.tmux.conf;
+	".asdfrc".source = ../../.asdfrc;
+	".fzf.zsh".source = ../../.fzf.zsh;
+	".gitconfig".source = ../../.gitconfig;
+	".inputrc".source = ../../.inputrc;
+	".psqlrc".source = ../../.psqlrc;
+	".emacs.d".source = ../../.emacs.d;
+  };
 }

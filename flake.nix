@@ -84,29 +84,17 @@
           };
       };
       darwinConfigurations = {
-        nyx = darwin.lib.darwinSystem rec {
+        gaea = darwin.lib.darwinSystem rec {
           system = "x86_64-darwin";
           modules = [
             configuration
             home-manager.darwinModules.home-manager
             ./nix/modules/mac.nix
-            ./nix/computers/nyx.nix
+            ./nix/computers/gaea.nix
           ];
           specialArgs = inputs // rec {
             pkgs = importPkgs system;
             pkgsUnstable = importUnstablePkgs system;
-          };
-        };
-        tethys = darwin.lib.darwinSystem rec {
-          system = "aarch64-darwin";
-          modules = [
-            configuration
-            home-manager.darwinModules.home-manager
-            ./nix/modules/mac.nix
-            ./nix/computers/tethys.nix
-          ];
-          specialArgs = inputs // rec {
-            pkgs = importPkgs system;
           };
         };
         mycroft = darwin.lib.darwinSystem rec {
