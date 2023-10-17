@@ -45,4 +45,5 @@ __pycache__
 iterm2
 .netrc
 .#*
-result/
+result/*.zwc
+.zshrc.zwc

@@ -80,6 +80,9 @@ autoload -Uz ~/.dotfiles-private/shell/fpath/*(.:t)
 
 command -v thefuck >/dev/null 2>/dev/null && source <(thefuck --alias)
 
+# Homebrew integration
+[[ -x /opt/homebrew/bin/brew ]] && eval "$(/opt/homebrew/bin/brew shellenv)"
+
 [[ -n "$ITERM_SESSION_ID" ]] && [[ -f ~/.dotfiles/iterm2-shell-integration.zsh ]] && source ~/.dotfiles/iterm2-shell-integration.zsh
 
 # https://unix.stackexchange.com/questions/608842/zshrc-export-gpg-tty-tty-says-not-a-tty
@@ -90,5 +93,4 @@ gpg-connect-agent updatestartuptty /bye >/dev/null 2>/dev/null
 
 # https://github.com/alacritty/alacritty/issues/2950#issuecomment-706610878
 printf "\e[?1042l"
-
 
