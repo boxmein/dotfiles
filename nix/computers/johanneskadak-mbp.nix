@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }: {
+{ config, lib, pkgs, pkgsUnstable, ... }: {
   networking.hostName = "johanneskadak-mbp";
   networking.computerName = "johanneskadak-mbp";
   users.users.johannes = {
@@ -9,6 +9,7 @@
   environment.systemPackages = with pkgs; [
     discord
     pinentry_mac
+    pkgsUnstable.buck2
   ];
 
   # environment.systemPath = [ ... ];
