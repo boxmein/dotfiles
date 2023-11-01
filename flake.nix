@@ -68,29 +68,21 @@
 
     in
     {
-      nixosConfigurations = {
-        trifle = nixpkgs.lib.nixosSystem
-          rec {
-            system = "x86_64-linux";
-            modules = [
-              configuration
-              home-manager.nixosModules.home-manager
-              ./nix/computers/trifle.nix
-            ];
-            specialArgs = inputs // rec {
-              pkgs = importPkgs system;
-              pkgsUnstable = importUnstablePkgs system;
-            };
-          };
-      };
       darwinConfigurations = {
         gaea = darwin.lib.darwinSystem rec {
           system = "x86_64-darwin";
           modules = [
             configuration
             home-manager.darwinModules.home-manager
-            ./nix/modules/mac.nix
             ./nix/computers/gaea.nix
+            ./nix/modules/ctf.nix
+            ./nix/modules/cxx.nix
+            ./nix/modules/git.nix
+            ./nix/modules/jvm.nix
+            ./nix/modules/mac.nix
+            ./nix/modules/python.nix
+            ./nix/modules/sysadmin.nix
+            ./nix/modules/tooling.nix
           ];
           specialArgs = inputs // rec {
             pkgs = importPkgs system;
@@ -102,8 +94,10 @@
           modules = [
             configuration
             home-manager.darwinModules.home-manager
-            ./nix/modules/mac.nix
             ./nix/computers/johanneskadak-mbp.nix
+            ./nix/modules/git.nix
+            ./nix/modules/mac.nix
+            ./nix/modules/python.nix
           ];
           specialArgs = inputs // rec {
             pkgs = importPkgs system;
@@ -114,8 +108,15 @@
           system = "x86_64-darwin";
           modules = [
             home-manager.darwinModules.home-manager
-            ./nix/modules/mac.nix
             ./nix/computers/mycroft.nix
+            ./nix/modules/ctf.nix
+            ./nix/modules/cxx.nix
+            ./nix/modules/git.nix
+            ./nix/modules/jvm.nix
+            ./nix/modules/mac.nix
+            ./nix/modules/python.nix
+            ./nix/modules/sysadmin.nix
+            ./nix/modules/tooling.nix
           ];
           specialArgs = inputs // rec {
             pkgs = importPkgs system;
