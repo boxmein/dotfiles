@@ -90,6 +90,7 @@ rec
 #    colima
     nixpkgs-fmt
     awscli2
+    rustup
   ];
 
 

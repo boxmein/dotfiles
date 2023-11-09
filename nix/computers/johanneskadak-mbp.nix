@@ -9,7 +9,6 @@
   environment.systemPackages = with pkgs; [
     discord
     pinentry_mac
-    pkgsUnstable.buck2
   ];
 
   # environment.systemPath = [ ... ];
