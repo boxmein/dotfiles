@@ -96,7 +96,7 @@ rec
 
   home.file = {
 	".p10k.zsh".source = ../../.p10k.zsh;
-	".alacritty.yml".source = ../../.alacritty.yml;
+	".alacritty.toml".source = ../../.alacritty.toml;
 	".tmux.conf".source = ../../.tmux.conf;
 	".asdfrc".source = ../../.asdfrc;
 	".fzf.zsh".source = ../../.fzf.zsh;
