@@ -32,3 +32,5 @@ export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#31d970"
 
 . ~/.dotfiles/shell/agent.zsh
 [[ -f ~/.dotfiles-private/.zshenv ]] && . ~/.dotfiles-private/.zshenv
+
+export ASDF_GOLANG_MOD_VERSION_ENABLED=true

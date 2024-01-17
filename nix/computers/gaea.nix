@@ -9,6 +9,7 @@
   environment.systemPackages = with pkgs; [
     discord
     pinentry_mac
+    colima
   ];
 
   # environment.systemPath = [ ... ];
