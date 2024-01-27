@@ -6,7 +6,6 @@ rec
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # programs.zsh.plugins = ...
   home.username = username;
   home.stateVersion = "22.05";
 
@@ -17,9 +16,7 @@ rec
 
   programs.home-manager.enable = true;
   programs.bat.enable = true;
-  # programs.tmux.enable = true;
   programs.vscode.enable = true;
-  # programs.zsh.enable = true;
 
   programs.zsh = {
     enable = true;
@@ -33,6 +30,7 @@ rec
     envExtra = ''
       source ~/.dotfiles/.zshenv
       source ~/.dotfiles/shell/path.zsh
+      [[ -x /opt/homebrew/bin/brew ]] && eval "$(/opt/homebrew/bin/brew shellenv)"
     '';
   };
 
@@ -45,93 +43,18 @@ rec
     mkcert
     gnused
     git-branchless
+    rnix-lsp
     nmap
+    _1password
     gitui
-    # GPG + SSH setup
-    wpscan
-
-    # Python
-    python310                         # Python
-    python310Packages.pip
-    python310Packages.setuptools
-    python310Packages.cfn-lint # cloudformation linter
-    python310Packages.angr
-    # python310Packages.pyyaml
-    poetry                            # python package manager
-
-    # Java, Clojure, Kotlin
-    openjdk17
-    clojure
-    gradle # build tool
-    bazelisk
-    kotlin
-    ktlint
-    leiningen # clojure build tool
-
-    # Ruby
-    ruby
-
-    # Rust
-    rustup
-
-    # Go
-    dbmate # database migration tool
-
-    # Node.js
-
-    # Haskell
-    stack
-
-    # OCaml / ReasonML
-    opam
-
-    # C, C++
-    autoconf
-    automake
-    cmake
-    binaryen # c++ to wasm
-    ninja # build tool
-    ccls # c++ lsp server
-    pkgconfig
-    # clang, llvm provided by macOS
-
-    # Lua
-    luajit
-
-    # R
-    R
-
-    # Cloud tools 
-    ctop # top(1) but for containers
-    terraform # infra as code
-    k9s # kubernetes htop
-    lazydocker # multi panel dashboard for local docker
-    skaffold # tooling for kubernetes
-    kubectl # kubernetes cli
-    kubernetes-helm # kubernetes tooling
-    kubetail # kubernetes log viewing helper
-    dnsmasq # local DNS 
-    pstree # ps aux, except treeview
-
-    # Editors
+    zip
+    dbmate
     emacs
-    vscode
     neovim
     nano
-
-    # Chat
     weechat
-
-    # Git stuff
-    git-secret
-
-    # Stuff
-    vips
     imagemagick # image manipulation
-    # olm
     exa # ls(1) replacement
-    act # github actions local emulator
-    bat # cat with syntax highlighting
     bats # bash-based integration testing system
     calc # cli calculator
     yq # jq(1) for yaml
@@ -139,18 +62,11 @@ rec
     cloc # count project lines of code
     k6 # load tester
     gnupg # digital signing + web of trust
-    pandoc # convert between document file formats
-    iperf # IP link performance testing tool
-    mtr # my traceroute, combination of traceroute+ping
     redis
-    socat # useful data plumbing tool (netcat on steroids)
     tldr # alternative manpages
     tmux # multipane terminal manager
     toilet # funny ascii text art
-    websocat # websocket version of netcat
     fd # find file by name, fast version of `find . -name ...`
-    ffmpeg # convert between media formats
-    fish # alternative shell
     fswatch # cli to interact with fsevents / inotify
     fzf # fuzzy searcher terminal ui
     github-cli
@@ -159,23 +75,14 @@ rec
     qemu
     openvpn
     pass # gpg-based password manager cli
-    SDL2
-    sqlite
     thefuck # fuck, i misspelled my last command
-    tree-sitter # parser generator
-    tor # network
-    transmission # torrent
-    unbound # dns server
     unzip
-    p7zip # 7z(1)
+    p7zip
     watch
     wget
-    zsh
     htop
     bottom # current system load monitor
     parallel # gnu tool to parallelize commands
-    z3 # symbolic execution tool
-    scour # svg optimizer
     postgresql_14
     pv # cat BIGFILE.tar | pv | nc ... -- show a progress bar
     rename # pattern based renaming
@@ -184,33 +91,24 @@ rec
     tree
     up # fancy version of pv
     screen
-    ngrok # expose ports publicly
-    # powershell
-    syncthing # self hosted dropbox
-    rclone # cli tool to copy files between s3, drive, icloud ...
-    vips
-    xz
-    yajl
-    unicorn
-    fcrackzip
-    mitmproxy # view, edit, and replay browser requests, really useful for web dev
-    qrencode
-    testdisk
-    ipcalc # ip range calculator 
-    viddy # magic version of watch(1)
-    asdf-vm # software version manager, supports per-directory versions
-    packer # vm image builder
-    lima # linux vm manager
-    colima
-    ffuf
-    rnix-lsp # useful for writing nix
+#    syncthing # self hosted dropbox
+    viddy
+    asdf-vm
+#    lima # linux vm manager
+#    colima
     nixpkgs-fmt
-    powershell
-    steampipe
     awscli2
-    nodePackages."@angular/cli"
-    fastlane
-    binwalk
-    foremost
+    rustup
   ];
+
+
+  home.file = {
+	".p10k.zsh".source = ../../.p10k.zsh;
+	".alacritty.toml".source = ../../.alacritty.toml;
+	".tmux.conf".source = ../../.tmux.conf;
+	".asdfrc".source = ../../.asdfrc;
+	".fzf.zsh".source = ../../.fzf.zsh;
+	".inputrc".source = ../../.inputrc;
+	".psqlrc".source = ../../.psqlrc;
+  };
 }

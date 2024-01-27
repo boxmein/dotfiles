@@ -68,53 +68,55 @@
 
     in
     {
-      nixosConfigurations = {
-        trifle = nixpkgs.lib.nixosSystem
-          rec {
-            system = "x86_64-linux";
-            modules = [
-              configuration
-              home-manager.nixosModules.home-manager
-              ./nix/computers/trifle.nix
-            ];
-            specialArgs = inputs // rec {
-              pkgs = importPkgs system;
-              pkgsUnstable = importUnstablePkgs system;
-            };
-          };
-      };
       darwinConfigurations = {
-        nyx = darwin.lib.darwinSystem rec {
+        gaea = darwin.lib.darwinSystem rec {
           system = "x86_64-darwin";
           modules = [
             configuration
             home-manager.darwinModules.home-manager
+            ./nix/computers/gaea.nix
+            ./nix/modules/ctf.nix
+            ./nix/modules/cxx.nix
+            ./nix/modules/git.nix
+            ./nix/modules/jvm.nix
             ./nix/modules/mac.nix
-            ./nix/computers/nyx.nix
+            ./nix/modules/python.nix
+            ./nix/modules/sysadmin.nix
+            ./nix/modules/tooling.nix
           ];
           specialArgs = inputs // rec {
             pkgs = importPkgs system;
             pkgsUnstable = importUnstablePkgs system;
           };
         };
-        tethys = darwin.lib.darwinSystem rec {
+        johanneskadak-mbp = darwin.lib.darwinSystem rec {
           system = "aarch64-darwin";
           modules = [
             configuration
             home-manager.darwinModules.home-manager
+            ./nix/computers/johanneskadak-mbp.nix
+            ./nix/modules/git.nix
             ./nix/modules/mac.nix
-            ./nix/computers/tethys.nix
+            ./nix/modules/python.nix
           ];
           specialArgs = inputs // rec {
             pkgs = importPkgs system;
+            pkgsUnstable = importUnstablePkgs system;
           };
         };
         mycroft = darwin.lib.darwinSystem rec {
           system = "x86_64-darwin";
           modules = [
             home-manager.darwinModules.home-manager
-            ./nix/modules/mac.nix
             ./nix/computers/mycroft.nix
+            ./nix/modules/ctf.nix
+            ./nix/modules/cxx.nix
+            ./nix/modules/git.nix
+            ./nix/modules/jvm.nix
+            ./nix/modules/mac.nix
+            ./nix/modules/python.nix
+            ./nix/modules/sysadmin.nix
+            ./nix/modules/tooling.nix
           ];
           specialArgs = inputs // rec {
             pkgs = importPkgs system;

@@ -1,6 +1,6 @@
-{ config, lib, pkgs, ... }: {
-  networking.hostName = "tethys";
-  networking.computerName = "tethys";
+{ config, lib, pkgs, pkgsUnstable, ... }: {
+  networking.hostName = "johanneskadak-mbp";
+  networking.computerName = "johanneskadak-mbp";
   users.users.johannes = {
     shell = pkgs.zsh;
     home = "/Users/johannes";
@@ -26,11 +26,20 @@
     autohide = true;
     show-recents = false;
     orientation = "bottom";
+    mru-spaces = false;
   };
 
   system.defaults.finder = {
     AppleShowAllExtensions = true;
     AppleShowAllFiles = true;
+  };
+
+  system.defaults.NSGlobalDomain = {
+    "com.apple.swipescrolldirection" = false;
+  };
+
+  system.defaults.loginwindow = {
+    GuestEnabled = true;
   };
 
   services.emacs.enable = true;
