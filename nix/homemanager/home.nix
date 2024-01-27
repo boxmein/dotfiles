@@ -37,7 +37,7 @@ rec
   };
 
   home.packages = with pkgs; [
-    
+    go_1_19 
     radare2
     zip
     tor
