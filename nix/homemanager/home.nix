@@ -35,6 +35,14 @@ rec
   };
 
   home.packages = with pkgs; [
+    go_1_19 
+    radare2
+    zip
+    tor
+    protobuf
+    mkcert
+    gnused
+    git-branchless
     rnix-lsp
     nmap
     _1password
