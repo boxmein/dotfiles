@@ -41,7 +41,7 @@ rec
     gitui
     zip
     dbmate
-    emacs
+    emacs29
     neovim
     nano
     weechat
