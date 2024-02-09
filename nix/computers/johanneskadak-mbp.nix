@@ -17,7 +17,6 @@
   # environment.launchDaemons
   # environment.launchAgents
   environment.variables = {
-    JAVA_HOME = "${pkgs.openjdk11.out}";
   };
 
   # programs.gpg
@@ -37,10 +36,4 @@
   system.defaults.NSGlobalDomain = {
     "com.apple.swipescrolldirection" = false;
   };
-
-  system.defaults.loginwindow = {
-    GuestEnabled = true;
-  };
-
-  services.emacs.enable = true;
 }

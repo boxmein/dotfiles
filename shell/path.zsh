@@ -25,6 +25,7 @@ function _local_paths() {
     /opt/asdf-vm/bin
     $HOME/.guard/bin
     $HOME/.cargo/bin
+    $HOME/.ghcup/bin
   )
 
   local paths=()

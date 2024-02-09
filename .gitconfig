@@ -1,7 +1,7 @@
 [user]
-	email = wsdf294@gmail.com
-	name = boxmein
-	signingkey = 3078540B
+	email = johannes.kadak@bolt.eu
+	name = johannes.kadak
+	signingkey = B87E6037955C154EFEABE0E6F66ED3823078540B
 [push]
 	default = simple
 	autoSetupRemote = true

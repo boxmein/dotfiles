@@ -35,13 +35,22 @@ rec
   };
 
   home.packages = with pkgs; [
+    go_1_19 
+    radare2
+    zip
+    tor
+    protobuf
+    mkcert
+    gnused
+    git-branchless
     rnix-lsp
     nmap
     _1password
     gitui
     zip
     dbmate
-    emacs
+    emacs29
+    emacsPackages.treesit-grammars.with-all-grammars
     neovim
     nano
     weechat
@@ -96,11 +105,12 @@ rec
 
   home.file = {
 	".p10k.zsh".source = ../../.p10k.zsh;
-	".alacritty.yml".source = ../../.alacritty.yml;
+	".alacritty.toml".source = ../../.alacritty.toml;
 	".tmux.conf".source = ../../.tmux.conf;
 	".asdfrc".source = ../../.asdfrc;
 	".fzf.zsh".source = ../../.fzf.zsh;
 	".inputrc".source = ../../.inputrc;
 	".psqlrc".source = ../../.psqlrc;
+	".config/doom".source = ../../.config/doom;
   };
 }
