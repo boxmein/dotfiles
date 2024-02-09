@@ -50,6 +50,7 @@ rec
     zip
     dbmate
     emacs29
+    emacsPackages.treesit-grammars.with-all-grammars
     neovim
     nano
     weechat
@@ -110,5 +111,6 @@ rec
 	".fzf.zsh".source = ../../.fzf.zsh;
 	".inputrc".source = ../../.inputrc;
 	".psqlrc".source = ../../.psqlrc;
+	".config/doom".source = ../../.config/doom;
   };
 }
