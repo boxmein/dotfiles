@@ -89,22 +89,6 @@
             pkgsUnstable = importUnstablePkgs system;
           };
         };
-        johanneskadak-mbp = darwin.lib.darwinSystem rec {
-          system = "aarch64-darwin";
-          modules = [
-            configuration
-            home-manager.darwinModules.home-manager
-            ./nix/computers/johanneskadak-mbp.nix
-            ./nix/modules/cxx.nix
-            ./nix/modules/git.nix
-            ./nix/modules/mac.nix
-            ./nix/modules/python.nix
-          ];
-          specialArgs = inputs // rec {
-            pkgs = importPkgs system;
-            pkgsUnstable = importUnstablePkgs system;
-          };
-        };
         mycroft = darwin.lib.darwinSystem rec {
           system = "x86_64-darwin";
           modules = [
