@@ -101,6 +101,9 @@ rec
     nixpkgs-fmt
     awscli2
     rustup
+    (google-cloud-sdk.withExtraComponents([
+	google-cloud-sdk.components.gke-gcloud-auth-plugin
+    ]))
   ];
 
 
