@@ -69,6 +69,26 @@
     in
     {
       darwinConfigurations = {
+        styx = darwin.lib.darwinSystem rec {
+          system = "aarch64-darwin";
+          modules = [
+            configuration
+            home-manager.darwinModules.home-manager
+            ./nix/computers/styx.nix
+            ./nix/modules/ctf.nix
+            ./nix/modules/cxx.nix
+            ./nix/modules/git.nix
+            ./nix/modules/jvm.nix
+            ./nix/modules/mac.nix
+            ./nix/modules/python.nix
+            ./nix/modules/sysadmin.nix
+            ./nix/modules/tooling.nix
+          ];
+          specialArgs = inputs // rec {
+            pkgs = importPkgs system;
+            pkgsUnstable = importUnstablePkgs system;
+          };
+        };
         gaea = darwin.lib.darwinSystem rec {
           system = "x86_64-darwin";
           modules = [
@@ -89,24 +109,10 @@
             pkgsUnstable = importUnstablePkgs system;
           };
         };
-        johanneskadak-mbp = darwin.lib.darwinSystem rec {
-          system = "aarch64-darwin";
-          modules = [
-            configuration
-            home-manager.darwinModules.home-manager
-            ./nix/computers/johanneskadak-mbp.nix
-            ./nix/modules/git.nix
-            ./nix/modules/mac.nix
-            ./nix/modules/python.nix
-          ];
-          specialArgs = inputs // rec {
-            pkgs = importPkgs system;
-            pkgsUnstable = importUnstablePkgs system;
-          };
-        };
         mycroft = darwin.lib.darwinSystem rec {
           system = "x86_64-darwin";
           modules = [
+	    configuration
             home-manager.darwinModules.home-manager
             ./nix/computers/mycroft.nix
             ./nix/modules/ctf.nix

@@ -1,6 +1,6 @@
-{ config, lib, pkgs, pkgsUnstable, ... }: {
-  networking.hostName = "johanneskadak-mbp";
-  networking.computerName = "johanneskadak-mbp";
+{ config, lib, pkgs, ... }: {
+  networking.hostName = "styx";
+  networking.computerName = "styx";
   users.users.johannes = {
     shell = pkgs.zsh;
     home = "/Users/johannes";
@@ -41,6 +41,4 @@
   system.defaults.loginwindow = {
     GuestEnabled = true;
   };
-
-  services.emacs.enable = true;
 }

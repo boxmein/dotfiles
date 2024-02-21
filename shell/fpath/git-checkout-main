@@ -1,0 +1,2 @@
+branch=$(git rev-parse --abbrev-ref origin/HEAD | cut -c8-)
+git checkout "$branch"

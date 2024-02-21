@@ -35,13 +35,23 @@ rec
   };
 
   home.packages = with pkgs; [
+    ncdu
+    go_1_19 
+    radare2
+    zip
+    tor
+    protobuf
+    mkcert
+    gnused
+    git-branchless
     rnix-lsp
     nmap
     _1password
     gitui
     zip
     dbmate
-    emacs
+    emacs29
+    emacsPackages.treesit-grammars.with-all-grammars
     neovim
     nano
     weechat
@@ -91,6 +101,9 @@ rec
     nixpkgs-fmt
     awscli2
     rustup
+    (google-cloud-sdk.withExtraComponents([
+	google-cloud-sdk.components.gke-gcloud-auth-plugin
+    ]))
   ];
 
 
@@ -102,5 +115,6 @@ rec
 	".fzf.zsh".source = ../../.fzf.zsh;
 	".inputrc".source = ../../.inputrc;
 	".psqlrc".source = ../../.psqlrc;
+	".config/doom".source = ../../.config/doom;
   };
 }
