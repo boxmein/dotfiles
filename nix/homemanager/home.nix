@@ -35,6 +35,7 @@ rec
   };
 
   home.packages = with pkgs; [
+    ncdu
     go_1_19 
     radare2
     zip
