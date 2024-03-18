@@ -12,13 +12,13 @@ alias ec="emacsclient"
 
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
-alias l='exa'
-alias sl='exa'       # choo choo
-alias ls='exa'
-alias ll='exa -hal'
-alias la='exa -A'
+alias l='eza'
+alias sl='eza'       # choo choo
+alias ls='eza'
+alias ll='eza -hal'
+alias la='eza -A'
 alias eit='exit'     # this happens too often
-alias ös='exa'       # this too
+alias ös='eza'       # this too
 alias rm='rm -v'
 
 alias nets='ping 8.8.8.8'
