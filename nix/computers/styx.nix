@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }: {
-  networking.hostName = "gaea";
-  networking.computerName = "gaea";
+  networking.hostName = "styx";
+  networking.computerName = "styx";
   users.users.johannes = {
     shell = pkgs.zsh;
     home = "/Users/johannes";
@@ -9,7 +9,6 @@
   environment.systemPackages = with pkgs; [
     discord
     pinentry_mac
-    colima
   ];
 
   # environment.systemPath = [ ... ];
@@ -42,6 +41,4 @@
   system.defaults.loginwindow = {
     GuestEnabled = true;
   };
-
-  services.emacs.enable = true;
 }

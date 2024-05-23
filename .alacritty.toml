@@ -88,67 +88,47 @@ mods = "Command"
 
 [[keyboard.bindings]]
 chars = "©"
-key = "Key1"
+key = "1"
 mods = "Alt"
 
 [[keyboard.bindings]]
 chars = "@"
-key = "Key2"
+key = "2"
 mods = "Alt"
 
 [[keyboard.bindings]]
 chars = "£"
-key = "Key3"
+key = "3"
 mods = "Alt"
 
 [[keyboard.bindings]]
 chars = "$"
-key = "Key4"
+key = "4"
 mods = "Alt"
 
 [[keyboard.bindings]]
-chars = "∞"
-key = "Key5"
-mods = "Alt"
-
-[[keyboard.bindings]]
-chars = "§"
-key = "Key6"
-mods = "Alt"
-
-[[keyboard.bindings]]
-chars = "|"
-key = "Key7"
-mods = "Alt"
-
-[[keyboard.bindings]]
-chars = "≈"
-key = "Key0"
-mods = "Alt"
-
-[[keyboard.bindings]]
-chars = "±"
-key = "Minus"
-mods = "Alt"
-
-[[keyboard.bindings]]
-chars = "["
-key = 28
-mods = "Alt"
-
-[[keyboard.bindings]]
-chars = "]"
-key = 25
+chars = "^"
+key = 39
 mods = "Alt"
 
 [[keyboard.bindings]]
 chars = "{"
-key = 26
+key = "7"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "["
+key = "8"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "]"
+key = "9"
 mods = "Alt"
 
 [[keyboard.bindings]]
 chars = "}"
-key = 29
+key = "0"
 mods = "Alt"
 
 [[keyboard.bindings]]
@@ -160,61 +140,6 @@ mods = "Alt"
 chars = "|"
 key = 50
 mods = "Alt"
-
-[[keyboard.bindings]]
-chars = "¡"
-key = "Key1"
-mods = "Alt|Shift"
-
-[[keyboard.bindings]]
-chars = "”"
-key = "Key2"
-mods = "Alt|Shift"
-
-[[keyboard.bindings]]
-chars = "¥"
-key = "Key3"
-mods = "Alt|Shift"
-
-[[keyboard.bindings]]
-chars = "$"
-key = "Key4"
-mods = "Alt|Shift"
-
-[[keyboard.bindings]]
-chars = "‰"
-key = "Key5"
-mods = "Alt|Shift"
-
-[[keyboard.bindings]]
-chars = "¶"
-key = "Key6"
-mods = "Alt|Shift"
-
-[[keyboard.bindings]]
-chars = '\'
-key = "Key7"
-mods = "Alt|Shift"
-
-[[keyboard.bindings]]
-chars = "{"
-key = "Key8"
-mods = "Alt|Shift"
-
-[[keyboard.bindings]]
-chars = "}"
-key = "Key9"
-mods = "Alt|Shift"
-
-[[keyboard.bindings]]
-chars = "≠"
-key = "Key0"
-mods = "Alt|Shift"
-
-[[keyboard.bindings]]
-chars = "¿"
-key = "Minus"
-mods = "Alt|Shift"
 
 [[keyboard.bindings]]
 action = "DecreaseFontSize"

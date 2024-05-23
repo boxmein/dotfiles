@@ -26,6 +26,8 @@
     yajl
     xz
     # ngrok
-
+    gobuster
+    dirb
+    nikto
   ];
 }

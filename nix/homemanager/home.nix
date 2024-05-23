@@ -35,6 +35,7 @@ rec
   };
 
   home.packages = with pkgs; [
+    ncdu
     go_1_19 
     radare2
     zip
@@ -100,6 +101,10 @@ rec
     nixpkgs-fmt
     awscli2
     rustup
+    sshpass
+    (google-cloud-sdk.withExtraComponents([
+	google-cloud-sdk.components.gke-gcloud-auth-plugin
+    ]))
   ];
 
 
