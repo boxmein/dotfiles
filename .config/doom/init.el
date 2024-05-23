@@ -193,3 +193,5 @@
        :config
        ;;literate
        (default +bindings +smartparens))
+
+(defvar projectile-project-root nil)
