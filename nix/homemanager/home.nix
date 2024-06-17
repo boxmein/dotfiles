@@ -82,7 +82,7 @@ rec
     htop
     bottom # current system load monitor
     parallel # gnu tool to parallelize commands
-    postgresql_14
+    postgresql_16
     pv # cat BIGFILE.tar | pv | nc ... -- show a progress bar
     rename # pattern based renaming
     ripgrep # find file by content, `rg`
