@@ -9,9 +9,9 @@ rec
   home.username = username;
   home.stateVersion = "22.05";
 
-  programs.exa = {
+  programs.eza = {
     enable = true;
-    enableAliases = true;
+    enableBashIntegration = true;
   };
 
   programs.home-manager.enable = true;
@@ -36,7 +36,6 @@ rec
 
   home.packages = with pkgs; [
     ncdu
-    go_1_19 
     radare2
     zip
     tor
@@ -44,7 +43,6 @@ rec
     mkcert
     gnused
     git-branchless
-    rnix-lsp
     nmap
     _1password
     gitui
@@ -56,7 +54,6 @@ rec
     nano
     weechat
     imagemagick # image manipulation
-    exa # ls(1) replacement
     bats # bash-based integration testing system
     calc # cli calculator
     yq # jq(1) for yaml
