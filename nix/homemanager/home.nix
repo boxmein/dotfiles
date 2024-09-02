@@ -35,6 +35,10 @@ rec
   };
 
   home.packages = with pkgs; [
+    gnuradio
+    azure-cli
+    nil
+    just
     ncdu
     radare2
     zip
