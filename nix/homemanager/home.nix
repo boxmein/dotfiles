@@ -35,6 +35,10 @@ rec
   };
 
   home.packages = with pkgs; [
+    mosquitto
+    swiProlog
+    hashcat
+    hashcat-utils
     gnuradio
     azure-cli
     nil
