@@ -44,7 +44,6 @@ rec
     azure-cli
     nil
     just
-    ncdu
     radare2
     zip
     tor
