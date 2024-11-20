@@ -9,9 +9,9 @@ rec
   home.username = username;
   home.stateVersion = "22.05";
 
-  programs.exa = {
+  programs.eza = {
     enable = true;
-    enableAliases = true;
+    enableBashIntegration = true;
   };
 
   programs.home-manager.enable = true;
@@ -35,8 +35,15 @@ rec
   };
 
   home.packages = with pkgs; [
-    ncdu
-    go_1_19 
+    lnav
+    mosquitto
+    swiProlog
+    hashcat
+    hashcat-utils
+    gnuradio
+    azure-cli
+    nil
+    just
     radare2
     zip
     tor
@@ -44,7 +51,6 @@ rec
     mkcert
     gnused
     git-branchless
-    rnix-lsp
     nmap
     _1password
     gitui
@@ -56,7 +62,6 @@ rec
     nano
     weechat
     imagemagick # image manipulation
-    exa # ls(1) replacement
     bats # bash-based integration testing system
     calc # cli calculator
     yq # jq(1) for yaml
@@ -85,7 +90,7 @@ rec
     htop
     bottom # current system load monitor
     parallel # gnu tool to parallelize commands
-    postgresql_14
+    postgresql_16
     pv # cat BIGFILE.tar | pv | nc ... -- show a progress bar
     rename # pattern based renaming
     ripgrep # find file by content, `rg`

@@ -8,8 +8,8 @@ function _local_paths() {
   local possiblepaths=(
     /run/wrappers/bin
     $HOME/.asdf/shims
-    # /run/current-system/sw/bin
-    # $HOME/.nix-profile/bin
+    /run/current-system/sw/bin
+    $HOME/.nix-profile/bin
     $HOME/bin
     $HOME/.local/bin
     /snap/bin

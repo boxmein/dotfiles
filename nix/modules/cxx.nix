@@ -6,6 +6,6 @@
     binaryen
     ninja
     ccls
-    pkgconfig
+    pkg-config
   ];
 }
