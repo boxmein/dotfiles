@@ -35,6 +35,7 @@ rec
   };
 
   home.packages = with pkgs; [
+    ipmitool
     lnav
     mosquitto
     swiProlog
