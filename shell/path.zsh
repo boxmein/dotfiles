@@ -26,6 +26,7 @@ function _local_paths() {
     $HOME/.guard/bin
     $HOME/.cargo/bin
     $HOME/.ghcup/bin
+    $HOME/codeql-home/codeql
   )
 
   local paths=()
