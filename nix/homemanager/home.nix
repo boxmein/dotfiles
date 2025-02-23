@@ -35,6 +35,8 @@ rec
   };
 
   home.packages = with pkgs; [
+    opentofu
+    hcloud
     mosh
     ipmitool
     lnav
