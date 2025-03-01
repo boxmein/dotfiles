@@ -35,7 +35,19 @@ rec
   };
 
   home.packages = with pkgs; [
-    ncdu
+    opentofu
+    hcloud
+    mosh
+    ipmitool
+    lnav
+    mosquitto
+    swiProlog
+    hashcat
+    hashcat-utils
+    gnuradio
+    azure-cli
+    nil
+    just
     radare2
     zip
     tor

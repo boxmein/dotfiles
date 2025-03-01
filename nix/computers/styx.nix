@@ -1,4 +1,5 @@
 { config, lib, pkgs, ... }: {
+  system.stateVersion = 5;
   networking.hostName = "styx";
   networking.computerName = "styx";
   users.users.johannes = {
