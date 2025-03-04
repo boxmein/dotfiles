@@ -18,6 +18,32 @@ rec
   programs.bat.enable = true;
 
   home.packages = with pkgs; [
+    opentofu
+    just
+    zip
+    gnused
+    git-branchless
+    nmap
+    gitui
+    nano
+    calc
+    yq
+    k6
+    redis
+    tldr
+    toilet
+    pass
+    wget
+    bottom
+    parallel
+    pv
+    rsync
+    tree
+    up
+    screen
+    viddy
+    awscli2
+    sshpass
   ];
 
 
