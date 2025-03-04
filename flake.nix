@@ -2,21 +2,14 @@
 # (flake edition)
 # Stage 1: Getting nix
 #
-# sh <(curl -L https://nixos.org/nix/install) --daemon
+#   $ sh <(curl -L https://nixos.org/nix/install) --daemon
 #
-# Stage 2: Getting nix-darwin 
+# Stage 2: Getting nix-darwin & bootstrapping 
 #
-# Install nix-darwin:
-# 
-#   $ nix-build https://github.com/LnL7/nix-darwin/archive/master.tar.gz -A installer
-#   $ ./result/bin/darwin-installer
-# 
-# Stage 3: bootstrap
-#  
-#   $ nix build ~/.dotfiles\#darwinConfigurations.nyx.system
-#   $ ./result/sw/bin/darwin-rebuild switch --flake ~/.dotfiles 
+#   $ nix --extra-experimental-features nix-command --extra-experimental-features flakes run nix-darwin/nix-darwin-24.11\#darwin-rebuild -- switch --flake ~/.dotfiles
 # 
 # DONE!
+# 
 # Now, every time you change the nix config:
 # 
 #   $ darwin-rebuild switch --flake ~/.dotfiles
@@ -89,26 +82,14 @@
             pkgsUnstable = importUnstablePkgs system;
           };
         };
-        gaea = darwin.lib.darwinSystem rec {
-          system = "x86_64-darwin";
-          modules = [
-            configuration
-            home-manager.darwinModules.home-manager
-            ./nix/computers/gaea.nix
-            ./nix/modules/ctf.nix
-            ./nix/modules/cxx.nix
-            ./nix/modules/git.nix
-            ./nix/modules/jvm.nix
-            ./nix/modules/mac.nix
-            ./nix/modules/python.nix
-            ./nix/modules/sysadmin.nix
-            ./nix/modules/tooling.nix
-          ];
-          specialArgs = inputs // rec {
-            pkgs = importPkgs system;
-            pkgsUnstable = importUnstablePkgs system;
-          };
-        };
+	johanneskadak-mbp = darwin.lib.darwinSystem rec {
+	  system = "aarch64-darwin";
+	  modules = [
+	    configuration
+	    home-manager.darwinModules.home-manager
+	    ./nix/computers/johanneskadak-mbp.nix
+	  ];
+	};
         mycroft = darwin.lib.darwinSystem rec {
           system = "x86_64-darwin";
           modules = [
