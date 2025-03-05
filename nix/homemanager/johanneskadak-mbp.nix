@@ -18,7 +18,6 @@ rec
   programs.bat.enable = true;
 
   home.packages = with pkgs; [
-    opentofu
     just
     zip
     gnused
@@ -42,7 +41,6 @@ rec
     up
     screen
     viddy
-    awscli2
     sshpass
   ];
 
