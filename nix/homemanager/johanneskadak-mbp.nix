@@ -18,6 +18,7 @@ rec
   programs.bat.enable = true;
 
   home.packages = with pkgs; [
+    neofetch
     just
     zip
     gnused
