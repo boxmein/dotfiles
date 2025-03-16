@@ -25,7 +25,7 @@ export ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd history)
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#31d970"
 
 # Path
-# . ~/.dotfiles/shell/path.zsh
+. ~/.dotfiles/shell/path.zsh
 
 # nix stuff
 [[ -f /etc/static/zshenv ]] && . /etc/static/zshenv
