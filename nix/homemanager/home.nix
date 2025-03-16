@@ -60,7 +60,7 @@ rec
     gitui
     zip
     dbmate
-    emacs29
+    emacs30
     emacsPackages.treesit-grammars.with-all-grammars
     neovim
     nano
