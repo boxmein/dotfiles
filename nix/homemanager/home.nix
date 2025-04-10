@@ -35,6 +35,8 @@ rec
   };
 
   home.packages = with pkgs; [
+    uv
+    wireguard-tools
     opentofu
     hcloud
     mosh
