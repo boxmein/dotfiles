@@ -16,7 +16,7 @@ rec
 
   programs.home-manager.enable = true;
   programs.bat.enable = true;
-  programs.vscode.enable = true;
+  programs.vscode.enable = false;
 
   programs.zsh = {
     enable = true;
