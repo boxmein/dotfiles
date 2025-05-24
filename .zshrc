@@ -94,3 +94,4 @@ gpg-connect-agent updatestartuptty /bye >/dev/null 2>/dev/null
 # https://github.com/alacritty/alacritty/issues/2950#issuecomment-706610878
 printf "\e[?1042l"
 
+eval "$(direnv hook zsh)"
