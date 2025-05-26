@@ -43,7 +43,7 @@ rec
     ipmitool
     lnav
     mosquitto
-    swiProlog
+    swi-prolog
     hashcat
     hashcat-utils
     gnuradio
@@ -63,7 +63,6 @@ rec
     zip
     dbmate
     emacs30
-    emacsPackages.treesit-grammars.with-all-grammars
     neovim
     nano
     weechat
@@ -104,11 +103,8 @@ rec
     tree
     up # fancy version of pv
     screen
-#    syncthing # self hosted dropbox
     viddy
     asdf-vm
-#    lima # linux vm manager
-#    colima
     nixpkgs-fmt
     awscli2
     rustup
