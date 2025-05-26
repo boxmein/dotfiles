@@ -18,6 +18,12 @@ rec
   programs.bat.enable = true;
   programs.vscode.enable = false;
 
+  programs.direnv = {
+    enable = true;
+    enableBashIntegration = true;
+    nix-direnv.enable = true;
+  };
+
   programs.zsh = {
     enable = true;
     shellAliases = {
@@ -35,6 +41,7 @@ rec
   };
 
   home.packages = with pkgs; [
+    direnv
     uv
     wireguard-tools
     opentofu
