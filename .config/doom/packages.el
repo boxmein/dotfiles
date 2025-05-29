@@ -8,6 +8,7 @@
 
 ;; To install SOME-PACKAGE from MELPA, ELPA or emacsmirror:
 ;; (package! some-package)
+(package! gptel :recipe (:nonrecursive t))
 
 ;; To install a package directly from a remote git repo, you must specify a
 ;; `:recipe'. You'll find documentation on what `:recipe' accepts here:
@@ -48,7 +49,3 @@
 ;; (unpin! pinned-package another-pinned-package)
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;; (unpin! t)
-;;(package! copilot
-;;  :recipe (:host github :repo "copilot-emacs/copilot.el" :files ("*.el" "dist")))
-;;(package! copilot-chat
-;;  :recipe (:host github :repo "chep/copilot-chat.el" :files ("*.el")))

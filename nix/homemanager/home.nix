@@ -16,7 +16,13 @@ rec
 
   programs.home-manager.enable = true;
   programs.bat.enable = true;
-  programs.vscode.enable = true;
+  programs.vscode.enable = false;
+
+  programs.direnv = {
+    enable = true;
+    enableBashIntegration = true;
+    nix-direnv.enable = true;
+  };
 
   programs.zsh = {
     enable = true;
@@ -35,13 +41,16 @@ rec
   };
 
   home.packages = with pkgs; [
+    direnv
+    uv
+    wireguard-tools
     opentofu
     hcloud
     mosh
     ipmitool
     lnav
     mosquitto
-    swiProlog
+    swi-prolog
     hashcat
     hashcat-utils
     gnuradio
@@ -60,8 +69,7 @@ rec
     gitui
     zip
     dbmate
-    emacs29
-    emacsPackages.treesit-grammars.with-all-grammars
+    emacs30
     neovim
     nano
     weechat
@@ -102,11 +110,8 @@ rec
     tree
     up # fancy version of pv
     screen
-#    syncthing # self hosted dropbox
     viddy
     asdf-vm
-#    lima # linux vm manager
-#    colima
     nixpkgs-fmt
     awscli2
     rustup

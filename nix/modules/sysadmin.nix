@@ -9,8 +9,6 @@
     kubernetes-helm
     kubetail
 
-    python310Packages.cfn-lint
-
     awscli2 
     packer
     rclone

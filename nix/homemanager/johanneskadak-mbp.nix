@@ -18,7 +18,10 @@ rec
   programs.bat.enable = true;
 
   home.packages = with pkgs; [
-    opentofu
+    angle-grinder
+    pre-commit
+    uv
+    neofetch
     just
     zip
     gnused
@@ -42,7 +45,6 @@ rec
     up
     screen
     viddy
-    awscli2
     sshpass
   ];
 
