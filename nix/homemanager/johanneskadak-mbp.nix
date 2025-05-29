@@ -18,6 +18,9 @@ rec
   programs.bat.enable = true;
 
   home.packages = with pkgs; [
+    angle-grinder
+    pre-commit
+    uv
     neofetch
     just
     zip
