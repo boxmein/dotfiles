@@ -16,6 +16,12 @@ rec
 
   programs.home-manager.enable = true;
   programs.bat.enable = true;
+  
+  programs.direnv = {
+    enable = true;
+    enableBashIntegration = true;
+    nix-direnv.enable = true;
+  };
 
   home.packages = with pkgs; [
     angle-grinder
