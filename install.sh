@@ -50,7 +50,6 @@ ln -sf $HOME/.dotfiles/.alacritty.yml $HOME/.alacritty.yml
 ln -sf $HOME/.dotfiles/antigen.zsh $HOME/antigen.zsh
 ln -sf $HOME/.dotfiles/.gitconfig $HOME/.gitconfig
 ln -sf $HOME/.dotfiles/.gitignore $HOME/.gitignore
-ln -sf $HOME/.dotfiles/.p10k.zsh $HOME/.p10k.zsh
 ln -sf $HOME/.dotfiles/.psqlrc $HOME/.psqlrc
 ln -sf $HOME/.dotfiles/.tmux.conf $HOME/.tmux.conf
 ln -sf $HOME/.dotfiles-private/.gnupg/gpg-agent.conf $HOME/.gnupg/gpg-agent.conf

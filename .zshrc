@@ -1,10 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 setopt notify
 setopt noclobber
 setopt ignoreeof
@@ -21,6 +14,7 @@ unsetopt beep
 
 source ~/.dotfiles/antigen.zsh
 antigen use oh-my-zsh
+antigen bundle 1password
 antigen bundle asdf
 antigen bundle aws
 antigen bundle bazel
@@ -28,17 +22,15 @@ antigen bundle colored-man-pages
 antigen bundle command-not-found
 antigen bundle copyfile
 antigen bundle docker
-antigen bundle docker-compose
+antigen bundle emacs
 antigen bundle fzf
+antigen bundle gcloud
 antigen bundle git
-antigen bundle golang
-antigen bundle gradle
-antigen bundle httpie
-antigen bundle iterm2
-antigen bundle kn
+antigen bundle helm
+antigen bundle invoke
 antigen bundle kubectl
-antigen bundle minikube
-antigen bundle thefuck
+antigen bundle ssh
+antigen bundle tailscale
 antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-autosuggestions
 # Must be the last thing to register ZLE related stuff!
@@ -78,13 +70,6 @@ fpath+=(
 autoload -Uz ~/.dotfiles/shell/fpath/*(.:t)
 autoload -Uz ~/.dotfiles-private/shell/fpath/*(.:t)
 
-command -v thefuck >/dev/null 2>/dev/null && source <(thefuck --alias)
-
-# Homebrew integration
-[[ -x /opt/homebrew/bin/brew ]] && eval "$(/opt/homebrew/bin/brew shellenv)"
-
-[[ -n "$ITERM_SESSION_ID" ]] && [[ -f ~/.dotfiles/iterm2-shell-integration.zsh ]] && source ~/.dotfiles/iterm2-shell-integration.zsh
-
 # https://unix.stackexchange.com/questions/608842/zshrc-export-gpg-tty-tty-says-not-a-tty
 # 1) powerlevel10k instant prompt affects this
 # 2) recommended solution is to not use tty command
@@ -94,4 +79,3 @@ gpg-connect-agent updatestartuptty /bye >/dev/null 2>/dev/null
 # https://github.com/alacritty/alacritty/issues/2950#issuecomment-706610878
 printf "\e[?1042l"
 
-eval "$(direnv hook zsh)"

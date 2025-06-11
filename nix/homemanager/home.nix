@@ -21,6 +21,7 @@ rec
   programs.direnv = {
     enable = true;
     enableBashIntegration = true;
+    enableZshIntegration = true;
     nix-direnv.enable = true;
   };
 
@@ -38,6 +39,15 @@ rec
       source ~/.dotfiles/shell/path.zsh
       [[ -x /opt/homebrew/bin/brew ]] && eval "$(/opt/homebrew/bin/brew shellenv)"
     '';
+  };
+
+  programs.starship = {
+    enable = true;
+    enableZshIntegration = true;
+
+    settings = {
+      
+    };
   };
 
   home.packages = with pkgs; [
@@ -124,13 +134,11 @@ rec
 
 
   home.file = {
-	".p10k.zsh".source = ../../.p10k.zsh;
-	".alacritty.toml".source = ../../.alacritty.toml;
-	".tmux.conf".source = ../../.tmux.conf;
-	".asdfrc".source = ../../.asdfrc;
-	".fzf.zsh".source = ../../.fzf.zsh;
-	".inputrc".source = ../../.inputrc;
-	".psqlrc".source = ../../.psqlrc;
-	".config/doom".source = ../../.config/doom;
+    ".alacritty.toml".source = ../../.alacritty.toml;
+    ".tmux.conf".source = ../../.tmux.conf;
+    ".asdfrc".source = ../../.asdfrc;
+    ".inputrc".source = ../../.inputrc;
+    ".psqlrc".source = ../../.psqlrc;
+    ".config/doom".source = ../../.config/doom;
   };
 }
