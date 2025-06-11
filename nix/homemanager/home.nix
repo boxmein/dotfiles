@@ -41,6 +41,7 @@ rec
   };
 
   home.packages = with pkgs; [
+    colima
     direnv
     uv
     wireguard-tools
