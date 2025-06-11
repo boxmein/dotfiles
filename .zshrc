@@ -42,8 +42,6 @@ antigen apply
 . $SRCDIR/shell/aliases.zsh
 . $SRCDIR/shell/variables.zsh
 
-[[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
-[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 [[ -f /etc/static/zshrc ]] && . /etc/static/zshrc
 [[ -f $SRCDIR_PRIVATE/.zshrc ]] && . $SRCDIR_PRIVATE/.zshrc
 
