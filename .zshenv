@@ -10,7 +10,6 @@ export GO111MODULE=on
 export GOPATH=$HOME/gopath/
 export LANG=en_US.UTF-8
 export EDITOR=nvim
-export C_HOST=http://10.0.37.8:8099
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 export PERL5LIB="$HOME/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"
 export PERL_LOCAL_LIB_ROOT="$HOME/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"
