@@ -51,20 +51,17 @@ rec
   };
 
   home.packages = with pkgs; [
+    angle-grinder
+    pre-commit
+    neofetch
     colima
     direnv
     uv
     wireguard-tools
     opentofu
     hcloud
-    mosh
     ipmitool
     lnav
-    mosquitto
-    swi-prolog
-    hashcat
-    hashcat-utils
-    gnuradio
     azure-cli
     nil
     just
@@ -76,7 +73,7 @@ rec
     gnused
     git-branchless
     nmap
-    _1password
+    _1password-cli
     gitui
     zip
     dbmate
@@ -85,7 +82,6 @@ rec
     nano
     weechat
     imagemagick # image manipulation
-    bats # bash-based integration testing system
     calc # cli calculator
     yq # jq(1) for yaml
     jq # essential json manipulation cli
@@ -93,11 +89,9 @@ rec
     k6 # load tester
     gnupg # digital signing + web of trust
     redis
-    tldr # alternative manpages
     tmux # multipane terminal manager
     toilet # funny ascii text art
     fd # find file by name, fast version of `find . -name ...`
-    fswatch # cli to interact with fsevents / inotify
     fzf # fuzzy searcher terminal ui
     github-cli
     git-lfs
@@ -105,13 +99,11 @@ rec
     qemu
     openvpn
     pass # gpg-based password manager cli
-    thefuck # fuck, i misspelled my last command
     unzip
     p7zip
     watch
     wget
     htop
-    bottom # current system load monitor
     parallel # gnu tool to parallelize commands
     postgresql_16
     pv # cat BIGFILE.tar | pv | nc ... -- show a progress bar
@@ -128,7 +120,7 @@ rec
     rustup
     sshpass
     (google-cloud-sdk.withExtraComponents([
-	google-cloud-sdk.components.gke-gcloud-auth-plugin
+      google-cloud-sdk.components.gke-gcloud-auth-plugin
     ]))
   ];
 

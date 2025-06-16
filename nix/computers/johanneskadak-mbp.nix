@@ -6,5 +6,5 @@
     shell = pkgs.zsh;
     home = "/Users/johannes";
   };
-  home-manager.users.johannes = import ../homemanager/johanneskadak-mbp.nix;
+  home-manager.users.johannes = import ../homemanager/home.nix;
 }
