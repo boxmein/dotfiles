@@ -15,13 +15,10 @@ unsetopt beep
 source ~/.dotfiles/antigen.zsh
 antigen use oh-my-zsh
 antigen bundle 1password
-antigen bundle asdf
 antigen bundle aws
-antigen bundle bazel
 antigen bundle colored-man-pages
 antigen bundle command-not-found
 antigen bundle copyfile
-antigen bundle docker
 antigen bundle emacs
 antigen bundle fzf
 antigen bundle gcloud
@@ -35,8 +32,6 @@ antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-autosuggestions
 # Must be the last thing to register ZLE related stuff!
 antigen bundle zsh-users/zsh-syntax-highlighting
-antigen theme romkatv/powerlevel10k
-
 antigen apply
 
 . $SRCDIR/shell/aliases.zsh
