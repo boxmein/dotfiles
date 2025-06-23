@@ -46,7 +46,7 @@ rec
     enableZshIntegration = true;
 
     settings = {
-      format = "$username$hostname$directory$git_branch$git_state$git_status$cmd_duration$line_break$python$character";
+      format = "$username$hostname$directory$git_branch$git_state$git_status$cmd_duration$character";
       directory.style = "blue";
       character = {
         success_symbol = "[❯](purple)";
