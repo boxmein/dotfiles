@@ -7,4 +7,16 @@
     home = "/Users/johannes";
   };
   home-manager.users.johannes = import ../homemanager/home.nix;
+  
+  homebrew = {
+    enable = true;
+    taps = [
+    ];
+    brews = [
+      "asdf"
+    ];
+    casks = [
+    ];
+    masApps = [];
+  };
 }

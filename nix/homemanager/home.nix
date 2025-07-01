@@ -17,6 +17,14 @@ rec
   programs.home-manager.enable = true;
   programs.bat.enable = true;
   programs.vscode.enable = false;
+  programs.htop.enable = true;
+
+  programs.git = {
+    enable = true;
+    lfs.enable = true;
+  };
+  programs.gh.enable = true;
+  programs.jujutsu.enable = true;
 
   programs.direnv = {
     enable = true;
@@ -148,9 +156,32 @@ rec
     awscli2
     rustup
     sshpass
+    git-machete
+    grype
+    syft
     (google-cloud-sdk.withExtraComponents([
       google-cloud-sdk.components.gke-gcloud-auth-plugin
     ]))
+    ispell
+    kubectl
+    ncdu
+    pinentry_mac
+    pipx
+    pkgconf
+    terraform-docs
+    tflint
+    tfsec
+    trivy
+    yadm
+    pack
+    fluxcd
+    powerpipe
+    steampipe
+    clickhouse
+    emacs
+    docker
+    docker-compose
+    docker-buildx
   ];
 
 
