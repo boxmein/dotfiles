@@ -24,7 +24,6 @@ rec
     lfs.enable = true;
   };
   programs.gh.enable = true;
-  programs.jujutsu.enable = true;
 
   programs.direnv = {
     enable = true;

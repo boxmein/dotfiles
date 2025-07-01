@@ -17,6 +17,6 @@
     ];
     casks = [
     ];
-    masApps = [];
+    masApps = {};
   };
 }
