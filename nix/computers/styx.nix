@@ -1,7 +1,5 @@
 { config, lib, pkgs, ... }: {
   system.stateVersion = 5;
-  networking.hostName = "styx";
-  networking.computerName = "styx";
   users.users.johannes = {
     shell = pkgs.zsh;
     home = "/Users/johannes";
@@ -12,34 +10,65 @@
     pinentry_mac
   ];
 
+  # files to map:
+  # environment.etc = { "hosts" = { source = ./hosts; }; };
+  
+  # shell commands:
+  # environment.extraInit = ""; # global env initialization
+  # environment.extraSetup = ""; # after system environment created
+  # environment.loginShellInit = ""; # login shell init
+  # environment.interactiveShellInit = ""; # during interactive shell initialization
+  # environment.shellInit = ""; # shell init
+
+  # configuration:
   # environment.systemPath = [ ... ];
   # environment.shellAliases = { ... };
   # environment.profiles  ???;
   # environment.launchDaemons
   # environment.launchAgents
+  # environment.userLaunchAgents = { name = { enable = true; source = ./a; } };
   environment.variables = {
     JAVA_HOME = "${pkgs.openjdk11.out}";
   };
 
   # programs.gpg
   # services
-  system.defaults.dock = {
-    autohide = true;
-    show-recents = false;
-    orientation = "bottom";
-    mru-spaces = false;
+  # fonts.packages = [ pkgs.dejavu_fonts ];
+
+  # defaults write
+  system.defaults = {
+    dock = {
+      autohide = true;
+      show-recents = false;
+      orientation = "bottom";
+      mru-spaces = false;
+    };
+
+    finder = {
+      AppleShowAllExtensions = true;
+      AppleShowAllFiles = true;
+    };
+
+    NSGlobalDomain = {
+      "com.apple.swipescrolldirection" = false;
+    };
+
+    loginwindow = {
+      GuestEnabled = true;
+    };
   };
 
-  system.defaults.finder = {
-    AppleShowAllExtensions = true;
-    AppleShowAllFiles = true;
-  };
+  # homebrew.enable = false;
 
-  system.defaults.NSGlobalDomain = {
-    "com.apple.swipescrolldirection" = false;
-  };
+  networking = {
+    hostName = "styx";
+    computerName = "styx";
+    applicationFirewall.enable = true;
 
-  system.defaults.loginwindow = {
-    GuestEnabled = true;
-  };
+    # fqdn = "";
+    # dns = [];
+    # wakeOnLan.enable
+
+    # wg-quick.interfaces.wg0
+  };  
 }
